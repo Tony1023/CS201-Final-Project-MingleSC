@@ -2,7 +2,7 @@
     <wb-module deploy-name="CSCI201L_Final_Project">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="CSCIFinal_Project"/>
         <property name="java-output-path" value="/CSCI201L_Final_Project/build/classes"/>
+        <property name="context-root" value="CSCI201-Final-Project"/>
     </wb-module>
 </project-modules>
