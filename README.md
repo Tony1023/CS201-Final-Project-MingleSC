@@ -1,5 +1,10 @@
 # CS201-Final-Project
 
+## Notes
+1. Please make sure to work on your own branch when making changes to your part.
+2. I'd suggest grouping servlets and classes by packages. Naming is up to you guys.
+3. If a jsp file is not going to be visited directly (i.e. visiting "login.jsp" directly) but instead being dispatched to (i.e. getRequestDispatcher("/login.jsp").forward), it would be better to put that into WEB-INF to prevent users from accessing them directly.
+
 ## Cloning
 1. Clone the repo into your workspace (as another directory in your workspace).
 2. Open Eclipse to your workspace.
