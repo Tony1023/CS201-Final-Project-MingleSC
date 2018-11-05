@@ -1,6 +1,4 @@
-USE cs201_final_project_db;
-
-SET @this_id=1;
+SET @this_id=;
 DROP TABLE IF EXISTS suggestion;
 CREATE TEMPORARY TABLE suggestion AS (SELECT *, 0.0 as score FROM user WHERE NOT user_id=@this_id);
 DROP TABLE IF EXISTS temp;
@@ -31,5 +29,3 @@ UPDATE suggestion s JOIN (
     WHERE u.course_id in (SELECT course_id from user_courses WHERE user_id=@this_id)
     GROUP BY t.user_id
 ) i ON s.user_id=i.user_id SET s.score=s.score+i.share_num*0.5;
-
-SELECT * FROM suggestion;
