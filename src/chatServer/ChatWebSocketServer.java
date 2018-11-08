@@ -1,7 +1,6 @@
 package chatServer;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.*;
 import java.util.Map;
 import java.util.Queue;
@@ -22,14 +21,13 @@ public class ChatWebSocketServer
 	private static final String SQL_CONNECTION = "jdbc:mysql://localhost:3306/cs201_final_project_db?user=root&password=root&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
 	private static Map<Integer, ConcurrentHashMap<Integer, Session>> sessionMap = new ConcurrentHashMap<Integer, ConcurrentHashMap<Integer, Session>> (); // from i to j
 	private static Map<Integer, ConcurrentHashMap<Integer, ConcurrentLinkedQueue<ChatMessage>>> unsentMessages = new ConcurrentHashMap<Integer, ConcurrentHashMap<Integer, ConcurrentLinkedQueue<ChatMessage>>>();
+	private static Map<Integer, PreparedStatement> statements = new ConcurrentHashMap<Integer, PreparedStatement>();
 	private static Connection conn;
-	private static PreparedStatement recordMessage;
 	
 	static {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(SQL_CONNECTION);
-			recordMessage = conn.prepareStatement("INSERT INTO chat_messages(sending_user_id, receiving_user_id, message_time, message_body) VALUE (?,?,?,?)");
 		} catch (SQLException sqle) {
 			System.out.println(sqle.getMessage());
 		} catch (ClassNotFoundException cnfe) {
@@ -55,6 +53,18 @@ public class ChatWebSocketServer
 		}
 		m.put(to, session);
 		
+		try {
+			if (statements.get(from) == null) {
+				PreparedStatement ps = conn.prepareStatement("INSERT INTO chat_messages(sending_user_id, receiving_user_id, message_time, message_body) VALUE (?,?,?,?)");
+				ps.setInt(1, from);
+				statements.put(from, ps);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		// sending unsent messages
 		try {
 			Queue<ChatMessage> queue = unsentMessages.get(to).get(from);
@@ -73,10 +83,23 @@ public class ChatWebSocketServer
 		System.out.println(message);
 		ChatMessage cm = new ChatMessage(message, from, to, System.currentTimeMillis());
 		// put into database
+		PreparedStatement ps = statements.get(from);
+		try {
+			ps.setInt(2, to);
+			ps.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
+			ps.setString(4, message);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		Map<Integer, Session> m = sessionMap.get(to);
-		Session s = m.get(from);
-		if (s != null && s.isOpen()) {
-			s.getAsyncRemote().sendText(cm.jsonStringify());
+		if (m != null) {
+			Session s = m.get(from);
+			if (s != null && s.isOpen()) {
+				s.getAsyncRemote().sendText(cm.jsonStringify());
+			}
 		} else {
 			ConcurrentHashMap<Integer, ConcurrentLinkedQueue<ChatMessage>> targetMap = unsentMessages.get(from);
 			ConcurrentLinkedQueue<ChatMessage> targetQueue = null;
@@ -102,6 +125,11 @@ public class ChatWebSocketServer
 	
 	@OnError
 	public void error(Throwable error) {
-		System.out.println("Error!");
+		try {
+			throw error;
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

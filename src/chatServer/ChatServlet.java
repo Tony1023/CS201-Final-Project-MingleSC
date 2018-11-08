@@ -15,7 +15,7 @@ public class ChatServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// passing usernames as well
+		request.setAttribute("name", "Foo"); // fetch from database
 		getServletContext().getRequestDispatcher("/WEB-INF/chatWindow.jsp").forward(request, response);
 	}
 
