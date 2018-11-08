@@ -78,10 +78,33 @@
     
     <div id='chat-bottom'>
       <button class='bottom-btn' onclick='sendMessage();'>Send</button>
+      <button class='bottom-btn' onclick='showHistory();'>History</button>
+      <button class='bottom-btn'>Schedule</button>
       <div class='clearFloat'></div>
     </div>
   </div>
+  
+  <div id='history-wrapper'>
+    
+  </div>
   <script>
+  	let shiftPressed = false;
+  	$('#chat-send-box').on('keydown', function(e) {
+  		if (e.key === 'Enter') {
+  			if (!shiftPressed) {
+    			e.preventDefault();
+    			sendMessage();
+  			}
+  		}
+  		if (e.key === 'Shift') {
+  			shiftPressed = true;
+  		}
+  	});
+  	$('#chat-send-box').on('keyup', function(e) {
+  		if (e.key === 'Shift') {
+  			shiftPressed = false;
+  		}
+  	})
     var socket;
     let messageArea = document.getElementById('chat-message-area');
     
@@ -89,11 +112,16 @@
         socket = new WebSocket("ws://localhost:8080/CSCI201-Final-Project/chat-ws/<%=fromId%>/<%=toId%>");
         socket.onmessage = function(event) {
         	messageArea.innerHTML += makeHtmlBlock(event.data);
+        	updateScroll();
         }
     }
     
     function sendMessage() {
 		let box = document.getElementById('chat-send-box');
+		if (box.value === '') {
+			// add alerts
+			return false;
+		}
 		socket.send(box.value);
 		let json = {
 			message: box.value,
@@ -101,6 +129,7 @@
 		}
 		messageArea.innerHTML += makeThisHtmlBlock(json);
 		box.value = '';
+		updateScroll();
     }
     
     function makeHtmlBlock(json) {
@@ -121,6 +150,22 @@
           <div class='message-body'>" + message.message + "</div> \
           </div>"
       	return html;
+    }
+    
+    function updateScroll() {
+    	let page = document.getElementById("chat-message-area");
+    	page.scrollTop = page.scrollHeight;
+    }
+    
+    function showHistory() {
+    	$('#chat-wrapper').css('display', 'none');
+    	$('#history-wrapper').css('display', 'block');
+    	
+    }
+    
+    function showChat() {
+    	$('#chat-wrapper').css('display', 'block');
+    	$('#history-wrapper').css('display', 'none');
     }
   </script>
 </body>
