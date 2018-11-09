@@ -1,6 +1,7 @@
 package scheduler;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -35,6 +36,7 @@ public class SchedulerServlet extends HttpServlet {
 		String targetID = request.getParameter("targetID");
 		String userAvailability = "";
 		String targetAvailability = "";
+		StringBuilder overlap = new StringBuilder();
 		
 		Connection conn = null;
     	Statement st = null;
@@ -61,6 +63,23 @@ public class SchedulerServlet extends HttpServlet {
     		System.out.println("User availabilty: " + userAvailability);
     		System.out.println("Target availabilty: " + targetAvailability);
     		
+    		for(int i=0; i<userAvailability.length(); i++) {
+    			if(userAvailability.charAt(i) == '1' && targetAvailability.charAt(i) == '1') {
+    				overlap.append(1);
+    			} else {
+    				overlap.append(0);
+    			}
+    		}
+    		
+    		System.out.println("Overlap: " + overlap.toString());
+    		System.out.println("Length: " + overlap.toString().length());
+    		
+    		PrintWriter pw = response.getWriter();
+    		pw.println(overlap);
+    		pw.flush();
+    		if(pw != null) {
+    			pw.close();
+    		}
     	} catch(ClassNotFoundException cnfe) {
     		System.out.println("cnfe: " + cnfe.getMessage());
     	} catch (SQLException sqle) {
