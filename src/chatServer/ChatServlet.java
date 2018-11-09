@@ -6,6 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import resources.CommonResources;
+
 import java.sql.*;
 
 /**
@@ -15,17 +18,26 @@ import java.sql.*;
 public class ChatServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static Connection conn;
-	private static final String SQL_CONNECTION = "jdbc:mysql://localhost:3306/cs201_final_project_db?user=root&password=root&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
-
+	private PreparedStatement ps;
 	
 	static {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection(SQL_CONNECTION);
-		} catch (SQLException sqle) {
-			System.out.println(sqle.getMessage());
+			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, "root", "root");
 		} catch (ClassNotFoundException cnfe) {
-			System.out.println(cnfe.getMessage());
+			cnfe.printStackTrace();
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
+	}
+	
+	public ChatServlet() {
+		super();
+		try {
+			ps = conn.prepareStatement("SELECT name FROM user WHERE user_id=?");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	

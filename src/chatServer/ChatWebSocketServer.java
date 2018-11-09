@@ -15,10 +15,11 @@ import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 
+import resources.CommonResources;
+
 @ServerEndpoint(value = "/chat-ws/{from}/{to}")
 public class ChatWebSocketServer
 {
-	private static final String SQL_CONNECTION = "jdbc:mysql://localhost:3306/cs201_final_project_db?user=root&password=root&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
 	private static Map<Integer, ConcurrentHashMap<Integer, Session>> sessionMap = new ConcurrentHashMap<Integer, ConcurrentHashMap<Integer, Session>> (); // from i to j
 	private static Map<Integer, ConcurrentHashMap<Integer, ConcurrentLinkedQueue<ChatMessage>>> unsentMessages = new ConcurrentHashMap<Integer, ConcurrentHashMap<Integer, ConcurrentLinkedQueue<ChatMessage>>>();
 	private static Map<Integer, PreparedStatement> statements = new ConcurrentHashMap<Integer, PreparedStatement>();
@@ -27,7 +28,7 @@ public class ChatWebSocketServer
 	static {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection(SQL_CONNECTION);
+			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, "root", "root");
 		} catch (SQLException sqle) {
 			System.out.println(sqle.getMessage());
 		} catch (ClassNotFoundException cnfe) {
