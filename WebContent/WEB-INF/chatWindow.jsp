@@ -20,16 +20,20 @@
         resize: none;
         display: block;
     }
-    #chat-wrapper {
+    #chat-wrapper, #history-wrapper {
         height: 100vh;
-        
     }
-    #chat-head {
+    .chat-head {
         border: 1px solid black;
         height: 30px;
     }
     #chat-message-area {
         height: calc(100% - 188px);
+        border: 1px solid black;
+        overflow: scroll;
+    }
+    #chat-history-area {
+        height: calc(100% - 34px);
         border: 1px solid black;
         overflow: scroll;
     }
@@ -67,8 +71,8 @@
 
 <body onload="connectToServer();">
   <div id='chat-wrapper'>
-    <div id='chat-head'>
-      Chat with <%=name%>
+    <div class='chat-head'>
+      Chat with <%=name %>
     </div>
     
     <div id='chat-message-area'>
@@ -85,7 +89,10 @@
   </div>
   
   <div id='history-wrapper'>
-    
+    <div class='chat-head'>
+      Chat with <%=name %>
+    </div>
+    <div id='chat-history-area'></div>
   </div>
   <script>
   	let shiftPressed = false;
