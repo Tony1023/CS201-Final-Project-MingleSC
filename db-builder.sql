@@ -28,9 +28,9 @@ CREATE TABLE user(
     FOREIGN KEY (major_id) REFERENCES major(major_id),
     FOREIGN KEY (housing_id) REFERENCES housing(housing_id)
 );
-INSERT INTO user(user_name, password, major_id, housing_id) VALUES
-	('zhehaolu@usc.edu', 'password1', 1, 1),
-    ('zhehaolu2@usc.edu', 'password2', 2, 2);
+INSERT INTO user(email, screen_name, password, major_id, housing_id) VALUES
+	('zhehaolu@usc.edu', 'Tony Lyu', 'password1', 1, 1),
+    ('zhehaolu2@usc.edu', 'Tony Lyu2', 'password2', 2, 2);
 
 CREATE TABLE gen_interests(
 	interest_id INT(11) PRIMARY KEY AUTO_INCREMENT,
