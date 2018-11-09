@@ -1,5 +1,36 @@
 # CS201-Final-Project
 
+## Credentials
+ - Please put your SQL connection credentials into src/resources/Credentials.java
+ - This file has been .gitignore-d so you won't see it on Github
+ - To do so, create an interface named Credentials in that package:
+```java
+package resources;
+
+public interface Credentials {
+	public static final String SQL_USERNAME = "<Your SQL Username>";
+	public static final String SQL_PASSWORD	= "<Your SQL Password>";
+}
+```
+ - The address for our connection is in another file in the same package called "CommonResources.java".
+ - When establishing an SQL connection, do the following:
+```java
+import resources.*;
+
+// start of method
+Connection conn = null;
+try {
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, 
+        Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
+} catch (ClassNotFoundException cnfe) {
+    // handle exception
+} catch (SQLException sqle) {
+    // handle exception
+}
+```
+ - This makes changing SQL server address easier across different servlets and lets the program adapt to different SQL usernames and passwords.
+
 ## Notes
 1. Please make sure to work on your own branch when making changes to your part.
 2. I'd suggest grouping servlets and classes by packages. Naming is up to you guys.

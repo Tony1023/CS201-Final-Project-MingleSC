@@ -1,3 +1,6 @@
+# Project credentials (SQL server username/password)
+Credentials.*
+
 .metadata
 bin/
 tmp/
