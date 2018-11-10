@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import resources.*;
 
 /**
  * Servlet implementation class SchedulerServlet
@@ -44,7 +45,8 @@ public class SchedulerServlet extends HttpServlet {
     	String sqlString = "SELECT availability_string from User WHERE user_id=" + userID;
     	try {		
     		Class.forName("com.mysql.cj.jdbc.Driver");
-    		conn = DriverManager.getConnection("jdbc:mysql://localhost/cs201_final_project_db?user=root&password=password&useSSL=false");
+    		conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, 
+    		        Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
     		st = conn.createStatement();
     		rs = st.executeQuery(sqlString);
     		
