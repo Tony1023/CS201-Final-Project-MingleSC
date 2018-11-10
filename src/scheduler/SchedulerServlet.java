@@ -38,6 +38,7 @@ public class SchedulerServlet extends HttpServlet {
 		String userAvailability = "";
 		String targetAvailability = "";
 		StringBuilder overlap = new StringBuilder();
+		PrintWriter pw = response.getWriter();
 		
 		Connection conn = null;
     	Statement st = null;
@@ -65,23 +66,32 @@ public class SchedulerServlet extends HttpServlet {
     		System.out.println("User availabilty: " + userAvailability);
     		System.out.println("Target availabilty: " + targetAvailability);
     		
-    		for(int i=0; i<userAvailability.length(); i++) {
-    			if(userAvailability.charAt(i) == '1' && targetAvailability.charAt(i) == '1') {
-    				overlap.append(1);
-    			} else {
-    				overlap.append(0);
-    			}
+    		if(userAvailability == null || userAvailability == "") {
+    			System.out.println("User availability empty.");
+    			pw.print("User availability empty.");
+    		} else if(targetAvailability == null || targetAvailability == "") {
+    			System.out.println("Target availability empty.");
+    			pw.print("Target availability empty.");
+    		} else {
+    			for(int i=0; i<userAvailability.length(); i++) {
+        			if(userAvailability.charAt(i) == '1' && targetAvailability.charAt(i) == '1') {
+        				overlap.append(1);
+        			} else {
+        				overlap.append(0);
+        			}
+        		}
+        		
+        		System.out.println("Overlap: " + overlap.toString());
+        		System.out.println("Length: " + overlap.toString().length());
+        		
+        		pw.print(overlap);
     		}
     		
-    		System.out.println("Overlap: " + overlap.toString());
-    		System.out.println("Length: " + overlap.toString().length());
-    		
-    		PrintWriter pw = response.getWriter();
-    		pw.println(overlap);
     		pw.flush();
     		if(pw != null) {
     			pw.close();
     		}
+    		
     	} catch(ClassNotFoundException cnfe) {
     		System.out.println("cnfe: " + cnfe.getMessage());
     	} catch (SQLException sqle) {
