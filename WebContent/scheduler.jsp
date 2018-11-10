@@ -1,6 +1,6 @@
 <%
-  int userID = 3;
-  int targetID = 2;
+  String userID = request.getParameter("userID");
+  String targetID = request.getParameter("targetID");
 %>
 
 <!DOCTYPE html>
@@ -11,6 +11,16 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <style>
+    	#mainContainer {
+    		width: 50%;
+    		height: 50%;
+    	}
+    	
+    	#tableContainer {
+    		height: 500px;
+    		overflow-y: scroll;
+    	}
+    	
     	table td {
     		text-align: center;
     	}
@@ -26,7 +36,7 @@
     </style>
   </head>
   <body>
-  	<div class="container">
+  	<div id="mainContainer" class="container">
   		<h1 id="title" class="title"> Scheduler </h1>
 	  	<h2 id="errorMsg" class="subtitle"> </h2>
 	    <div id="tableContainer">
