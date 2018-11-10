@@ -1,6 +1,7 @@
 package chatServer;
 
 import java.io.IOException;
+import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,13 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import resources.*;
 
-import java.sql.*;
-
 /**
- * Servlet implementation class ChatServlet
+ * Servlet implementation class ChatHistoryServlet
  */
-@WebServlet("/ChatServlet")
-public class ChatServlet extends HttpServlet {
+@WebServlet("/ChatHistoryServlet")
+public class ChatHistoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static Connection conn;
 	private PreparedStatement ps;
@@ -30,31 +29,21 @@ public class ChatServlet extends HttpServlet {
 			sqle.printStackTrace();
 		}
 	}
-	
-	public ChatServlet() {
-		super();
-		try {
+
+    public ChatHistoryServlet() {
+        super();
+        try {
 			ps = conn.prepareStatement("SELECT name FROM user WHERE user_id=?");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
-	
+    }
+
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Integer id = Integer.parseInt(request.getParameter("toId"));
-		String name = null;
-		try {
-			ps.setInt(1, id);
-			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-				name = rs.getString(1);
-			}
-		} catch (SQLException sqle) {
-			sqle.printStackTrace();
-			name = "USCer";
-		}
-		request.setAttribute("name", name);
-		getServletContext().getRequestDispatcher("/WEB-INF/chatWindow.jsp").forward(request, response);
+		// TODO Auto-generated method stub
 	}
 
 }

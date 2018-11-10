@@ -15,7 +15,7 @@ import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 
-import resources.CommonResources;
+import resources.*;
 
 @ServerEndpoint(value = "/chat-ws/{from}/{to}")
 public class ChatWebSocketServer
@@ -28,7 +28,7 @@ public class ChatWebSocketServer
 	static {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, "root", "root");
+			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
 		} catch (SQLException sqle) {
 			System.out.println(sqle.getMessage());
 		} catch (ClassNotFoundException cnfe) {
