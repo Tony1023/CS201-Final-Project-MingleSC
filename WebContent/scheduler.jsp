@@ -16,7 +16,12 @@
     		height: 50%;
     	}
     	
+    	#errorBlock {
+    		display: none;
+    	}
+    	
     	#tableContainer {
+    		width: 100%;
     		height: 500px;
     		overflow-y: scroll;
     	}
@@ -31,17 +36,21 @@
     	}
     	
     	#errorMsg {
-    		color: red;
+    		
     	}
     </style>
   </head>
   <body>
   	<div id="mainContainer" class="container">
   		<h1 id="title" class="title"> Scheduler </h1>
-	  	<h2 id="errorMsg" class="subtitle"> </h2>
+  		<div id="errorBlock" class="notification is-danger">
+		  <button id="closeError" class="delete"></button>
+		  <span id="errorMsg"></span>
+		</div>
+	  	<!-- <h2 id="errorMsg" class="subtitle"> </h2> -->
 	    <div id="tableContainer">
 		    <table class="table is-bordered is-fullwidth is-striped is-hoverable">
-		      <thead>
+		      <thead id="tableHeaders">
 		        <tr>
 		          <th> Times </th>
 		          <th><abbr title="Monday"> Mon </abbr></th>
@@ -152,11 +161,12 @@
 				if(xhttp.readyState == 4 && xhttp.status == 200) {
 					if(this.responseText != null && this.responseText != "") {
 						let res = this.responseText;
-						console.log(res == "Target availability empty.");
 						if(res == "User availability empty.") {
 							document.getElementById("errorMsg").innerHTML = "Please update your availabilty preferences.";
+							document.getElementById("errorBlock").style.display = "block";
 						} else if(res == "Target availability empty.") {
 							document.getElementById("errorMsg").innerHTML = "TARGET_NAME currently has no availabilities.";
+							document.getElementById("errorBlock").style.display = "block";
 						} else {
 							let overlap = res;
 							console.log(overlap);
@@ -172,6 +182,11 @@
 			}
 			xhttp.send("userID=" + <%= userID %> + "&targetID=" + <%= targetID %>);
 		});
+	    
+	    document.getElementById("closeError").onclick = function() {
+	    	console.log("Close Error");
+	    	document.getElementById("errorBlock").style.display = "none";
+	    }
     </script>
   </body>
 </html>
