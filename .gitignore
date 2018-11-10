@@ -1,5 +1,6 @@
 # Project credentials (SQL server username/password)
-Credentials.*
+Credentials.class
+Credentials.java
 
 .metadata
 bin/
