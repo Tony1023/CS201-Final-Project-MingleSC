@@ -18,7 +18,6 @@ import java.sql.*;
 public class ChatServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static Connection conn;
-	private PreparedStatement ps;
 	
 	static {
 		try {
@@ -31,22 +30,14 @@ public class ChatServlet extends HttpServlet {
 		}
 	}
 	
-	public ChatServlet() {
-		super();
-		try {
-			ps = conn.prepareStatement("SELECT name FROM user WHERE user_id=?");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer id = Integer.parseInt(request.getParameter("toId"));
 		String name = null;
 		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT screen_name FROM user WHERE user_id=?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
+			while (rs.next()) {				
 				name = rs.getString(1);
 			}
 		} catch (SQLException sqle) {

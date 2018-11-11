@@ -1,7 +1,11 @@
 package chatServer;
 
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentHashMap;
@@ -14,8 +18,8 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
-
-import resources.*;
+import resources.CommonResources;
+import resources.Credentials;
 
 @ServerEndpoint(value = "/chat-ws/{from}/{to}")
 public class ChatWebSocketServer
@@ -96,12 +100,10 @@ public class ChatWebSocketServer
 		}
 		
 		Map<Integer, Session> m = sessionMap.get(to);
-		if (m != null) {
+		if (m != null && m.get(from) != null && m.get(from).isOpen()) {
 			Session s = m.get(from);
-			if (s != null && s.isOpen()) {
-				s.getAsyncRemote().sendText(cm.jsonStringify());
-			}
-		} else {
+			s.getAsyncRemote().sendText(cm.jsonStringify());
+		} else { // the other connection not open, store it to send in the future
 			ConcurrentHashMap<Integer, ConcurrentLinkedQueue<ChatMessage>> targetMap = unsentMessages.get(from);
 			ConcurrentLinkedQueue<ChatMessage> targetQueue = null;
 			if (targetMap == null) {

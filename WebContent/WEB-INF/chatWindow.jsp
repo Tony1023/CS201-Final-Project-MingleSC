@@ -66,10 +66,18 @@
     #clearFloat {
         clear: both;
     }
+    #floating {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        right: -5px;
+    }
   </style>
 </head>
 
 <body onload="connectToServer();">
+  <div id='floating'></div>
   <div id='chat-wrapper'>
     <div class='chat-head'>
       Chat with <%=name %>
@@ -83,12 +91,12 @@
     <div id='chat-bottom'>
       <button class='bottom-btn' onclick='sendMessage();'>Send</button>
       <button class='bottom-btn' onclick='showHistory();'>History</button>
-      <button class='bottom-btn'>Schedule</button>
+      <button id='schedule-btn' class='bottom-btn'>Schedule</button>
       <div class='clearFloat'></div>
     </div>
   </div>
   
-  <div id='history-wrapper'>
+  <div id='history-wrapper' style='display: none;'>
     <div class='chat-head'>
       Chat with <%=name %>
     </div>
@@ -167,7 +175,6 @@
     function showHistory() {
     	$('#chat-wrapper').css('display', 'none');
     	$('#history-wrapper').css('display', 'block');
-    	
     }
     
     function showChat() {

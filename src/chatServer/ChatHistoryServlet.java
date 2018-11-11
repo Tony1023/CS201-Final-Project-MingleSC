@@ -17,7 +17,6 @@ import resources.*;
 public class ChatHistoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static Connection conn;
-	private PreparedStatement ps;
 	
 	static {
 		try {
@@ -30,18 +29,6 @@ public class ChatHistoryServlet extends HttpServlet {
 		}
 	}
 
-    public ChatHistoryServlet() {
-        super();
-        try {
-			ps = conn.prepareStatement("SELECT name FROM user WHERE user_id=?");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-    }
-
-	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
