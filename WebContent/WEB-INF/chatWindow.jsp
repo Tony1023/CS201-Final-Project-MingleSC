@@ -33,7 +33,7 @@
         overflow: scroll;
     }
     #chat-history-area {
-        height: calc(100% - 34px);
+        height: calc(100% - 76px);
         border: 1px solid black;
         overflow: scroll;
     }
@@ -46,7 +46,7 @@
         font-family: courier;
         overflow: scroll;
     }
-    #chat-bottom {
+    .chat-bottom {
         border: 1px solid black;
         height: 40px;
     }
@@ -66,18 +66,10 @@
     #clearFloat {
         clear: both;
     }
-    #floating {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        background-color: red;
-        right: -5px;
-    }
   </style>
 </head>
 
 <body onload="connectToServer();">
-  <div id='floating'></div>
   <div id='chat-wrapper'>
     <div class='chat-head'>
       Chat with <%=name %>
@@ -88,7 +80,7 @@
     
     <textarea id='chat-send-box' placeholder='Hi!...'></textarea>
     
-    <div id='chat-bottom'>
+    <div class='chat-bottom'>
       <button class='bottom-btn' onclick='sendMessage();'>Send</button>
       <button class='bottom-btn' onclick='showHistory();'>History</button>
       <button id='schedule-btn' class='bottom-btn'>Schedule</button>
@@ -101,6 +93,9 @@
       Chat with <%=name %>
     </div>
     <div id='chat-history-area'></div>
+    <div class='chat-bottom'>
+      <button class='bottom-btn' onclick='showChat();'>Go Back</button>
+    </div>
   </div>
   <script>
   	let shiftPressed = false;
@@ -126,7 +121,7 @@
     function connectToServer() {
         socket = new WebSocket("ws://localhost:8080/CSCI201-Final-Project/chat-ws/<%=fromId%>/<%=toId%>");
         socket.onmessage = function(event) {
-        	messageArea.innerHTML += makeHtmlBlock(event.data);
+        	messageArea.innerHTML += makeHtmlBlock(JSON.parse(event.data));
         	updateScroll();
         }
     }
@@ -147,8 +142,7 @@
 		updateScroll();
     }
     
-    function makeHtmlBlock(json) {
-    	let message = JSON.parse(json);
+    function makeHtmlBlock(message) {
     	let time = new Date(message.time);
     	let timeStr = time.toLocaleString();
     	let html = "<div class='message'> \
@@ -175,12 +169,59 @@
     function showHistory() {
     	$('#chat-wrapper').css('display', 'none');
     	$('#history-wrapper').css('display', 'block');
+    	if (messageId === undefined) {
+    		fetchHistory();
+    	}
     }
     
     function showChat() {
     	$('#chat-wrapper').css('display', 'block');
     	$('#history-wrapper').css('display', 'none');
     }
+    
+    let messageId = undefined;
+    let hasMore = true;
+	let $area = $('#chat-history-area');
+    
+    function fetchHistory(id) {
+    	$.post('FetchChatHistoryServlet', {
+    		toId: <%= toId %>,
+    		fromId: <%= fromId %>,
+            lastMessageId: id
+    	}, function(res) {
+			let data = JSON.parse(res);
+			messageId = data.lastId;
+			hasMore = data.hasMore;
+			let messages = data.messages;
+			// record scroll
+			let first = $('#chat-history-area .message:first');
+			for (let i = messages.length - 1; i >= 0; --i) {
+				if (messages[i].fromId === <%= fromId %>) {
+					$area.prepend(makeThisHtmlBlock(messages[i]));
+				} else {
+					$area.prepend(makeHtmlBlock(messages[i]));
+				}
+			}
+			
+			// reset scroll
+			if (first.offset() !== undefined) {
+				$area.scrollTop(first.offset().top);
+			} else if (id === undefined) {// first load
+				let page = document.getElementById('chat-history-area');
+				page.scrollTop = page.scrollHeight;
+			}
+		});
+    }
+    
+    $area.on('wheel', function() {
+		if ($area.scrollTop() === 0 || $area.scrollTop() === undefined) { // reached top
+			if (hasMore) {
+				fetchHistory(messageId);
+			}
+		}
+    });
+    
+    $(document).ajaxError(function(e, err) { console.log(err.responseText) });
   </script>
 </body>
 </html>
