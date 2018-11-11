@@ -15,3 +15,8 @@
 	border: 1px solid black;
 	text-align: center;
 }
+
+#start {
+	padding-left: 500px;
+    padding-top: 50px;
+}
