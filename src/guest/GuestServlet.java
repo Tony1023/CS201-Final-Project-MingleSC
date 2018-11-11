@@ -7,7 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,14 +35,19 @@ public class GuestServlet extends HttpServlet {
 		Connection conn = null;
 		Statement st = null;
 		Statement st2 = null;
+		Statement st3 = null;
+		Statement st4 = null;
 		ResultSet rs = null;
 		ResultSet rs1 = null;
 		ResultSet rs2 = null;
+		ResultSet rs3 = null;
+		ResultSet rs4 = null;
 		
 		String course = request.getParameter("course");
 		String[] prefix = course.split(": ");
-		System.out.println(prefix[0] + "courses " + prefix[1]);
 		
+		Map<String,String> nameMajor = new HashMap<String,String>();
+ 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager
@@ -54,28 +62,73 @@ public class GuestServlet extends HttpServlet {
 				String s = "";
 				s = rs1.getString("course_id");
 				course_id.add(s);
+			//	System.out.println("s " + s);
 			}
-		//	System.out.println("arraylist element " + course_id.get(0));
 			
-			//use rs1 to find other users
+			//System.out.println("course_id.size " + course_id.size());
+			
+			//use rs1 to find other users' user_id
 			st2 = conn.createStatement();
 			rs2 = st2.executeQuery("SELECT user_id FROM user_courses WHERE course_id ='" + course_id.get(0) + "';");
 			
-			//parse for the user_id
+			//parse for the user_id, will be multiple
 			ArrayList<String> user_id = new ArrayList<>();
 			while (rs2.next()) { 
 				String s = rs2.getString("user_id");
 				user_id.add(s);
-				System.out.println("element " + s);
+			//	System.out.println("user id " + s);
 			}
 			
-			System.out.println("arraylist element " + user_id.get(0));
-			System.out.println("arraylist size" + user_id.size());
+			//System.out.println("user id size" + user_id.size());
 			
+			//use rs2 (user_id) to find other users' info
+			ArrayList<String> userinfo = new ArrayList<>();
+			ArrayList<String> major_ids = new ArrayList<>();
+			for (int i = 0; i < user_id.size(); i++) {
+				st3 = conn.createStatement();
+				rs3 = st3.executeQuery("SELECT screen_name, major_id FROM user WHERE user_id ='" + user_id.get(i) + "';");
+				
+				while (rs3.next()) { 
+					String name = rs3.getString("screen_name");
+					String major_id = rs3.getString("major_id");
+					userinfo.add(name);
+					major_ids.add(major_id);
+//					System.out.println("name " + name + " major id" + major_id);
+				}
+				
+//				System.out.println("name " + userinfo.get(0));
+//				System.out.println("userinfo size" + userinfo.size());
+//				System.out.println("major_id size" + major_ids.size());
+			}
 			
+			//get major names from major id
+			ArrayList<String> majors = new ArrayList<>();
+			for (int i = 0; i < major_ids.size(); i++) {
+				st4 = conn.createStatement();
+				rs4 = st3.executeQuery("SELECT major_name FROM major WHERE major_id ='" + major_ids.get(i) + "';");
+				
+				while (rs4.next()) { 
+					String major = rs4.getString("major_name");
+					majors.add(major);
+					System.out.println("major " + major);
+				}
+			}
+			System.out.println("majors size" + userinfo.size());
 			
-		//	request.setAttribute("allusers",a);
-		//	request.getRequestDispatcher("user.jsp").forward(request, response); 
+			//PUT each matched users' name, major INTO nameMajor map 
+			for (int i = 0; i <userinfo.size(); i++) {
+				nameMajor.put(userinfo.get(i),majors.get(i));
+			}
+			
+			System.out.println("nameMajor.size() " + nameMajor.size());
+			
+//			request.setAttribute("nameMajor", nameMajor);
+//			response.sendRedirect("GuestMatches.jsp");
+//			request.getRequestDispatcher("GuestMatches.jsp").forward(request, response); 
+			
+			request.setAttribute("nameMajor", nameMajor);
+			RequestDispatcher view = request.getRequestDispatcher("GuestMatches.jsp");
+			view.forward(request, response);
 			
 		} catch (SQLException sqle) {
 			System.out.println("sqle " + sqle.getMessage());
@@ -96,7 +149,6 @@ public class GuestServlet extends HttpServlet {
 				System.out.println("sqle closing statement " + sqle.getErrorCode());
 			}
 		}
-		
-	}
 
+	}
 }
