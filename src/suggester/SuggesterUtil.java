@@ -13,7 +13,7 @@ import resources.*;
  * Usage:
  * List<Integer> rank = SuggestorUtil.getRank(1);
  */
-public class SuggestorUtil {
+public class SuggesterUtil {
 	
 	private static List<String> sqlStatements = new ArrayList<String>();
 	private static Connection conn = null;
