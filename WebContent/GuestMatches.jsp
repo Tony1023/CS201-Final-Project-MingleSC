@@ -36,7 +36,7 @@
 		function tableCreate1() {
 			var body = document.body, tbl = document.createElement('table');
 			tbl.style.width = '550px';
-			tbl.style.border = '1px solid black';
+			tbl.style.border = '2px solid black';
 			tbl.style.marginLeft  = "500px";
 
 			<%for (Map.Entry<String,String> entry: nameMajor.entrySet()) { %>
@@ -46,6 +46,8 @@
 				td.appendChild(document.createTextNode("<%=entry.getKey()%>"));
 				td1.appendChild(document.createTextNode("<%="Major: " + entry.getValue()%>"));
 				td.style.border = '1px solid black';
+				td.style.textAlign = 'center';
+				td1.style.textAlign = 'center';
 			<%}%>
 			body.appendChild(tbl);
 		}
