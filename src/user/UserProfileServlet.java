@@ -73,13 +73,18 @@ public class UserProfileServlet extends HttpServlet {
 		String password = "";
 		String majorID = "";
 		String housingID = "";
+		String interests = ""; // TODO: This might need to get more involved...
 		String availabilityString = "";
-		
+		String majorName = "";
+		String housingName = "";
+
 		// TODO: Retrieve the user
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs201_final_project_db?user=root&password=!Gemskull2&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC");
-			String queryString = "SELECT * FROM user WHERE  user_id=" + userID;
+			String queryString = "SELECT u.email, u.screen_name, u.password, u.availability_string, m.major_name, h.housing_name FROM user u, major m, housing h WHERE " + 
+									" user_id=" + userID + " AND u.major_id=m.major_id AND u.housing_id=h.housing_id;";
+			
 			ps = conn.prepareStatement(queryString);
 			rs = ps.executeQuery();
 			
@@ -87,16 +92,78 @@ public class UserProfileServlet extends HttpServlet {
 				email = rs.getString("email");
 				screenName = rs.getString("screen_name");
 				password = rs.getString("password");
-				majorID = rs.getString("major_id");
-				housingID = rs.getString("housing_id");
+				// majorID = rs.getString("major_id"); // might need to change this
+				majorName = rs.getString("major_name");
+				// housingID = rs.getString("housing_id");
+				housingName = rs.getString("housing_name");
 				availabilityString = rs.getString("availability_string");
 				
 				System.out.println("email = " + email);
 				System.out.println ("password = " + password);
-				System.out.println ("majorID = " + majorID);
-				System.out.println("housingID = " + housingID);
+				System.out.println ("majorID = " + majorName);
+				System.out.println("housingID = " + housingName);
 				System.out.println("availability string = " + availabilityString);
 			}
+
+			session.setAttribute("userID", userID);
+			session.setAttribute("password", password);
+			session.setAttribute("majorID", majorID);
+			session.setAttribute("housingID", housingID);
+			session.setAttribute("availabilityString", availabilityString);	
+			String imgURL = "https://api.adorable.io/avatars/285/" + (Integer.parseInt(userID) % 20) + ".png";
+			System.out.println(imgURL);
+			session.setAttribute("imgURL", imgURL);
+			
+			
+			// GET BLOCKED USERS
+			
+			String blockedUserID = "";
+			String blockedScreenName = "";
+			ArrayList<String> blockedUserIDs = new ArrayList<String>();
+			ArrayList<String> blockedScreenNames = new ArrayList<String>();
+			
+			String blockQueryString = "SELECT * from blocks b where blocking_user_id=" + userID;
+			ps = conn.prepareStatement(blockQueryString);
+			rs = ps.executeQuery();
+
+			System.out.println("BLOCKS:");
+
+			while (rs.next()) {
+				// TODO: add screen name retrieval here as well...
+				blockedUserID = rs.getString("blocked_user_id");
+				
+				System.out.println("blockedUserID= " + blockedUserID);
+				blockedUserIDs.add(blockedUserID);
+			}
+
+			session.setAttribute("blockUserIDs", blockedUserIDs);
+			session.setAttribute("blockedScreenNames", blockedScreenNames);
+
+
+			// GET CHATS
+
+			String chatUserID = "";
+			String chatScreenName = "";
+			ArrayList<String> chatUserIDs = new ArrayList<String>();
+			ArrayList<String> chatScreeNames = new ArrayList<String>();
+
+			String chatQueryString = "SELECT * from chat_messages where sending_user_id=" + userID; // boil this down to IDs only...
+			ps = conn.prepareStatement(blockQueryString);
+			rs = ps.executeQuery();
+
+			System.out.println("EXISTING CHATS:");
+
+			while (rs.next()) {
+				// TODO: add screen name retrieval here as well...
+				chatUserID = rs.getString("receiving_user_id");
+				
+				System.out.println("chatUserID = " + chatUserID);
+				chatUserIDs.add(chatUserID);
+			}
+
+			session.setAttribute("chatUserIDs", blockedUserIDs);
+			session.setAttribute("chatScreenNames", blockedScreenNames);
+
 
 		} catch (SQLException sqle) {
 			System.out.println (sqle.getMessage());
@@ -113,17 +180,11 @@ public class UserProfileServlet extends HttpServlet {
 			}
 		}
 
-		session.setAttribute("userID", userID);
-		session.setAttribute("password", password);
-		session.setAttribute("majorID", majorID);
-		session.setAttribute("housingID", housingID);
-		session.setAttribute("availabilityString", availabilityString);
+		
 
 		pw.println("Nice job mate!");
 		pw.flush();
 		pw.close();
-
-
 
 
 		// // TODO: Retrieve all blocked users

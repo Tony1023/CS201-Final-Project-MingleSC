@@ -1,1 +1,4 @@
-/resources/
+/compatibilityTest/
+/JDBCTest.class
+/user/
+/.DS_Store
