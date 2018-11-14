@@ -20,10 +20,6 @@ function popChat(from, to) {
 			schedule.style = 'height: 80%; width: 80%;';
 			schedule.style.position = 'absolute';
 			schedule.align = 'middle';
-			$(document).on('click', function() {
-				let schedule = document.getElementById('schedule-popup');
-				schedule.parentNode.removeChild(schedule);
-			});
 			document.body.appendChild(schedule);
 		});
 		dragElement(iframe);
@@ -67,3 +63,10 @@ function dragElement(elmnt) {
 	    document2.onmousemove = null;
 	}
 }
+
+$(document).on('click', function() {
+	let schedule = document.getElementById('schedule-popup');
+	if (schedule !== undefined) {
+		schedule.parentNode.removeChild(schedule);
+	}
+});
