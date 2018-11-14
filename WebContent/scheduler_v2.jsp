@@ -37,6 +37,10 @@
     	#errorMsg {
     		
     	}
+    	
+    	.slot_selected {
+    		color: green;
+    	}
     </style>
   </head>
   <body>
@@ -64,86 +68,86 @@
 		      <tbody>
 		      	<tr>
 			    	<th> 12:00 am </th>
-			        <td id="slot_1"> </td>
-			        <td id="slot_2"> </td>
-			        <td id="slot_3"> </td>
-			       	<td id="slot_4"> </td>
-			        <td id="slot_5"> </td>
-			        <td id="slot_6"> </td>
-			        <td id="slot_7"> </td>
+			        <td id="slot_1"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_2"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_3"> <i class="far fa-check-circle"></i> </td>
+			       	<td id="slot_4"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_5"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_6"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_7"> <i class="far fa-check-circle"></i> </td>
 			    </tr>
 			    <tr>
 			    	<th> 12:30 am </th>
-			        <td id="slot_8"> </td>
-			        <td id="slot_9"> </td>
-			        <td id="slot_10"> </td>
-			       	<td id="slot_11"> </td>
-			        <td id="slot_12"> </td>
-			        <td id="slot_13"> </td>
-			        <td id="slot_14"> </td>
+			        <td id="slot_8"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_9"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_10"> <i class="far fa-check-circle"></i> </td>
+			       	<td id="slot_11"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_12"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_13"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_14"> <i class="far fa-check-circle"></i> </td>
 			    </tr>
 		      	<% for(int i=1; i<12; i++) {%>
 			        <tr>
 			          <th> <%= i %>:00 am </th>
-			          <td id="slot_<%= 14*i + 1 %>"> </td>
-			          <td id="slot_<%= 14*i + 2 %>"> </td>
-			          <td id="slot_<%= 14*i + 3 %>"> </td>
-			          <td id="slot_<%= 14*i + 4 %>"> </td>
-			          <td id="slot_<%= 14*i + 5 %>"> </td>
-			          <td id="slot_<%= 14*i + 6 %>"> </td>
-			          <td id="slot_<%= 14*i + 7 %>"> </td>
+			          <td id="slot_<%= 14*i + 1 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 2 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 3 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 4 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 5 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 6 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 7 %>"> <i class="far fa-check-circle"></i> </td>
 			        </tr>
 			        <tr>
 			          <th> <%= i %>:30 am </th>
-			          <td id="slot_<%= 14*i + 8 %>"> </td>
-			          <td id="slot_<%= 14*i + 9 %>"> </td>
-			          <td id="slot_<%= 14*i + 10%>"> </td>
-			          <td id="slot_<%= 14*i + 11 %>"> </td>
-			          <td id="slot_<%= 14*i + 12 %>"> </td>
-			          <td id="slot_<%= 14*i + 13 %>"> </td>
-			          <td id="slot_<%= 14*i + 14 %>"> </td>
+			          <td id="slot_<%= 14*i + 8 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 9 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 10%>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 11 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 12 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 13 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 14 %>"> <i class="far fa-check-circle"></i> </td>
 			        </tr>
 			    <% } %>
 			    <tr>
 			    	<th> 12:00 pm </th>
-			        <td id="slot_169"> </td>
-			        <td id="slot_170"> </td>
-			        <td id="slot_171"> </td>
-			       	<td id="slot_172"> </td>
-			        <td id="slot_173"> </td>
-			        <td id="slot_174"> </td>
-			        <td id="slot_175"> </td>
+			        <td id="slot_169"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_170"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_171"> <i class="far fa-check-circle"></i> </td>
+			       	<td id="slot_172"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_173"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_174"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_175"> <i class="far fa-check-circle"></i> </td>
 			    </tr>
 			    <tr>
 			    	<th> 12:30 pm </th>
-			        <td id="slot_176"> </td>
-			        <td id="slot_177"> </td>
-			        <td id="slot_178"> </td>
-			       	<td id="slot_179"> </td>
-			        <td id="slot_180"> </td>
-			        <td id="slot_181"> </td>
-			        <td id="slot_182"> </td>
+			        <td id="slot_176"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_177"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_178"> <i class="far fa-check-circle"></i> </td>
+			       	<td id="slot_179"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_180"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_181"> <i class="far fa-check-circle"></i> </td>
+			        <td id="slot_182"> <i class="far fa-check-circle"></i> </td>
 			    </tr>
 			    <% for(int i=1; i<12; i++) {%>
 			        <tr>
 			          <th> <%= i %>:00 pm </th>
-			          <td id="slot_<%= 14*i + 169 %>"> </td>
-			          <td id="slot_<%= 14*i + 170 %>"> </td> 
-			          <td id="slot_<%= 14*i + 171 %>"> </td>
-			          <td id="slot_<%= 14*i + 172 %>"> </td>
-			          <td id="slot_<%= 14*i + 173 %>"> </td>
-			          <td id="slot_<%= 14*i + 174 %>"> </td>
-			          <td id="slot_<%= 14*i + 175 %>"> </td>
+			          <td id="slot_<%= 14*i + 169 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 170 %>"> <i class="far fa-check-circle"></i> </td> 
+			          <td id="slot_<%= 14*i + 171 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 172 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 173 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 174 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 175 %>"> <i class="far fa-check-circle"></i> </td>
 			        </tr>
 			        <tr>
 			          <th> <%= i %>:30 pm </th>
-			          <td id="slot_<%= 14*i + 176 %>"> </td>
-			          <td id="slot_<%= 14*i + 177 %>"> </td>
-			          <td id="slot_<%= 14*i + 178 %>"> </td>
-			          <td id="slot_<%= 14*i + 179 %>"> </td>
-			          <td id="slot_<%= 14*i + 180 %>"> </td>
-			          <td id="slot_<%= 14*i + 181 %>"> </td>
-			          <td id="slot_<%= 14*i + 182 %>"> </td>
+			          <td id="slot_<%= 14*i + 176 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 177 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 178 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 179 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 180 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 181 %>"> <i class="far fa-check-circle"></i> </td>
+			          <td id="slot_<%= 14*i + 182 %>"> <i class="far fa-check-circle"></i> </td>
 			        </tr>
 			    <% } %>
 		      </tbody>
@@ -152,7 +156,12 @@
   	</div>
     
     <script>
-	   
+	   for(let i=1; i<=336; i++) {
+		   document.getElementById("slot_"+i).onclick = function () {
+			 console.log("Slot " + i + " clicked!");
+			 document.getElementById("slot_"+i).classList.toggle("slot_selected");
+		   };
+	   }
     </script>
   </body>
 </html>
