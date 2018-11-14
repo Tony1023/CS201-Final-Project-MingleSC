@@ -122,7 +122,6 @@ public class FetchChatHistoryServlet extends HttpServlet {
 			res.addProperty("lastId", earliestId);
 			res.addProperty("hasMore", hasMore);
 			res.add("messages", messages);
-			System.out.println(res);
 			out.println(res);
 		}
 		out.flush();

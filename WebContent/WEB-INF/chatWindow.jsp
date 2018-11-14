@@ -11,6 +11,7 @@
   <style>
     html, body {
         margin: 0;
+        background-color: white;
     }
     textarea {
         background: rgba(0, 0, 0, 0);
@@ -25,24 +26,25 @@
     }
     .chat-head {
         border: 1px solid black;
-        height: 30px;
+        height: 40px;
+        cursor: move;
     }
     #chat-message-area {
-        height: calc(100% - 188px);
+        height: calc(100% - 148px);
         border: 1px solid black;
         overflow: scroll;
     }
     #chat-history-area {
-        height: calc(100% - 76px);
+        height: calc(100% - 86px);
         border: 1px solid black;
         overflow: scroll;
     }
     #chat-send-box {
         width: calc(100% - 12px);
-        height: 100px;
+        height: 50px;
         border: 1px solid black;
         padding: 5px;
-        font-size: 2em;
+        font-size: 1em;
         font-family: courier;
         overflow: scroll;
     }
@@ -51,6 +53,8 @@
         height: 40px;
     }
     .bottom-btn {
+        width: 65px;
+        height: 20px;
         float: right;
         border: 1px solid black;
     }
@@ -63,8 +67,15 @@
         height: auto;
         white-space: pre;
     }
-    #clearFloat {
+    .clearFloat {
         clear: both;
+    }
+    #close-btn {
+        cursor: pointer;
+        width: 30px;
+        float: right;
+        display: block;
+        z-index: 5;
     }
   </style>
 </head>
@@ -72,7 +83,8 @@
 <body onload="connectToServer();">
   <div id='chat-wrapper'>
     <div class='chat-head'>
-      Chat with <%=name %>
+      <div style='margin-top: 10px; display: inline-block;'>Chat with <%=name %></div>
+      <img id='close-btn' src='close.png'>
     </div>
     
     <div id='chat-message-area'>
@@ -90,7 +102,7 @@
   
   <div id='history-wrapper' style='display: none;'>
     <div class='chat-head'>
-      Chat with <%=name %>
+      <div style='margin-top: 10px; display: inline-block;'>Chat with <%=name %></div>
     </div>
     <div id='chat-history-area'></div>
     <div class='chat-bottom'>

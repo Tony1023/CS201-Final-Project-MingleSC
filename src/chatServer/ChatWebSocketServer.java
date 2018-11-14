@@ -85,7 +85,6 @@ public class ChatWebSocketServer
 	
 	@OnMessage
 	public void onMessage(@PathParam("from") Integer from, @PathParam("to") Integer to, String message, Session session) {
-		System.out.println(message);
 		ChatMessage cm = new ChatMessage(message, from, to, System.currentTimeMillis());
 		// put into database
 		PreparedStatement ps = statements.get(from);
