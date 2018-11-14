@@ -15,7 +15,8 @@ java.sql.DriverManager,
 java.sql.PreparedStatement,
 java.sql.ResultSet,
 java.sql.SQLException,
-java.util.ArrayList"%>
+java.util.ArrayList,
+resources.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,8 +56,8 @@ java.util.ArrayList"%>
     PreparedStatement ps5 = null;
     
     try {
-    	Class.forName("com.mysql.jdbc.Driver");
-    	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs201_final_project_db?user=root&password=Wildcats1&useSSL=false");
+    	Class.forName("com.mysql.cj.jdbc.Driver");
+    	conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
     	ps = conn.prepareStatement("SELECT * FROM major");
     	rs = ps.executeQuery();
     	while(rs.next()){

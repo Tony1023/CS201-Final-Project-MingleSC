@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import resources.*;
+
 /**
  * Servlet implementation class Login
  */
@@ -60,8 +62,8 @@ public class Login extends HttpServlet {
 	        ResultSet rs = null;
 	        PreparedStatement ps = null;
 	        try {
-	        	Class.forName("com.mysql.jdbc.Driver");
-	        	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs201_final_project_db?user=root&password=Wildcats1&useSSL=false");
+	        	Class.forName("com.mysql.cj.jdbc.Driver");
+	        	conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
 	        	ps = conn.prepareStatement("SELECT * FROM user WHERE email=? AND password=?");
 	        	ps.setString(1, email);
 	        	ps.setString(2, password);
