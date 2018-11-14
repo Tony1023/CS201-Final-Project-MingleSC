@@ -193,8 +193,10 @@
 			xhttp.onreadystatechange = function() {
 				if(xhttp.readyState == 4 && xhttp.status == 200) {
 					if(this.responseText != null && this.responseText != "") {
-						console.log("Ajax Sent");
-						document.getElementById("successBlock").style.display = "block";
+						let res = this.responseText;
+						if(res == "Success") {
+							document.getElementById("successBlock").style.display = "block";
+						}
 					}
 				}
 			}
