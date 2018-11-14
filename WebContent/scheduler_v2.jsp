@@ -13,6 +13,7 @@
     	#mainContainer {
     		width: 50%;
     		height: 50%;
+    		margin-top: 30px;
     	}
     	
     	#errorBlock {
@@ -29,28 +30,38 @@
     		text-align: center;
     	}
     	
-    	#title, #errorMsg {
-    		margin-top: 10px;
-    		margin-bottom: 10px;
-    	}
+		#title {
+		    margin-top: auto;
+		    margin-bottom: auto;
+		}
     	
-    	#errorMsg {
-    		
+    	#headContainer {
+    		width: 100%;
+    		display: flex;
+    		justify-content: space-between;
+    		padding-top: 10px;
+    		padding-bottom: 10px;
     	}
     	
     	.slot_selected {
     		color: green;
     	}
+    	
+    	#successBlock {
+    		display: none;
+    	}
     </style>
   </head>
   <body>
   	<div id="mainContainer" class="container">
-  		<h1 id="title" class="title"> Scheduler </h1>
-  		<div id="errorBlock" class="notification is-danger">
-		  <button id="closeError" class="delete"></button>
-		  <span id="errorMsg"></span>
+  		<div id="headContainer">
+  			<h1 id="title" class="title"> Scheduler </h1>
+  			<a id="submitButton" class="button is-info is-outlined"> Submit </a>
+  		</div>
+  		<div id="successBlock" class="notification is-success">
+		  <button id="closeSuccess" class="delete"></button>
+		  Successfully updated availability preferences.
 		</div>
-	  	<!-- <h2 id="errorMsg" class="subtitle"> </h2> -->
 	    <div id="tableContainer">
 		    <table class="table is-bordered is-fullwidth is-striped is-hoverable">
 		      <thead id="tableHeaders">
@@ -162,6 +173,38 @@
 			 document.getElementById("slot_"+i).classList.toggle("slot_selected");
 		   };
 	   }
+	   
+	   document.getElementById("submitButton").onclick = function() {
+		   let availability = "";
+		   for(let i=1; i<=336; i++) {
+			 if(document.getElementById("slot_"+i).classList.contains("slot_selected")) {
+				 availability += "1";
+			 } else {
+				 availability += "0";
+			 }
+		   }
+		   
+		   console.log(availability);
+		   console.log(availability.length);
+		   
+		   let xhttp = new XMLHttpRequest();
+			xhttp.open("POST", "UpdateScheduleServlet", true);
+			xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhttp.onreadystatechange = function() {
+				if(xhttp.readyState == 4 && xhttp.status == 200) {
+					if(this.responseText != null && this.responseText != "") {
+						console.log("Ajax Sent");
+						document.getElementById("successBlock").style.display = "block";
+					}
+				}
+			}
+			xhttp.send("userID=" + <%= userID %> + "&availability=" + availability);
+	   }
+	   
+	   document.getElementById("closeSuccess").onclick = function() {
+	    	console.log("Close Success");
+	    	document.getElementById("successBlock").style.display = "none";
+	    }
     </script>
   </body>
 </html>
