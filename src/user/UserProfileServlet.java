@@ -71,8 +71,6 @@ public class UserProfileServlet extends HttpServlet {
 		String screenName = "";
 		String email = "";
 		String password = "";
-		String majorID = "";
-		String housingID = "";
 		String interests = ""; // TODO: This might need to get more involved...
 		String availabilityString = "";
 		String majorName = "";
@@ -92,23 +90,22 @@ public class UserProfileServlet extends HttpServlet {
 				email = rs.getString("email");
 				screenName = rs.getString("screen_name");
 				password = rs.getString("password");
-				// majorID = rs.getString("major_id"); // might need to change this
 				majorName = rs.getString("major_name");
-				// housingID = rs.getString("housing_id");
 				housingName = rs.getString("housing_name");
 				availabilityString = rs.getString("availability_string");
 				
 				System.out.println("email = " + email);
 				System.out.println ("password = " + password);
-				System.out.println ("majorID = " + majorName);
-				System.out.println("housingID = " + housingName);
+				System.out.println ("majorName = " + majorName);
+				System.out.println("housingName = " + housingName);
 				System.out.println("availability string = " + availabilityString);
 			}
 
+			session.setAttribute("screenName", screenName);
 			session.setAttribute("userID", userID);
 			session.setAttribute("password", password);
-			session.setAttribute("majorID", majorID);
-			session.setAttribute("housingID", housingID);
+			session.setAttribute("majorName", majorName);
+			session.setAttribute("housingName", housingName);
 			session.setAttribute("availabilityString", availabilityString);	
 			String imgURL = "https://api.adorable.io/avatars/285/" + (Integer.parseInt(userID) % 20) + ".png";
 			System.out.println(imgURL);
@@ -117,9 +114,9 @@ public class UserProfileServlet extends HttpServlet {
 			
 			// GET BLOCKED USERS
 			
-			String blockedUserID = "";
+			int blockedUserID = 0;
 			String blockedScreenName = "";
-			ArrayList<String> blockedUserIDs = new ArrayList<String>();
+			ArrayList<Integer> blockedUserIDs = new ArrayList<Integer>();
 			ArrayList<String> blockedScreenNames = new ArrayList<String>();
 			
 			String blockQueryString = "SELECT * from blocks b where blocking_user_id=" + userID;
@@ -130,21 +127,21 @@ public class UserProfileServlet extends HttpServlet {
 
 			while (rs.next()) {
 				// TODO: add screen name retrieval here as well...
-				blockedUserID = rs.getString("blocked_user_id");
+				blockedUserID = rs.getInt("blocked_user_id");
 				
 				System.out.println("blockedUserID= " + blockedUserID);
 				blockedUserIDs.add(blockedUserID);
 			}
 
-			session.setAttribute("blockUserIDs", blockedUserIDs);
+			session.setAttribute("blockedUserIDs", blockedUserIDs);
 			session.setAttribute("blockedScreenNames", blockedScreenNames);
 
 
 			// GET CHATS
 
-			String chatUserID = "";
+			int chatUserID = 0;
 			String chatScreenName = "";
-			ArrayList<String> chatUserIDs = new ArrayList<String>();
+			ArrayList<Integer> chatUserIDs = new ArrayList<Integer>();
 			ArrayList<String> chatScreeNames = new ArrayList<String>();
 
 			String chatQueryString = "SELECT * from chat_messages where sending_user_id=" + userID; // boil this down to IDs only...
@@ -155,7 +152,7 @@ public class UserProfileServlet extends HttpServlet {
 
 			while (rs.next()) {
 				// TODO: add screen name retrieval here as well...
-				chatUserID = rs.getString("receiving_user_id");
+				chatUserID = rs.getInt("receiving_user_id");
 				
 				System.out.println("chatUserID = " + chatUserID);
 				chatUserIDs.add(chatUserID);
@@ -183,6 +180,8 @@ public class UserProfileServlet extends HttpServlet {
 		
 
 		pw.println("Nice job mate!");
+		RequestDispatcher view = request.getRequestDispatcher("userProfile.jsp");
+		view.forward(request, response);
 		pw.flush();
 		pw.close();
 
