@@ -179,6 +179,7 @@
 			xhttp.send("userID=" + <%= userID %> + "&targetID=" + <%= targetID %>);
 		});
 	    
+	    
 	    document.getElementById("closeError").onclick = function() {
 	    	console.log("Close Error");
 	    	document.getElementById("errorBlock").style.display = "none";

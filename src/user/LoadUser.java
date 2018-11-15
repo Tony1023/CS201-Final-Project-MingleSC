@@ -19,6 +19,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import resources.CommonResources;
+import resources.Credentials;
+
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.io.IOException;
@@ -67,7 +70,7 @@ public class LoadUser extends HttpServlet {
 		ResultSet rs = null;
 
 		String userID = request.getParameter("userID"); // TODO: how is Adam passing me this?
-		userID = "1"; // TODO: Remove this when I figure out how things are getting passed to me...
+//		userID = "1"; // TODO: Remove this when I figure out how things are getting passed to me...
 		String screenName = "";
 		String email = "";
 		String password = "";
@@ -79,7 +82,8 @@ public class LoadUser extends HttpServlet {
 		// TODO: Retrieve the user
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs201_final_project_db?user=root&password=!Gemskull2&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC");
+			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, 
+    		        Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
 			String queryString = "SELECT u.email, u.screen_name, u.password, u.availability_string, m.major_name, h.housing_name FROM user u, major m, housing h WHERE " + 
 									" user_id=" + userID + " AND u.major_id=m.major_id AND u.housing_id=h.housing_id;";
 			

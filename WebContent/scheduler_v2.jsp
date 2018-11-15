@@ -56,7 +56,10 @@
   	<div id="mainContainer" class="container">
   		<div id="headContainer">
   			<h1 id="title" class="title"> Scheduler </h1>
-  			<a id="submitButton" class="button is-info is-outlined"> Submit </a>
+  			<div>
+  				<a id="submitButton" class="button is-info is-outlined"> Submit </a>
+  				<a id="toLoadUser" class="button is-info is-outlined" href="SchedulerToLoadUser?userID=<%= userID %>"> Profile </a>
+  			</div>
   		</div>
   		<div id="successBlock" class="notification is-success">
 		  <button id="closeSuccess" class="delete"></button>
