@@ -1,3 +1,7 @@
 /chatServer/
 /resources/
 /scheduler/
+/compatibilityTest/
+/JDBCTest.class
+/user/
+/.DS_Store
