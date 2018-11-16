@@ -19,7 +19,7 @@ INSERT INTO major(major_name) VALUES('Computer Science'), ('Electrical Engineeri
 
 CREATE TABLE user(
     user_id INT(11) PRIMARY KEY AUTO_INCREMENT,
-    email varchar(45) NOT NULL,
+    email varchar(45) NOT NULL UNIQUE,
     screen_name varchar(45) NOT NULL,
     password varchar(45) NOT NULL,
     major_id INT(3) NOT NULL,
