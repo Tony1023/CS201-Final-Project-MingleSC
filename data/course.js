@@ -6,14 +6,7 @@ const fetch = require('node-fetch');
 function main() {
   request('https://web-app.usc.edu/web/soc/api/depts/20191', (err, res, body) => {
     let info = JSON.parse(body);
-    fs.writeFile('deptList.json', JSON.stringify(body), err => {
-      if (err) {
-        throw err;
-      }
-      console.log('Write to deptList.json was successful.');
-      console.log('Fetching course list next...');
-      scrapeCourses(info);
-    });
+    scrapeCourses(info);
   });
 }
 
