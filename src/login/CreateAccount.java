@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import resources.*;
 
 /**
  * Servlet implementation class CreateAccount
@@ -152,8 +153,8 @@ public class CreateAccount extends HttpServlet {
 	        PreparedStatement ps10 = null;
 	        
 	        try {
-	        	Class.forName("com.mysql.jdbc.Driver");
-	        	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs201_final_project_db?user=root&password=Wildcats1&useSSL=false");
+	        	Class.forName("com.mysql.cj.jdbc.Driver");
+	        	conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
 	        	
 	        	psFirst = conn.prepareStatement("SELECT * FROM user WHERE email=?");
 	        	psFirst.setString(1, email);
