@@ -170,6 +170,28 @@
   	</div>
     
     <script>
+    	document.addEventListener("DOMContentLoaded", function() {
+    		let xhttp = new XMLHttpRequest();
+			xhttp.open("POST", "SchedulerServlet", true);
+			xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhttp.onreadystatechange = function() {
+				if(xhttp.readyState == 4 && xhttp.status == 200) {
+					if(this.responseText != null && this.responseText != "") {
+						let res = this.responseText;
+						if(res != "User availability empty.") {
+							for(let i=1; i<=336; i++) {
+								if(res.charAt(i-1) == "1") {
+									document.getElementById("slot_"+i).classList.toggle("slot_selected");
+								}
+							}
+						}
+					}
+				}
+			}
+			xhttp.send("userID=" + <%= userID %> + "&targetID=" + <%= userID %>);
+    	});
+    
+    
 	   for(let i=1; i<=336; i++) {
 		   document.getElementById("slot_"+i).onclick = function () {
 			 console.log("Slot " + i + " clicked!");
