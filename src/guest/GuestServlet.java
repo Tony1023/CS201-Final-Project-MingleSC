@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -46,7 +47,7 @@ public class GuestServlet extends HttpServlet {
 		String course = request.getParameter("course");
 		String[] prefix = course.split(": ");
 		
-		Map<String,String> nameMajor = new HashMap<String,String>();
+		Map<String,ArrayList<String>> nameMajor = new HashMap<String,ArrayList<String>>();
  		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -59,13 +60,14 @@ public class GuestServlet extends HttpServlet {
 			//parse for the course_id
 			ArrayList<String> course_id = new ArrayList<>();
 			while (rs1.next()) { 
-				String s = "";
-				s = rs1.getString("course_id");
+				String s = rs1.getString("course_id");
 				course_id.add(s);
 			//	System.out.println("s " + s);
 			}
 			
-			//System.out.println("course_id.size " + course_id.size());
+			System.out.println("prefix[1] " + prefix[1]);
+			System.out.println("course_id.size " + course_id.size());
+			System.out.println(course_id.get(0));
 			
 			//use rs1 to find other users' user_id
 			st2 = conn.createStatement();
@@ -115,20 +117,31 @@ public class GuestServlet extends HttpServlet {
 			}
 			System.out.println("majors size" + userinfo.size());
 			
+			//create array with name and user_id	
 			//PUT each matched users' name, major INTO nameMajor map 
 			for (int i = 0; i <userinfo.size(); i++) {
-				nameMajor.put(userinfo.get(i),majors.get(i));
+				ArrayList<String> nm = new ArrayList<>();
+				nm.add(userinfo.get(i));
+				nm.add(majors.get(i));
+				nameMajor.put(user_id.get(i),nm);
 			}
 			
-			System.out.println("nameMajor.size() " + nameMajor.size());
+			for (Entry<String, ArrayList<String>> entry : nameMajor.entrySet()) {
+				System.out.println(entry.getKey());
+				System.out.println(entry.getValue());
+			}
 			
-//			request.setAttribute("nameMajor", nameMajor);
-//			response.sendRedirect("GuestMatches.jsp");
-//			request.getRequestDispatcher("GuestMatches.jsp").forward(request, response); 
+//			System.out.println("nameMajor.size() " + nameMajor.size());
+//			System.out.println("name majorsize " + nameMajor.size());
+//			System.out.println("user_id " + user_id.size());
+			
+//			request.setAttribute("user_id", user_id);
+//			RequestDispatcher view = request.getRequestDispatcher("GuestMatches.jsp");
+//			view.forward(request, response);
 			
 			request.setAttribute("nameMajor", nameMajor);
-			RequestDispatcher view = request.getRequestDispatcher("GuestMatches.jsp");
-			view.forward(request, response);
+			RequestDispatcher view1 = request.getRequestDispatcher("GuestMatches.jsp");
+			view1.forward(request, response);
 			
 		} catch (SQLException sqle) {
 			System.out.println("sqle " + sqle.getMessage());

@@ -37,7 +37,7 @@
 				<option>CSCI 201: Principles of Software Development</option>
 				<option>CSCI 310: Software Engineering</option>
 				<option>CSCI 356: Introduction to Computer Systems</option>
-				
+
 			</select> <br> <br> <br> <input type="submit" value="Submit">
 
 			<br> <br>

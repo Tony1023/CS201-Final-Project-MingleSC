@@ -18,16 +18,17 @@
 	<h1 id="header">MingleSC</h1>
 
 	<h3 id="start">
-		To start chatting, please <a href="#"
+		To start chatting, please <a href="CreateAccount.jsp"
 			style="text-decoration: underline;">create an account</a>
 	</h3>
-
-
+	
+	<br>
+	
 	<%
-		Map<String, String> nameMajor = (Map<String, String>) request.getAttribute("nameMajor");
+		Map<String, ArrayList<String>> nameMajor = (Map<String, ArrayList<String>>) request.getAttribute("nameMajor");
+		
 	%>
-
-	<%=nameMajor.size()%>
+	
 
 	<script>
 		var nameMajor = '${nameMajor}';
@@ -39,13 +40,29 @@
 			tbl.style.border = '2px solid black';
 			tbl.style.marginLeft  = "500px";
 
-			<%for (Map.Entry<String,String> entry: nameMajor.entrySet()) { %>
+			<%for (Map.Entry<String, ArrayList<String>> entry: nameMajor.entrySet()) { %>
 				var tr = tbl.insertRow();
 				var td = tr.insertCell();
 				var td1 = tr.insertCell();
-				td.appendChild(document.createTextNode("<%=entry.getKey()%>"));
-				td1.appendChild(document.createTextNode("<%="Major: " + entry.getValue()%>"));
+				
+				var tn = document.createTextNode("<%=entry.getValue().get(0)%>");
+				var tn1 = document.createTextNode("<%="Major: " + entry.getValue().get(1)%>");
+				
+				td.appendChild(tn);
+				td1.appendChild(tn1);
+				
+				var img = document.createElement('img');
+				img.src = "https://api.adorable.io/avatars/285/" + (<%=entry.getKey()%>) + ".png";
+				td.appendChild(img);
+				img.style.width = "330px";
+				img.style.paddingBottom  = "15px";
+				img.style.paddingTop = "5px";
+				
 				td.style.border = '1px solid black';
+				td.style.fontSize = "20px";
+				td.style.fontWeight = "bold";
+				td1.style.fontSize = "20px";
+				td1.style.border = '1px solid black';
 				td.style.textAlign = 'center';
 				td1.style.textAlign = 'center';
 			<%}%>
