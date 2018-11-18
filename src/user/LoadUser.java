@@ -116,29 +116,44 @@ public class LoadUser extends HttpServlet {
 			// GET BLOCKED USERS
 			
 			int blockedUserID = 0;
-			String blockedScreenName = "";
 			ArrayList<Integer> blockedUserIDs = new ArrayList<Integer>();
 			ArrayList<String> blockedScreenNames = new ArrayList<String>();
-			
-			String blockQueryString = "SELECT b.blocked_user_id, u.screen_name from blocks b, user u where b.blocking_user_id=" + userID;
+			ArrayList<String> blockedEmails = new ArrayList<String>();
+			 
+			System.out.println("BLOCKS:");
+			String blockQueryString = "SELECT blocked_user_id FROM blocks WHERE blocking_user_id=" + userID;
+
 			ps = conn.prepareStatement(blockQueryString);
 			rs = ps.executeQuery();
-
-			System.out.println("BLOCKS:");
 
 			while (rs.next()) {
 				// TODO: add screen name retrieval here as well...
 				blockedUserID = rs.getInt("blocked_user_id");
-				blockedScreenName = rs.getString("screen_name");
-				
 				System.out.println("blockedUserID= " + blockedUserID);
-				System.out.println("blockedScreenName= " + blockedUserID);
+
+				Statement s = conn.createStatement();
+				ResultSet r = s.executeQuery("SELECT email, screen_name FROM user WHERE user_id=" + blockedUserID);
+				
+				String blockedScreenName = "";
+				String blockedEmail = "";
+
+				while (r.next()) {
+					blockedEmail = r.getString("email");
+					blockedScreenName = r.getString("screen_name");
+
+					System.out.println("blockedScreenName= " + blockedScreenName);
+					System.out.println("blockedEmail= " + blockedEmail);
+
+					blockedEmails.add(blockedEmail);
+					blockedScreenNames.add(blockedScreenName);
+				}
+				
 				blockedUserIDs.add(blockedUserID);
-				blockedScreenNames.add(blockedScreenName);
 			}
 
 			session.setAttribute("blockedUserIDs", blockedUserIDs);
 			session.setAttribute("blockedScreenNames", blockedScreenNames);
+			session.setAttribute("blockedEmails", blockedEmails);
 
 			// GET CHATS
 			int chatUserID = 0;
@@ -161,7 +176,7 @@ public class LoadUser extends HttpServlet {
 			}
 
 			session.setAttribute("chatUserIDs", chatUserIDs);
-			session.setAttribute("chatScreenNames", chatScreenNames);
+//			session.setAttribute("chatScreenNames", chatScreenNames);
 
 
 		} catch (SQLException sqle) {

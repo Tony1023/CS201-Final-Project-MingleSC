@@ -77,6 +77,7 @@ ArrayList<Integer> chatUserIDs = (ArrayList<Integer>) session.getAttribute("chat
 
 ArrayList<Integer> blockedUserIDs = (ArrayList<Integer>) session.getAttribute("blockedUserIDs");
 ArrayList<Integer> blockedScreenNames = (ArrayList<Integer>) session.getAttribute("blockedScreenNames");
+ArrayList<Integer> blockedEmails = (ArrayList<Integer>) session.getAttribute("blockedEmails");
 
 String userHTML = screenName + "\n" + majorName + "\n" + housingName + "\n" + availabilityString + "\n";
 String blocksHTML = "";
