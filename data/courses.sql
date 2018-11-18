@@ -13,13 +13,13 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('ALI', 270, 'Advanced Oral Communication for ITAs'),
 ('ALI', 271, 'Language Tutorial for International Teaching Assistants'),
 ('ALI', 274, 'Advanced Academic and Professional Spoken English'),
-('ALI', 275, 'Writing for Publication and Dissertations')
+('ALI', 275, 'Writing for Publication and Dissertations'),
 ('ARAB', 122, 'Arabic I'),
 ('ARAB', 152, 'Arabic II'),
 ('ARAB', 222, 'Arabic III'),
 ('ARAB', 252, 'Arabic IV'),
 ('ARAB', 300, 'Introduction to Translation'),
-('ARAB', 352, 'Advanced Arabic II')
+('ARAB', 352, 'Advanced Arabic II'),
 ('AHIS', 100, 'Introduction to Visual Culture'),
 ('AHIS', 121, 'Art and Society: Renaissance to Modern'),
 ('AHIS', 128, 'Arts of Latin America'),
@@ -52,7 +52,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('AHIS', 794, 'Doctoral Dissertation'),
 ('AHIS', 794, 'Doctoral Dissertation'),
 ('AHIS', 794, 'Doctoral Dissertation'),
-('AHIS', 794, 'Doctoral Dissertation')
+('AHIS', 794, 'Doctoral Dissertation'),
 ('COLT', 102, 'On Location: The Place of Literature in Global Cultures'),
 ('COLT', 251, 'Modern Literature and Thought of the West Since 1800'),
 ('COLT', 303, 'Globalization: Culture, Change, Resistance'),
@@ -63,7 +63,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('COLT', 490, 'Directed Research'),
 ('COLT', 495, 'Senior Honors Thesis'),
 ('COLT', 511, 'Translating Race'),
-('COLT', 525, 'Studies in Literary and Cultural History')
+('COLT', 525, 'Studies in Literary and Cultural History'),
 ('ECON', 203, 'Principles of Microeconomics'),
 ('ECON', 205, 'Principles of Macroeconomics'),
 ('ECON', 303, 'Intermediate Microeconomic Theory'),
@@ -125,7 +125,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('ECON', 794, 'Doctoral Dissertation'),
 ('ECON', 794, 'Doctoral Dissertation'),
 ('ECON', 794, 'Doctoral Dissertation'),
-('ECON', 794, 'Doctoral Dissertation')
+('ECON', 794, 'Doctoral Dissertation'),
 ('CSLC', 503, 'Introduction to Comparative Studies in Culture'),
 ('COLT', 511, 'Translating Race'),
 ('CSLC', 590, 'Directed Research'),
@@ -137,13 +137,13 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CSLC', 794, 'Doctoral Dissertation'),
 ('CSLC', 794, 'Doctoral Dissertation'),
 ('CSLC', 794, 'Doctoral Dissertation'),
-('CSLC', 794, 'Doctoral Dissertation')
+('CSLC', 794, 'Doctoral Dissertation'),
 ('ANTH', 202, 'Archaeology: Our Human Past'),
 ('ENST', 298, 'Introduction to Scientific Diving'),
 ('AHIS', 322, 'Roman Art and Archaeology'),
 ('JS', 370, 'Digs and Dispute: Religion and Archaeology in Israel'),
 ('CLAS', 465, 'Archaeology and Society'),
-('ARCG', 490, 'Directed Research')
+('ARCG', 490, 'Directed Research'),
 ('CLAS', 151, 'The Legacy of Rome'),
 ('CLAS', 160, 'Ancient Lives'),
 ('CLAS', 170, 'Classics of Music and Literature: from Ancient Greece Through Contemporary LA'),
@@ -170,7 +170,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CLAS', 794, 'Doctoral Dissertation'),
 ('CLAS', 794, 'Doctoral Dissertation'),
 ('CLAS', 794, 'Doctoral Dissertation'),
-('CLAS', 794, 'Doctoral Dissertation')
+('CLAS', 794, 'Doctoral Dissertation'),
 ('EASC', 160, 'China and the World'),
 ('EASC', 360, 'Global East Asia'),
 ('EASC', 490, 'Directed Research'),
@@ -178,7 +178,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('EASC', 594, 'Master&apos;s Thesis'),
 ('EASC', 594, 'Master&apos;s Thesis'),
 ('EASC', 594, 'Master&apos;s Thesis'),
-('EASC', 596, 'Internship for Curricular Practical Training')
+('EASC', 596, 'Internship for Curricular Practical Training'),
 ('CHEM', 050, 'General Chemistry Tutorial'),
 ('CHEM', 051, 'General Chemistry Tutorial'),
 ('CHEM', 105, 'General Chemistry'),
@@ -227,7 +227,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CHEM', 794, 'Doctoral Dissertation'),
 ('CHEM', 794, 'Doctoral Dissertation'),
 ('CHEM', 794, 'Doctoral Dissertation'),
-('CHEM', 794, 'Doctoral Dissertation')
+('CHEM', 794, 'Doctoral Dissertation'),
 ('ENGL', 105, 'Creative Writing for Non-Majors'),
 ('ENGL', 174, 'Reading the Heart: Emotional Intelligence and the Humanities'),
 ('ENGL', 230, 'Shakespeare and His Times'),
@@ -291,7 +291,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('ENGL', 794, 'Doctoral Dissertation'),
 ('ENGL', 794, 'Doctoral Dissertation'),
 ('ENGL', 794, 'Doctoral Dissertation'),
-('ENGL', 794, 'Doctoral Dissertation')
+('ENGL', 794, 'Doctoral Dissertation'),
 ('CORE', 101, 'Symbols and Conceptual Systems: Thematic Option Honors Progr'),
 ('CORE', 103, 'The Process of Change in Science: Thematic Option Honors Pro'),
 ('CORE', 104, 'Change and the Future: Thematic Option Honors Program'),
@@ -301,7 +301,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CORE', 400, 'Capstone'),
 ('CORE', 450, 'Los Angeles: A Polymathic Inquiry'),
 ('CORE', 499, 'Special Topics'),
-('CORE', 601, 'Teaching Analytical Writing through Readings in the Humanities')
+('CORE', 601, 'Teaching Analytical Writing through Readings in the Humanities'),
 ('BISC', 102, 'Humans and Their Environment'),
 ('BISC', 103, 'General Biology for the Environment and Life'),
 ('BISC', 104, 'How the Body Works'),
@@ -368,7 +368,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('BISC', 794, 'Doctoral Dissertation'),
 ('BISC', 794, 'Doctoral Dissertation'),
 ('BISC', 794, 'Doctoral Dissertation'),
-('BISC', 794, 'Doctoral Dissertation')
+('BISC', 794, 'Doctoral Dissertation'),
 ('AMST', 101, 'Race and Class in Los Angeles'),
 ('AMST', 135, 'Peoples and Cultures of the Americas'),
 ('AMST', 140, 'Borderlands in a Global Context'),
@@ -407,7 +407,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('AMST', 794, 'Doctoral Dissertation'),
 ('AMST', 794, 'Doctoral Dissertation'),
 ('AMST', 794, 'Doctoral Dissertation'),
-('AMST', 794, 'Doctoral Dissertation')
+('AMST', 794, 'Doctoral Dissertation'),
 ('FREN', 120, 'French I'),
 ('FREN', 150, 'French II'),
 ('FREN', 220, 'French III'),
@@ -429,12 +429,12 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('FREN', 501, 'Early Modernities'),
 ('FREN', 590, 'Directed Research'),
 ('FREN', 790, 'Research'),
-('FREN', 794, 'Doctoral Dissertation')
+('FREN', 794, 'Doctoral Dissertation'),
 ('ASTR', 100, 'The Universe'),
 ('ASTR', 104, 'Special Laboratory'),
 ('ASTR', 200, 'Life in the Universe'),
 ('ASTR', 422, 'Galaxies and Large-Scale Structures in the Universe'),
-('ASTR', 490, 'Directed Research')
+('ASTR', 490, 'Directed Research'),
 ('EALC', 101, 'Conversational Chinese and Intercultural Communication'),
 ('EALC', 102, 'Language, Art and Culture: Calligraphy'),
 ('EALC', 103, 'Fundamental Chinese I'),
@@ -500,7 +500,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('EALC', 794, 'Doctoral Dissertation'),
 ('EALC', 794, 'Doctoral Dissertation'),
 ('EALC', 794, 'Doctoral Dissertation'),
-('EALC', 794, 'Doctoral Dissertation')
+('EALC', 794, 'Doctoral Dissertation'),
 ('INDS', 100, 'Topical and Multidisciplinary Seminars'),
 ('INDS', 101, 'Directed Research and Tutorials'),
 ('INDS', 102, 'Field Study'),
@@ -510,12 +510,12 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('INDS', 400, 'Topical and Multidisciplinary Seminars'),
 ('INDS', 401, 'Directed Research and Tutorials'),
 ('INDS', 402, 'Field Study'),
-('INDS', 494, 'Senior Thesis')
+('INDS', 494, 'Senior Thesis'),
 ('GERM', 101, 'German I'),
 ('GERM', 102, 'German II'),
 ('GERM', 201, 'German III, Conversation and Composition'),
 ('GERM', 221, 'Conversational German IV'),
-('GERM', 499, 'Special Topics')
+('GERM', 499, 'Special Topics'),
 ('ITAL', 120, 'Italian I'),
 ('ITAL', 150, 'Italian II'),
 ('ITAL', 220, 'Italian III'),
@@ -526,7 +526,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('ITAL', 360, 'Italian Cinema'),
 ('ITAL', 402, 'Studies in Modernity'),
 ('ITAL', 490, 'Directed Research'),
-('ITAL', 590, 'Directed Research')
+('ITAL', 590, 'Directed Research'),
 ('HBIO', 200, 'The Human Animal'),
 ('HBIO', 202, 'Nutrition for Life'),
 ('HBIO', 205, 'The Science of Sport'),
@@ -542,7 +542,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('HBIO', 420, 'Applied Human Physiology'),
 ('HBIO', 435, 'Neurobiology of Feeding Behavior and Obesity'),
 ('HBIO', 442, 'Evaluation and Rehabilitation of Athletic Injuries'),
-('HBIO', 491, 'Laboratory Experience in Kinesiology')
+('HBIO', 491, 'Laboratory Experience in Kinesiology'),
 ('PHIL', 166, 'Current Moral and Social Issues'),
 ('SWMS', 212, 'Studies in Gender and Sexuality: An Introduction'),
 ('HIST', 265, 'Racism, Sexism, and the Law'),
@@ -567,12 +567,12 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('SWMS', 554, 'Women in Global Perspective'),
 ('SWMS', 560, 'Feminist Theory'),
 ('SWMS', 590, 'Directed Research'),
-('ENGL', 630, 'Studies in Gender')
+('ENGL', 630, 'Studies in Gender'),
 ('HEBR', 150, 'Hebrew II'),
-('HEBR', 315, 'Modern Hebrew Language (Hebrew IV)')
+('HEBR', 315, 'Modern Hebrew Language (Hebrew IV)'),
 ('GR', 120, 'Greek I'),
 ('GR', 220, 'Greek III'),
-('GR', 362, 'Homer and the Greek Epic')
+('GR', 362, 'Homer and the Greek Epic'),
 ('GEOL', 105, 'Planet Earth'),
 ('GEOL', 107, 'Oceanography'),
 ('GEOL', 126, 'The History of Life on Earth: A View from the Museum'),
@@ -601,7 +601,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('GEOL', 794, 'Doctoral Dissertation'),
 ('GEOL', 794, 'Doctoral Dissertation'),
 ('GEOL', 794, 'Doctoral Dissertation'),
-('GEOL', 794, 'Doctoral Dissertation')
+('GEOL', 794, 'Doctoral Dissertation'),
 ('HIST', 102, 'Medieval People'),
 ('HIST', 103, 'The Emergence of Modern Europe'),
 ('HIST', 106, 'Chinese Lives: An Introduction to Chinese History'),
@@ -649,7 +649,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('HIST', 794, 'Doctoral Dissertation'),
 ('HIST', 794, 'Doctoral Dissertation'),
 ('HIST', 794, 'Doctoral Dissertation'),
-('HIST', 794, 'Doctoral Dissertation')
+('HIST', 794, 'Doctoral Dissertation'),
 ('IR', 101, 'International Relations'),
 ('ENST', 150, 'Environmental Issues in Society'),
 ('IR', 210, 'International Relations: Introductory Analysis'),
@@ -689,7 +689,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('IR', 430, 'The Politics of International Trade'),
 ('IR', 431, 'Commercial and Financial Globalization-Trends, Challenges'),
 ('IR', 443, 'Formulation of U.S. Foreign Policy'),
-('IR', 490, 'Directed Research')
+('IR', 490, 'Directed Research'),
 ('JS', 100, 'Jewish History'),
 ('JS', 180, 'Judaism'),
 ('JS', 211, 'The Holocaust'),
@@ -700,10 +700,10 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('JS', 370, 'Digs and Dispute: Religion and Archaeology in Israel'),
 ('JS', 428, 'Blacks and Jews: Conflicts and Alliances'),
 ('JS', 490, 'Directed Research'),
-('JS', 590, 'Directed Research')
+('JS', 590, 'Directed Research'),
 ('IRAN', 150, 'Persian II'),
 ('IRAN', 250, 'Persian IV'),
-('IRAN', 350, 'Advanced Persian II')
+('IRAN', 350, 'Advanced Persian II'),
 ('LING', 110, 'In a Word'),
 ('LING', 115, 'Language and Society'),
 ('LING', 210, 'Introduction to Linguistics'),
@@ -733,9 +733,9 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('LING', 794, 'Doctoral Dissertation'),
 ('LING', 794, 'Doctoral Dissertation'),
 ('LING', 794, 'Doctoral Dissertation'),
-('LING', 794, 'Doctoral Dissertation')
+('LING', 794, 'Doctoral Dissertation'),
 ('ANTH', 602, 'The Anthropology of Popular Culture'),
-('LBST', 585, 'Master&apos;s Project')
+('LBST', 585, 'Master&apos;s Project'),
 ('MATH', 108, 'Contemporary Precalculus'),
 ('MATH', 114, 'Foundations of Statistics'),
 ('MATH', 117, 'Introduction to Mathematics for Business and Economics'),
@@ -806,14 +806,14 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MATH', 794, 'Doctoral Dissertation'),
 ('MATH', 794, 'Doctoral Dissertation'),
 ('MATH', 794, 'Doctoral Dissertation'),
-('MATH', 794, 'Doctoral Dissertation')
+('MATH', 794, 'Doctoral Dissertation'),
 ('MDA', 110, 'Contemporary Issues and Cases in Health Care'),
 ('MDA', 250, 'Internship for Liberal Arts: Work and Career -- Theory and Practice'),
 ('MDA', 423, 'User Experience'),
 ('MDA', 450, 'Individual Program of Study'),
 ('MDA', 460, 'Collaborative Learning Project'),
 ('MDA', 490, 'Directed Research'),
-('MDA', 494, 'Directed Creative Project')
+('MDA', 494, 'Directed Creative Project'),
 ('BISC', 199, 'Neuroscience Colloquium'),
 ('BISC', 407, 'Cellular and Molecular Neuroscience'),
 ('BISC', 408, 'Systems Neuroscience: From Synapses to Perception'),
@@ -823,7 +823,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PSYC', 440, 'Introduction to Cognitive Neuroscience'),
 ('NEUR', 490, 'Directed Research'),
 ('NEUR', 493, 'Neuroscience Honors Seminar'),
-('NEUR', 494, 'Honors Thesis')
+('NEUR', 494, 'Honors Thesis'),
 ('NSCI', 525, 'Advanced Overview of Neurosciences II'),
 ('PSYC', 540, 'Cognitive Neuroscience'),
 ('NSCI', 539, 'Seminar in Neurobiology'),
@@ -833,7 +833,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('NSCI', 794, 'Doctoral Dissertation'),
 ('NSCI', 794, 'Doctoral Dissertation'),
 ('NSCI', 794, 'Doctoral Dissertation'),
-('NSCI', 794, 'Doctoral Dissertation')
+('NSCI', 794, 'Doctoral Dissertation'),
 ('MDES', 313, 'Modern Iran'),
 ('MDES', 316, 'The Great Muslim Empires of the Near East and India'),
 ('MDES', 340, 'The United States and the Middle East'),
@@ -845,12 +845,12 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('COLT', 437, 'Arabic Autobiography: Writing and Interpreting the Self'),
 ('MDES', 441, 'Cities of the Middle East'),
 ('FREN', 448, 'France and Islam'),
-('MDES', 490, 'Directed Research')
+('MDES', 490, 'Directed Research'),
 ('MPW', 585, 'Seminar in Professional Writing'),
 ('MPW', 589, 'Internship: Writers in the Field'),
 ('MPW', 590, 'Directed Research'),
 ('MPW', 592, 'Professional Writing Project'),
-('MPW', 592, 'Professional Writing Project')
+('MPW', 592, 'Professional Writing Project'),
 ('PHED', 102, 'Weight Training'),
 ('PHED', 104, 'Self-Defense'),
 ('PHED', 104, 'Self-Defense'),
@@ -885,7 +885,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PHED', 161, 'First Aid'),
 ('PHED', 162, 'Principles of Athletic Coaching'),
 ('PHED', 163, 'Health Coaching'),
-('PHED', 165, 'Varsity Athletics')
+('PHED', 165, 'Varsity Athletics'),
 ('OS', 590, 'Directed Research'),
 ('OS', 594, 'Master&apos;s Thesis'),
 ('OS', 594, 'Master&apos;s Thesis'),
@@ -895,7 +895,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('OS', 794, 'Doctoral Dissertation'),
 ('OS', 794, 'Doctoral Dissertation'),
 ('OS', 794, 'Doctoral Dissertation'),
-('OS', 794, 'Doctoral Dissertation')
+('OS', 794, 'Doctoral Dissertation'),
 ('POIR', 519, 'Field Research Methods in Political Science and Internationa'),
 ('SWMS', 554, 'Women in Global Perspective'),
 ('SWMS', 560, 'Feminist Theory'),
@@ -915,7 +915,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('POIR', 794, 'Doctoral Dissertation'),
 ('POIR', 794, 'Doctoral Dissertation'),
 ('POIR', 794, 'Doctoral Dissertation'),
-('POIR', 794, 'Doctoral Dissertation')
+('POIR', 794, 'Doctoral Dissertation'),
 ('PHYS', 100, 'The Physical World'),
 ('PHYS', 125, 'Physics for Architects'),
 ('PHYS', 135, 'Physics for the Life Sciences'),
@@ -953,11 +953,11 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PHYS', 794, 'Doctoral Dissertation'),
 ('PHYS', 794, 'Doctoral Dissertation'),
 ('PHYS', 794, 'Doctoral Dissertation'),
-('PHYS', 794, 'Doctoral Dissertation')
+('PHYS', 794, 'Doctoral Dissertation'),
 ('PORT', 150, 'Portuguese II'),
 ('PORT', 175, 'Accelerated Portuguese I'),
 ('PORT', 240, 'Portuguese IV'),
-('PORT', 250, 'Cultures of Brazil and Lusophone Africa')
+('PORT', 250, 'Cultures of Brazil and Lusophone Africa'),
 ('PHIL', 102, 'Historical Introduction to Philosophy'),
 ('PHIL', 110, 'Modern Foundations of Western Thought'),
 ('PHIL', 120, 'Introduction to Formal Logic'),
@@ -1001,7 +1001,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PHIL', 794, 'Doctoral Dissertation'),
 ('PHIL', 794, 'Doctoral Dissertation'),
 ('PHIL', 794, 'Doctoral Dissertation'),
-('PHIL', 794, 'Doctoral Dissertation')
+('PHIL', 794, 'Doctoral Dissertation'),
 ('POSC', 110, 'Ideology and Political Conflict'),
 ('POSC', 120, 'Comparative Politics'),
 ('POSC', 130, 'Law, Politics and Public Policy'),
@@ -1029,7 +1029,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('POSC', 464, 'Politics of Russia and Eastern Europe'),
 ('POSC', 469, 'Critical Issues in Comparative Politics'),
 ('POSC', 479, 'Critical Issues in Political Thought'),
-('POSC', 490, 'Directed Research')
+('POSC', 490, 'Directed Research'),
 ('PSYC', 100, 'Introduction to Psychology'),
 ('PSYC', 165, 'Drugs, Behavior, and Society'),
 ('PSYC', 274, 'Statistics'),
@@ -1105,12 +1105,12 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PSYC', 794, 'Doctoral Dissertation'),
 ('PSYC', 794, 'Doctoral Dissertation'),
 ('PSYC', 794, 'Doctoral Dissertation'),
-('PSYC', 794, 'Doctoral Dissertation')
+('PSYC', 794, 'Doctoral Dissertation'),
 ('QBIO', 105, 'Introduction to Quantitative Biology Seminar'),
 ('BISC', 478, 'Computational Genome Analysis'),
 ('QBIO', 490, 'Directed Research'),
 ('QBIO', 493, 'Quantitative Biology Honors Seminar'),
-('QBIO', 499, 'Special Topics')
+('QBIO', 499, 'Special Topics'),
 ('REL', 114, 'The Mediterranean: A Religious History'),
 ('REL', 121, 'The World of the New Testament'),
 ('REL', 125, 'Introduction to Christianity'),
@@ -1132,7 +1132,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('REL', 590, 'Directed Research'),
 ('REL', 625, 'Advanced Graduate Seminar in Global Islam'),
 ('REL', 794, 'Doctoral Dissertation'),
-('REL', 794, 'Doctoral Dissertation')
+('REL', 794, 'Doctoral Dissertation'),
 ('SLL', 120, 'Beginning Russian I'),
 ('SLL', 150, 'Beginning Russian II'),
 ('SLL', 199, 'Chess and Critical Thinking'),
@@ -1156,7 +1156,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('SLL', 794, 'Doctoral Dissertation'),
 ('SLL', 794, 'Doctoral Dissertation'),
 ('SLL', 794, 'Doctoral Dissertation'),
-('SLL', 794, 'Doctoral Dissertation')
+('SLL', 794, 'Doctoral Dissertation'),
 ('SOCI', 142, 'Diversity and Racial Conflict'),
 ('SOCI', 155, 'Immigrant America'),
 ('SOCI', 169, 'Changing Family Forms'),
@@ -1196,7 +1196,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('SOCI', 794, 'Doctoral Dissertation'),
 ('SOCI', 794, 'Doctoral Dissertation'),
 ('SOCI', 794, 'Doctoral Dissertation'),
-('SOCI', 794, 'Doctoral Dissertation')
+('SOCI', 794, 'Doctoral Dissertation'),
 ('SSCI', 135, 'Maps in the Digital World'),
 ('SSCI', 165, 'Sustainability Science in the City'),
 ('SSCI', 214, 'Human Populations and Natural Hazards'),
@@ -1226,11 +1226,11 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('SSCI', 683, 'Principles of Spatial Data Analysis'),
 ('SSCI', 684, 'Spatial Modeling with GIS'),
 ('SSCI', 790, 'Research'),
-('SSCI', 794, 'Doctoral Dissertation')
+('SSCI', 794, 'Doctoral Dissertation'),
 ('USC', 099, 'WBB Semester At Large'),
 ('USC', 300, 'Overseas Block Enrollment'),
 ('USC', 300, 'Off-Campus Studies'),
-('USC', 500, 'Off Campus Studies')
+('USC', 500, 'Off Campus Studies'),
 ('SPAN', 120, 'Spanish I'),
 ('SPAN', 150, 'Spanish II'),
 ('SPAN', 220, 'Spanish III'),
@@ -1258,7 +1258,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('SPAN', 794, 'Doctoral Dissertation'),
 ('SPAN', 794, 'Doctoral Dissertation'),
 ('SPAN', 794, 'Doctoral Dissertation'),
-('SPAN', 794, 'Doctoral Dissertation')
+('SPAN', 794, 'Doctoral Dissertation'),
 ('IDSN', 505, 'Intensive'),
 ('IDSN', 510, 'Integrative Practices Residential'),
 ('IDSN', 515, 'Professional Practices Residential'),
@@ -1270,7 +1270,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('IDSN', 550, 'Opportunity and Uncertainty'),
 ('IDSN', 560, 'Narrative and Storytelling'),
 ('IDSN', 570, 'Decisions and Solutions'),
-('IDSN', 585, 'Capstone')
+('IDSN', 585, 'Capstone'),
 ('ACAD', 174, 'Innovators Forum'),
 ('ACAD', 176, 'Rapid Visualization'),
 ('ACAD', 178, 'Digital Toolbox: Motion Graphics'),
@@ -1320,7 +1320,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('ACAD', 475, 'The Garage Experience'),
 ('ITP', 476, 'Technologies for Interactive Marketing'),
 ('ACAD', 490, 'Directed Research'),
-('ACAD', 590, 'Directed Research')
+('ACAD', 590, 'Directed Research'),
 ('ARCH', 102, 'Architectural Design I'),
 ('ARCH', 106, 'Workshop in Architecture'),
 ('ARCH', 202, 'Architectural Design II'),
@@ -1412,7 +1412,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('ARCH', 698, 'MLArch Thesis'),
 ('ARCH', 790, 'Doctoral Research'),
 ('ARCH', 793, 'Architecture Directed Design Research Option I'),
-('ARCH', 794, 'Doctoral Dissertation')
+('ARCH', 794, 'Doctoral Dissertation'),
 ('ACCT', 370, 'External Financial Reporting Issues'),
 ('ACCT', 371, 'Introduction to Accounting Systems'),
 ('ACCT', 372, 'Internal Reporting Issues'),
@@ -1456,7 +1456,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('ACCT', 590, 'Directed Research'),
 ('ACCT', 597, 'Consulting Project in Accounting'),
 ('ACCT', 611, 'Selected Topics in Accounting Research'),
-('ACCT', 630, 'Auditing and Archival Research')
+('ACCT', 630, 'Auditing and Archival Research'),
 ('BUAD', 102, 'Global Leadership Seminar'),
 ('BUAD', 104, 'Learning About International Commerce'),
 ('BUAD', 200, 'Economic Foundations for Business'),
@@ -1480,7 +1480,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('BUAD', 490, 'Directed Research'),
 ('BUAD', 493, 'Marshall Honors Research Seminar'),
 ('BUAD', 495, 'Practicum in Business Issues (Internship)'),
-('BUAD', 497, 'Strategic Management')
+('BUAD', 497, 'Strategic Management'),
 ('DSO', 401, 'Business Information Systems -- Spreadsheet Applications'),
 ('DSO', 424, 'Business Forecasting'),
 ('DSO', 462, 'Managing a Small Business on the Internet'),
@@ -1513,7 +1513,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('DSO', 599, 'Special Topics'),
 ('DSO', 607, 'High Dimensional Statistics and Big Data Problems'),
 ('DSO', 621, 'Research Forum'),
-('DSO', 699, 'Special Topics')
+('DSO', 699, 'Special Topics'),
 ('BAEP', 423, 'Management of Small Businesses'),
 ('BAEP', 450, 'Fundamentals of Entrepreneurship'),
 ('BAEP', 451, 'The Management of New Enterprises'),
@@ -1551,7 +1551,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('BAEP', 595, 'Internship in Business Entrepreneurship'),
 ('BAEP', 596, 'Research Practicum in Business Entrepreneurship'),
 ('BAEP', 597, 'Consulting Project in Business Entrepreneurship'),
-('BAEP', 599, 'Special Topics')
+('BAEP', 599, 'Special Topics'),
 ('BUCO', 252, 'The Art of Case Analysis and Presentation'),
 ('BUCO', 333, 'Communication in the Working World - Managing Diversity'),
 ('BUCO', 450, 'Communication for Organizations: Exploring Creativity'),
@@ -1563,15 +1563,15 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('BUCO', 593, 'Independent Research in Management Communication'),
 ('BUCO', 633, 'Writing a Journal Article for Publication'),
 ('BUCO', 635, 'Preparing for the Academic Job Market'),
-('BUCO', 636, 'Communication for Doctoral Students: Tutorial')
+('BUCO', 636, 'Communication for Doctoral Students: Tutorial'),
 ('WRIT', 095, 'Writing Tutorial'),
 ('WRIT', 120, 'Introduction to College Writing'),
 ('WRIT', 150, 'Writing and Critical Reasoning--Thematic Approaches'),
 ('WRIT', 340, 'Advanced Writing'),
 ('WRIT', 440, 'Writing in Practical Contexts'),
-('WRIT', 499, 'Special Topics')
+('WRIT', 499, 'Special Topics'),
 ('FIM', 560, 'Decision Making in the Food Industry'),
-('FIM', 564, 'Innovation in the Food Industry')
+('FIM', 564, 'Innovation in the Food Industry'),
 ('GSBA', 502, 'Management Communication for Leaders'),
 ('GSBA', 504, 'Operations Management'),
 ('GSBA', 507, 'Organizational Behavior'),
@@ -1594,7 +1594,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('GSBA', 794, 'Doctoral Dissertation'),
 ('GSBA', 794, 'Doctoral Dissertation'),
 ('GSBA', 794, 'Doctoral Dissertation'),
-('GSBA', 794, 'Doctoral Dissertation')
+('GSBA', 794, 'Doctoral Dissertation'),
 ('FBE', 206, 'The Power of Personal Finance'),
 ('FBE', 324, 'The Financial System'),
 ('FBE', 391, 'Real Estate Finance and Investment'),
@@ -1646,13 +1646,13 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('FBE', 630, 'Fundamentals of Corporate Finance'),
 ('FBE', 631, 'Advanced Corporate Finance'),
 ('FBE', 633, 'Fundamentals of Asset Pricing'),
-('FBE', 670, 'Selected Topics in Finance Research')
+('FBE', 670, 'Selected Topics in Finance Research'),
 ('LIM', 500, 'Fundamentals of Library and Information Science'),
 ('LIM', 502, 'Collection Development and Management'),
 ('LIM', 552, 'Strategic Information and Competitive Analysis'),
 ('LIM', 562, 'Library and Information Technology Management'),
 ('LIM', 591, 'Research and Professional Applications'),
-('LIM', 598, 'Capstone in Library and Information Management')
+('LIM', 598, 'Capstone in Library and Information Management'),
 ('HRM', 500, 'Human Resource Strategy'),
 ('HRM', 505, 'Organizational Culture and Employee Outcomes'),
 ('HRM', 510, 'Leadership in Human Resources'),
@@ -1664,7 +1664,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('HRM', 540, 'Human Resources Analytics'),
 ('HRM', 545, 'Management of Diverse and Global Human Resources'),
 ('HRM', 550, 'Change Management and Organization Development'),
-('HRM', 555, 'Anticipating the Future of Human Resources')
+('HRM', 555, 'Anticipating the Future of Human Resources'),
 ('MKT', 402, 'Research Skills for Marketing Insights'),
 ('MKT', 405, 'Advertising and Promotion Management'),
 ('MKT', 406, 'Practicum in Advertising and Promotion Design'),
@@ -1693,7 +1693,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MKT', 597, 'Consulting Project in Marketing'),
 ('MKT', 599, 'Special Topics'),
 ('MKT', 620, 'Advanced Quantitative Models in Marketing'),
-('MKT', 621, 'Research Forum')
+('MKT', 621, 'Research Forum'),
 ('CMPP', 541, 'Producing Workshop'),
 ('CMPP', 560, 'Script Development'),
 ('CMPP', 564, 'Digital Media and Entertainment'),
@@ -1701,7 +1701,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CMPP', 569, 'Seminar on Non-Mainstream Producing'),
 ('CMPP', 570, 'Advanced Television'),
 ('CMPP', 589, 'Graduate Film Business Seminar'),
-('CMPP', 592, 'Individual Project Seminar')
+('CMPP', 592, 'Individual Project Seminar'),
 ('PJMT', 500, 'Principles of Project Management'),
 ('PJMT', 505, 'Requirements Elicitation and Business Analysis'),
 ('PJMT', 510, 'Schedule Management'),
@@ -1713,7 +1713,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PJMT', 540, 'Organizational Change Management and Business Relationships'),
 ('PJMT', 545, 'Program Management'),
 ('PJMT', 550, 'Portfolio Management'),
-('PJMT', 555, 'Project Management Capstone')
+('PJMT', 555, 'Project Management Capstone'),
 ('BUCO', 252, 'The Art of Case Analysis and Presentation'),
 ('MOR', 385, 'Business, Government and Society'),
 ('MOR', 421, 'Social and Ethical Issues in Business'),
@@ -1752,7 +1752,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MOR', 602, 'Seminar in Organization Theory'),
 ('MOR', 605, 'Research Methods in Organizational Behavior'),
 ('MOR', 621, 'Research Forum'),
-('MOR', 790, 'Research')
+('MOR', 790, 'Research'),
 ('CTAN', 102, 'Introduction to the Art of Movement'),
 ('CTAN', 200, 'The Rise of Digital Hollywood'),
 ('CTAN', 202, 'Introduction to 3-D Character Animation'),
@@ -1792,7 +1792,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CTAN', 592, 'Master Class'),
 ('CTAN', 593, 'Directed Studies in Animation'),
 ('CTAN', 594, 'Master&apos;s Thesis'),
-('CTAN', 599, 'Special Topics')
+('CTAN', 599, 'Special Topics'),
 ('CTIN', 191, 'Survey of Themed Entertainment'),
 ('CTIN', 290, 'Digital Media Workshop'),
 ('CTIN', 404, 'Usability Testing for Games'),
@@ -1820,7 +1820,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CTIN', 590, 'Directed Research'),
 ('CTIN', 593, 'Integrative Project: Media-based Interventions in Healthcare'),
 ('CTIN', 594, 'Master&apos;s Thesis'),
-('CTIN', 594, 'Master&apos;s Thesis')
+('CTIN', 594, 'Master&apos;s Thesis'),
 ('CTCS', 190, 'Introduction to Cinema'),
 ('CTCS', 191, 'Introduction to Television and Video'),
 ('CTCS', 192, 'Race, Class, and Gender in American Film'),
@@ -1850,10 +1850,10 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CTCS', 794, 'Doctoral Dissertation'),
 ('CTCS', 794, 'Doctoral Dissertation'),
 ('CTCS', 794, 'Doctoral Dissertation'),
-('CTCS', 794, 'Doctoral Dissertation')
+('CTCS', 794, 'Doctoral Dissertation'),
 ('DSM', 520, 'Managing Technologies for Digital Media'),
 ('DSM', 560, 'Digital Media Policy, Law, Practices, and Regulation'),
-('DSM', 590, 'Directed Research')
+('DSM', 590, 'Directed Research'),
 ('CTPR', 285, 'Lateral Thinking for Filmmaking Practice'),
 ('CTPR', 288, 'Originating and Developing Ideas for Film'),
 ('CTPR', 290, 'Cinematic Communication'),
@@ -1936,10 +1936,10 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CTPR', 587, 'Group Production Workshop'),
 ('CTPR', 587, 'Group Production Workshop'),
 ('CTPR', 587, 'Group Production Workshop'),
-('CTPR', 587, 'Group Production Workshop')
+('CTPR', 587, 'Group Production Workshop'),
 ('ASCJ', 200, 'Navigating Media and News in the Digital Age'),
 ('ASCJ', 210, 'Contours of Change in Media and Communication'),
-('ASCJ', 420, 'Annenberg Collaboratory')
+('ASCJ', 420, 'Annenberg Collaboratory'),
 ('COMM', 200, 'Communication and Social Science'),
 ('COMM', 204, 'Public Speaking'),
 ('COMM', 205, 'Communication Practicum'),
@@ -2023,7 +2023,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('COMM', 794, 'Doctoral Dissertation'),
 ('COMM', 794, 'Doctoral Dissertation'),
 ('COMM', 794, 'Doctoral Dissertation'),
-('COMM', 794, 'Doctoral Dissertation')
+('COMM', 794, 'Doctoral Dissertation'),
 ('CMGT', 500, 'Managing Communication'),
 ('CMGT', 501, 'Communication Management Pro-Seminar'),
 ('CMGT', 502, 'Strategic Corporate Communication'),
@@ -2052,7 +2052,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CMGT', 591, 'Communication Internship'),
 ('CMGT', 597, 'Communication Research Practicum'),
 ('CMGT', 597, 'Communication Research Practicum'),
-('CMGT', 599, 'Special Topics')
+('CMGT', 599, 'Special Topics'),
 ('IML', 104, 'Introduction to Digital Studies'),
 ('IML', 140, 'Workshop in Multimedia Authoring'),
 ('IML', 201, 'The Languages of Digital Media'),
@@ -2093,7 +2093,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('IML', 794, 'Doctoral Dissertation'),
 ('IML', 794, 'Doctoral Dissertation'),
 ('IML', 794, 'Doctoral Dissertation'),
-('IML', 794, 'Doctoral Dissertation')
+('IML', 794, 'Doctoral Dissertation'),
 ('JOUR', 200, 'The Power and Responsibility of the Press'),
 ('JOUR', 201, 'Culture of Journalism: Past, Present and Future'),
 ('JOUR', 205, 'Journalism Practicum'),
@@ -2158,7 +2158,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('JOUR', 594, 'Master&apos;s Thesis'),
 ('JOUR', 594, 'Master&apos;s Thesis'),
 ('JOUR', 598, 'Journalism Capstone Project'),
-('JOUR', 599, 'Special Topics')
+('JOUR', 599, 'Special Topics'),
 ('PUBD', 369, 'Public Diplomacy and Global Citizenship'),
 ('PUBD', 417, 'Global Engagement: Designing Public Diplomacy Strategies'),
 ('PUBD', 420, 'Regional Studies in Public Diplomacy'),
@@ -2166,7 +2166,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PUBD', 522, 'Hard Power, Soft Power and Smart Power'),
 ('PUBD', 526, 'Public Diplomacy Evaluation'),
 ('PUBD', 590, 'Directed Research'),
-('PUBD', 596, 'Practicum in Public Diplomacy Research')
+('PUBD', 596, 'Practicum in Public Diplomacy Research'),
 ('PR', 209, 'Effective Writing for Strategic Public Relations'),
 ('PR', 250, 'Strategic Public Relations: An Introduction'),
 ('PR', 340, 'Introduction to Advertising'),
@@ -2199,7 +2199,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PR', 594, 'Master&apos;s Thesis'),
 ('PR', 594, 'Master&apos;s Thesis'),
 ('PR', 598, 'Graduate Honors Seminar: Improvisational Leadership'),
-('PR', 599, 'Special Topics')
+('PR', 599, 'Special Topics'),
 ('CBY', 574, 'Statistical Methods in Bioexperimentation'),
 ('CBY', 576, 'Biochemical Aspects of Periodontal Disease'),
 ('CBY', 582, 'Laboratory Methods'),
@@ -2214,7 +2214,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CBY', 794, 'Doctoral Dissertation'),
 ('CBY', 794, 'Doctoral Dissertation'),
 ('CBY', 794, 'Doctoral Dissertation'),
-('CBY', 794, 'Doctoral Dissertation')
+('CBY', 794, 'Doctoral Dissertation'),
 ('DANC', 105, 'Dance Science: Analysis of Dance Movement'),
 ('DANC', 110, 'Dance Technique I'),
 ('DANC', 120, 'Repertory and Performance I'),
@@ -2259,17 +2259,17 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('DANC', 485, 'Advanced Performance Studies: Senior Project'),
 ('DANC', 490, 'Directed Research'),
 ('DANC', 495, 'Dance Internship'),
-('DANC', 499, 'Special Topics')
+('DANC', 499, 'Special Topics'),
 ('DENT', 221, 'Introduction to Dentistry'),
 ('DENT', 412, 'Fundamentals of Craniofacial and Dental Technology'),
 ('DENT', 695, 'Clinic Completion'),
-('DENT', 850, 'Advanced Dentistry Third Year')
+('DENT', 850, 'Advanced Dentistry Third Year'),
 ('DHYG', 311, 'Fundamentals of Clinical Dental Hygiene Practice'),
 ('DHYG', 320, 'Preventive Dental Therapy'),
 ('DHYG', 410, 'Clinic: Dental Hygiene'),
 ('DHYG', 414, 'Advanced Dental Hygiene'),
 ('DHYG', 422, 'Essentials of Dental Hygiene Practice'),
-('DHYG', 516, 'Community Oral Health')
+('DHYG', 516, 'Community Oral Health'),
 ('ADNT', 703, 'Seminar: Combined Treatment Planning'),
 ('ADNT', 703, 'Seminar: Combined Treatment Planning'),
 ('ADNT', 703, 'Seminar: Combined Treatment Planning'),
@@ -2279,7 +2279,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('ADNT', 704, 'Oral Biology'),
 ('ADNT', 706, 'Seminar: Diseases of Childhood'),
 ('ADNT', 707, 'Behavior of the Child Patient'),
-('ADNT', 710, 'Internship: Dental Education')
+('ADNT', 710, 'Internship: Dental Education'),
 ('DPBL', 501, 'Dental Problem Based Learning--Human Structure I'),
 ('DPBL', 502, 'Dental Problem Based Learning -- Human Function I'),
 ('DPBL', 503, 'Dental Problem Based Learning -- Human Behavior I'),
@@ -2295,9 +2295,9 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('DPBL', 531, 'Dental Problem Based Learning -- Human Structure IV'),
 ('DPBL', 532, 'Dental Problem Based Learning -- Human Function IV'),
 ('DPBL', 533, 'Dental Problem Based Learning -- Human Behavior IV'),
-('DPBL', 534, 'Dental Problem Based Learning -- Human Clinical Dentistry IV')
+('DPBL', 534, 'Dental Problem Based Learning -- Human Clinical Dentistry IV'),
 ('OFP', 705, 'Neurogenic Based Oral and Facial Pains'),
-('OFP', 724, 'Psychological and Psychometric Assessment')
+('OFP', 724, 'Psychological and Psychometric Assessment'),
 ('OFPM', 705, 'Neurogenic Based Oral and Facial Pains for Dental Residents'),
 ('OFPM', 709, 'Headaches for Dental Residents'),
 ('OFPM', 721, 'Neurosciences for Dental Residents'),
@@ -2307,7 +2307,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('OFPM', 729, 'Capstone Project for OFPOM Residents'),
 ('OFPM', 729, 'Capstone Project for OFPOM Residents'),
 ('OFPM', 730, 'Case Portfolio Preparation by Online OFPOM Residents'),
-('OFPM', 730, 'Case Portfolio Preparation by Online OFPOM Residents')
+('OFPM', 730, 'Case Portfolio Preparation by Online OFPOM Residents'),
 ('GDEN', 712, 'Capstone Research Project for GDEN Students'),
 ('GDEN', 712, 'Capstone Research Project for GDEN Students'),
 ('GDEN', 714, 'Topics in Gerontology'),
@@ -2315,7 +2315,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('OFPM', 722, 'Internal Medicine and Systemic Disease for Dental Residents'),
 ('OFPM', 725, 'Epidemiology, Nutrition and Aging for Dental Residents'),
 ('GDEN', 730, 'OFPM Case Portfolio Preparation for Dental Residents'),
-('GDEN', 731, 'GDEN Case Portfolio Preparation for Dental Residents')
+('GDEN', 731, 'GDEN Case Portfolio Preparation for Dental Residents'),
 ('OPER', 704, 'Operative Dentistry and Biomaterials Literature Review'),
 ('OPER', 704, 'Operative Dentistry and Biomaterials Literature Review'),
 ('OPER', 706, 'Operative Implant Dentistry'),
@@ -2324,9 +2324,9 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('OPER', 780, 'Treatment Planning in Operative Dentistry'),
 ('OPER', 780, 'Treatment Planning in Operative Dentistry'),
 ('OPER', 795, 'Clinic: Advanced Operative Dentistry'),
-('OPER', 795, 'Clinic: Advanced Operative Dentistry')
+('OPER', 795, 'Clinic: Advanced Operative Dentistry'),
 ('OPR', 705, 'Oral Histopathology and Surgical Pathology'),
-('OPR', 706, 'Evidence-Based Practice and Literature Review')
+('OPR', 706, 'Evidence-Based Practice and Literature Review'),
 ('PERI', 310, 'Introduction to Periodontal Diseases'),
 ('PERI', 701, 'Seminar: Review of Current Periodontal Literature'),
 ('PERI', 701, 'Seminar: Review of Current Periodontal Literature'),
@@ -2344,7 +2344,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PERI', 752, 'Interdisciplinary Treatment: An Orthodontic Perspective'),
 ('PERI', 761, 'Clinic: Advanced Periodontics'),
 ('PERI', 761, 'Clinic: Advanced Periodontics'),
-('PERI', 761, 'Clinic: Advanced Periodontics')
+('PERI', 761, 'Clinic: Advanced Periodontics'),
 ('PEDO', 701, 'Seminar: Advanced Pediatric Dentistry'),
 ('PEDO', 702, 'Comprehensive Review of Pediatric Dentistry'),
 ('PEDO', 702, 'Comprehensive Review of Pediatric Dentistry'),
@@ -2363,7 +2363,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PEDO', 773, 'Hospital Pediatric Clinics'),
 ('PEDO', 774, 'Clinical Genetics in Pediatric Dentistry'),
 ('PEDO', 790, 'Directed Research: Pediatric Dentistry'),
-('PEDO', 790, 'Directed Research: Pediatric Dentistry')
+('PEDO', 790, 'Directed Research: Pediatric Dentistry'),
 ('THTR', 101, 'Introduction to Acting'),
 ('THTR', 105, 'Introduction to Screen Acting'),
 ('THTR', 115, 'Movement I'),
@@ -2485,7 +2485,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('THTR', 571, 'Professional Seminar'),
 ('THTR', 590, 'Directed Research'),
 ('THTR', 596, 'Thesis Development and Attainment'),
-('THTR', 597, 'Theatre Practicum')
+('THTR', 597, 'Theatre Practicum'),
 ('EDHP', 552, 'The Politics of Difference'),
 ('SWMS', 560, 'Feminist Theory'),
 ('EDHP', 565, 'Intervention Strategies in College Student Development'),
@@ -2496,11 +2496,11 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('EDHP', 594, 'Master&apos;s Thesis'),
 ('EDHP', 594, 'Master&apos;s Thesis'),
 ('EDHP', 657, 'Management of Student Services in Higher Education'),
-('EDHP', 679, 'Legal Issues in the Administration of Higher Education')
+('EDHP', 679, 'Legal Issues in the Administration of Higher Education'),
 ('EDCO', 503, 'Ethical and Legal Issues in Counseling'),
 ('EDCO', 505, 'Counseling and Collaborative Consultation in the School Setting'),
 ('EDCO', 541, 'Theories in Counseling'),
-('EDCO', 575, 'School Counseling Field Experience')
+('EDCO', 575, 'School Counseling Field Experience'),
 ('BME', 101, 'Introduction to Biomedical Engineering'),
 ('BME', 201, 'Biomedical Engineering Practice'),
 ('BME', 210, 'Biomedical Computer Simulation Methods'),
@@ -2537,7 +2537,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('BME', 794, 'Doctoral Dissertation'),
 ('BME', 794, 'Doctoral Dissertation'),
 ('BME', 794, 'Doctoral Dissertation'),
-('BME', 794, 'Doctoral Dissertation')
+('BME', 794, 'Doctoral Dissertation'),
 ('ASTE', 280, 'Foundations of Astronautical Engineering'),
 ('ASTE', 291, 'Team Projects I'),
 ('ASTE', 301, 'Thermal and Statistical Systems'),
@@ -2570,7 +2570,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('ASTE', 794, 'Doctoral Dissertation'),
 ('ASTE', 794, 'Doctoral Dissertation'),
 ('ASTE', 794, 'Doctoral Dissertation'),
-('ASTE', 794, 'Doctoral Dissertation')
+('ASTE', 794, 'Doctoral Dissertation'),
 ('CHE', 120, 'Introduction to Chemical Engineering'),
 ('CHE', 205, 'Numerical Methods in Chemical Engineering'),
 ('CHE', 330, 'Chemical Engineering Thermodynamics'),
@@ -2604,7 +2604,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CHE', 794, 'Doctoral Dissertation'),
 ('CHE', 794, 'Doctoral Dissertation'),
 ('CHE', 794, 'Doctoral Dissertation'),
-('CHE', 794, 'Doctoral Dissertation')
+('CHE', 794, 'Doctoral Dissertation'),
 ('AME', 201, 'Statics'),
 ('AME', 204, 'Strength of Materials'),
 ('AME', 231, 'Mechanical Behavior of Materials'),
@@ -2667,7 +2667,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('AME', 794, 'Doctoral Dissertation'),
 ('AME', 794, 'Doctoral Dissertation'),
 ('AME', 794, 'Doctoral Dissertation'),
-('AME', 794, 'Doctoral Dissertation')
+('AME', 794, 'Doctoral Dissertation'),
 ('CE', 108, 'Introduction to Computer Methods in Civil Engineering'),
 ('CE', 205, 'Statics'),
 ('CE', 207, 'Introduction to Design of Structural Systems'),
@@ -2720,7 +2720,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CE', 794, 'Doctoral Dissertation'),
 ('CE', 794, 'Doctoral Dissertation'),
 ('CE', 794, 'Doctoral Dissertation'),
-('CE', 794, 'Doctoral Dissertation')
+('CE', 794, 'Doctoral Dissertation'),
 ('CSCI', 102, 'Fundamentals of Computation'),
 ('CSCI', 103, 'Introduction to Programming'),
 ('CSCI', 104, 'Data Structures and Object Oriented Design'),
@@ -2801,7 +2801,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CSCI', 794, 'Doctoral Dissertation'),
 ('CSCI', 794, 'Doctoral Dissertation'),
 ('CSCI', 794, 'Doctoral Dissertation'),
-('CSCI', 794, 'Doctoral Dissertation')
+('CSCI', 794, 'Doctoral Dissertation'),
 ('EE', 109, 'Introduction to Embedded Systems'),
 ('EE', 202, 'Linear Circuits'),
 ('EE', 250, 'Distributed Systems for the Internet of Things'),
@@ -2897,7 +2897,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('EE', 794, 'Doctoral Dissertation'),
 ('EE', 794, 'Doctoral Dissertation'),
 ('EE', 794, 'Doctoral Dissertation'),
-('EE', 794, 'Doctoral Dissertation')
+('EE', 794, 'Doctoral Dissertation'),
 ('ENE', 200, 'Environmental Engineering Principles'),
 ('ENE', 426, 'Particulate Air Pollutants: Properties/Behavior/Measurement'),
 ('ENE', 428, 'Air Pollution Fundamentals'),
@@ -2916,7 +2916,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('ENE', 794, 'Doctoral Dissertation'),
 ('ENE', 794, 'Doctoral Dissertation'),
 ('ENE', 794, 'Doctoral Dissertation'),
-('ENE', 794, 'Doctoral Dissertation')
+('ENE', 794, 'Doctoral Dissertation'),
 ('INF', 352, 'Applied Machine Learning and Data Mining'),
 ('INF', 510, 'Principles of Programming for Informatics'),
 ('INF', 525, 'Trusted System Design, Analysis and Development'),
@@ -2933,7 +2933,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('INF', 559, 'Introduction to Data Management'),
 ('INF', 560, 'Data Informatics Professional Practicum'),
 ('BME', 528, 'Medical Diagnostics, Therapeutics and Informatics Applicatio'),
-('INF', 590, 'Directed Research')
+('INF', 590, 'Directed Research'),
 ('ISE', 150, 'Solving Engineering Problems via Computer Programming'),
 ('ISE', 220, 'Probability Concepts in Engineering'),
 ('ISE', 225, 'Engineering Statistics I'),
@@ -2995,7 +2995,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('ISE', 794, 'Doctoral Dissertation'),
 ('ISE', 794, 'Doctoral Dissertation'),
 ('ISE', 794, 'Doctoral Dissertation'),
-('ISE', 794, 'Doctoral Dissertation')
+('ISE', 794, 'Doctoral Dissertation'),
 ('ENGR', 100, 'Engineering Honors Colloquium'),
 ('ENGR', 100, 'Engineering Honors Colloquium'),
 ('ENGR', 100, 'Engineering Honors Colloquium'),
@@ -3015,7 +3015,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('ENGR', 595, 'Professional Writing and Communication for Internships'),
 ('ENGR', 596, 'Internship in Engineering'),
 ('ENGR', 597, 'Internship in Engineering with Professional Writing and Communication'),
-('ENGR', 598, 'Professional Internship Experiences')
+('ENGR', 598, 'Professional Internship Experiences'),
 ('AMST', 392, 'Undergraduate Research Methods'),
 ('EDUC', 411, 'Foundation of TESOL'),
 ('EDUC', 412, 'Instructional Methods in TESOL'),
@@ -3122,7 +3122,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('EDUC', 794, 'Doctoral Dissertation'),
 ('EDUC', 794, 'Doctoral Dissertation'),
 ('EDUC', 794, 'Doctoral Dissertation'),
-('EDUC', 794, 'Doctoral Dissertation')
+('EDUC', 794, 'Doctoral Dissertation'),
 ('MASC', 110, 'Materials Science'),
 ('MASC', 310, 'Materials Behavior and Processing'),
 ('MASC', 350, 'Nanostructured Materials: Design, Synthesis, and Processing'),
@@ -3154,7 +3154,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MASC', 794, 'Doctoral Dissertation'),
 ('MASC', 794, 'Doctoral Dissertation'),
 ('MASC', 794, 'Doctoral Dissertation'),
-('MASC', 794, 'Doctoral Dissertation')
+('MASC', 794, 'Doctoral Dissertation'),
 ('PTE', 412, 'Petroleum Reservoir Engineering'),
 ('PTE', 464, 'Petroleum Reservoir Engineering'),
 ('PTE', 490, 'Directed Research'),
@@ -3176,7 +3176,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PTE', 794, 'Doctoral Dissertation'),
 ('PTE', 794, 'Doctoral Dissertation'),
 ('PTE', 794, 'Doctoral Dissertation'),
-('PTE', 794, 'Doctoral Dissertation')
+('PTE', 794, 'Doctoral Dissertation'),
 ('CRIT', 150, 'Histories of Art, Design and Visual Culture'),
 ('CRIT', 160, 'Critical Theory in Art, Design and Visual Culture'),
 ('CRIT', 350, 'Global Art, Design and Visual Culture since 1960'),
@@ -3189,7 +3189,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CRIT', 590, 'Directed Research'),
 ('CRIT', 591, 'Field Internship Experience'),
 ('CRIT', 594, 'Master&apos;s Thesis'),
-('CRIT', 594, 'Master&apos;s Thesis')
+('CRIT', 594, 'Master&apos;s Thesis'),
 ('ART', 105, 'Art and Design Studio I'),
 ('ART', 106, 'Art and Design Studio II'),
 ('ART', 110, 'Drawing for Art and Design'),
@@ -3234,7 +3234,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('ART', 535, 'Group Critique'),
 ('ART', 590, 'Directed Research'),
 ('ART', 594, 'Master&apos;s Thesis'),
-('ART', 599, 'Special Topics')
+('ART', 599, 'Special Topics'),
 ('SAE', 541, 'Systems Engineering Theory and Practice'),
 ('SAE', 542, 'Advanced Topics in Systems Engineering'),
 ('SAE', 548, 'Systems/System-of-Systems Integration and Communication'),
@@ -3245,7 +3245,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('SAE', 590, 'Directed Research'),
 ('SAE', 594, 'Master&apos;s Thesis'),
 ('SAE', 594, 'Master&apos;s Thesis'),
-('SAE', 594, 'Master&apos;s Thesis')
+('SAE', 594, 'Master&apos;s Thesis'),
 ('DES', 102, 'Design Fundamentals'),
 ('ART', 105, 'Art and Design Studio I'),
 ('ART', 106, 'Art and Design Studio II'),
@@ -3271,7 +3271,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('DES', 514, 'Designers in Residence Forum'),
 ('DES', 520, 'Individual Studies'),
 ('DES', 523, 'Design Theory'),
-('DES', 599, 'Special Topics')
+('DES', 599, 'Special Topics'),
 ('AHIS', 128, 'Arts of Latin America'),
 ('AMST', 135, 'Peoples and Cultures of the Americas'),
 ('AMST', 250, 'The African Diaspora'),
@@ -3286,7 +3286,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('HIST', 106, 'Chinese Lives: An Introduction to Chinese History'),
 ('PORT', 250, 'Cultures of Brazil and Lusophone Africa'),
 ('REL', 134, 'Introduction to Buddhism'),
-('SLL', 330, 'Russian Thought and Civilization')
+('SLL', 330, 'Russian Thought and Civilization'),
 ('AHIS', 121, 'Art and Society: Renaissance to Modern'),
 ('AHIS', 201, 'Digging into the Past'),
 ('AHIS', 220, 'Medieval Visual Culture'),
@@ -3301,13 +3301,13 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('JS', 314, 'Holy War And History: Jews, Christians, Muslims'),
 ('PHIL', 110, 'Modern Foundations of Western Thought'),
 ('REL', 121, 'The World of the New Testament'),
-('REL', 125, 'Introduction to Christianity')
+('REL', 125, 'Introduction to Christianity'),
 ('ASTR', 100, 'The Universe'),
 ('BISC', 104, 'How the Body Works'),
 ('GEOL', 105, 'Planet Earth'),
 ('GEOL', 107, 'Oceanography'),
 ('PHYS', 100, 'The Physical World'),
-('PHYS', 161, 'Advanced Principles of Physics I')
+('PHYS', 161, 'Advanced Principles of Physics I'),
 ('AMST', 101, 'Race and Class in Los Angeles'),
 ('ENST', 150, 'Environmental Issues in Society'),
 ('HIST', 225, 'Film, Power, and American History'),
@@ -3325,7 +3325,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('SOCI', 169, 'Changing Family Forms'),
 ('SOCI', 210, 'Science, Technology, and Social Conflict'),
 ('SOCI', 242, 'Sociology, Demography, and Health'),
-('SSCI', 165, 'Sustainability Science in the City')
+('SSCI', 165, 'Sustainability Science in the City'),
 ('AHIS', 100, 'Introduction to Visual Culture'),
 ('AMST', 150, 'The American War in Viet Nam'),
 ('CLAS', 160, 'Ancient Lives'),
@@ -3335,7 +3335,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PHIL', 260, 'Ethical Theory and Practice'),
 ('REL', 114, 'The Mediterranean: A Religious History'),
 ('SLL', 344, 'Tolstoy: Writer and Moralist'),
-('SWMS', 301, 'Feminist Theory: an Introduction')
+('SWMS', 301, 'Feminist Theory: an Introduction'),
 ('AMST', 101, 'Race and Class in Los Angeles'),
 ('AMST', 135, 'Peoples and Cultures of the Americas'),
 ('AMST', 140, 'Borderlands in a Global Context'),
@@ -3371,7 +3371,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('RXRS', 413, 'Globalization of the Biomedical Industry'),
 ('SSCI', 165, 'Sustainability Science in the City'),
 ('THTR', 476, 'African American Theatre, Dance, and Performance'),
-('THTR', 488, 'Theatre in the Community')
+('THTR', 488, 'Theatre in the Community'),
 ('ACAD', 309, 'Dreams and Madness: The Art of Japan&apos;s Golden Age of Animation'),
 ('ACAD', 324, 'The Practice of Design: Ideation to Innovation'),
 ('AHIS', 121, 'Art and Society: Renaissance to Modern'),
@@ -3408,7 +3408,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MUSC', 250, 'The Music of Black Americans'),
 ('MUSC', 320, 'Hip-hop Music and Culture'),
 ('MUSC', 372, 'Music, Turmoil and Nationalism'),
-('THTR', 225, 'Theatre Across History and Cultures')
+('THTR', 225, 'Theatre Across History and Cultures'),
 ('AMST', 101, 'Race and Class in Los Angeles'),
 ('AMST', 135, 'Peoples and Cultures of the Americas'),
 ('AMST', 140, 'Borderlands in a Global Context'),
@@ -3453,7 +3453,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('SOCI', 210, 'Science, Technology, and Social Conflict'),
 ('SOCI', 242, 'Sociology, Demography, and Health'),
 ('SSCI', 165, 'Sustainability Science in the City'),
-('SSCI', 214, 'Human Populations and Natural Hazards')
+('SSCI', 214, 'Human Populations and Natural Hazards'),
 ('AHIS', 100, 'Introduction to Visual Culture'),
 ('AHIS', 201, 'Digging into the Past'),
 ('AMST', 150, 'The American War in Viet Nam'),
@@ -3519,7 +3519,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('SLL', 330, 'Russian Thought and Civilization'),
 ('SLL', 344, 'Tolstoy: Writer and Moralist'),
 ('SWMS', 212, 'Studies in Gender and Sexuality: An Introduction'),
-('SWMS', 301, 'Feminist Theory: an Introduction')
+('SWMS', 301, 'Feminist Theory: an Introduction'),
 ('ARCH', 213, 'Building Structures and Seismic Design'),
 ('BUAD', 310, 'Applied Business Statistics'),
 ('COMM', 301, 'Empirical Research in Communication'),
@@ -3542,7 +3542,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PHIL', 258, 'Probability and Rational Choice'),
 ('PSYC', 274, 'Statistics'),
 ('SOCI', 314, 'Analyzing Social Statistics'),
-('SSCI', 135, 'Maps in the Digital World')
+('SSCI', 135, 'Maps in the Digital World'),
 ('BISC', 102, 'Humans and Their Environment'),
 ('BISC', 103, 'General Biology for the Environment and Life'),
 ('BISC', 104, 'How the Body Works'),
@@ -3565,7 +3565,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('LING', 110, 'In a Word'),
 ('PHIL', 246, 'Foundations of Cognitive Science'),
 ('PSYC', 100, 'Introduction to Psychology'),
-('PSYC', 165, 'Drugs, Behavior, and Society')
+('PSYC', 165, 'Drugs, Behavior, and Society'),
 ('ASTR', 100, 'The Universe'),
 ('ASTR', 200, 'Life in the Universe'),
 ('CHEM', 105, 'General Chemistry'),
@@ -3581,7 +3581,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PHYS', 161, 'Advanced Principles of Physics I'),
 ('PHYS', 171, 'Applied Physics I: Mechanics'),
 ('PHYS', 200, 'The Physics and Technology of Energy'),
-('SSCI', 265, 'The Water Planet')
+('SSCI', 265, 'The Water Planet'),
 ('GESM', 110, 'Seminar in the Arts'),
 ('GESM', 111, 'Seminar in the Arts'),
 ('GESM', 120, 'Seminar in Humanistic Inquiry'),
@@ -3591,7 +3591,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('GESM', 140, 'Seminar in the Life Sciences'),
 ('GESM', 141, 'Seminar in the Life Sciences'),
 ('GESM', 160, 'Seminar in Quantitative Reasoning'),
-('GESM', 161, 'Seminar in Quantitative Reasoning')
+('GESM', 161, 'Seminar in Quantitative Reasoning'),
 ('ITP', 101, 'Introduction to Business Information Technologies'),
 ('ITP', 104, 'Web Publishing'),
 ('ITP', 109, 'Introduction to Java Programming'),
@@ -3650,7 +3650,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('ITP', 487, 'Data Warehouses'),
 ('ITP', 489, 'In-Memory Database Systems for Real Time Analytics'),
 ('ITP', 496, 'The Startup Launchpad Lab'),
-('ITP', 499, 'Special Topics')
+('ITP', 499, 'Special Topics'),
 ('AHIS', 121, 'Art and Society: Renaissance to Modern'),
 ('AHIS', 128, 'Arts of Latin America'),
 ('AMST', 301, 'America, the Frontier, and the New West'),
@@ -3680,14 +3680,14 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('REL', 345, 'Islamic Mysticism: Sufism'),
 ('RXRS', 201, 'The History and Geography of Drugs'),
 ('SLL', 330, 'Russian Thought and Civilization'),
-('SWMS', 212, 'Studies in Gender and Sexuality: An Introduction')
+('SWMS', 212, 'Studies in Gender and Sexuality: An Introduction'),
 ('ACMD', 503, 'Leading Change in Academic Medical Centers'),
 ('ACMD', 511, 'Competencies in Academic Medicine and Health I'),
 ('ACMD', 512, 'Competencies in Academic Medicine and Health II'),
 ('ACMD', 592, 'Implementing Research on Innovation in Academic Medicine'),
 ('ACMD', 593, 'Foundations of Academic Writing'),
 ('ACMD', 598, 'Fieldwork: Designing Innovations for the Health Professions'),
-('ACMD', 621, 'Capstone Portfolio for the Master of Academic Medicine')
+('ACMD', 621, 'Capstone Portfolio for the Master of Academic Medicine'),
 ('ANST', 501, 'Advanced Pharmacology of Anesthesia Practice I'),
 ('ANST', 502, 'Principles of Nurse Anesthesia Practice'),
 ('ANST', 601, 'Professional Integration to the Clinical Environment'),
@@ -3696,7 +3696,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('ANST', 620, 'Clinical Synthesis I'),
 ('ANST', 694, 'Doctoral Capstone Project'),
 ('ANST', 694, 'Doctoral Capstone Project'),
-('ANST', 694, 'Doctoral Capstone Project')
+('ANST', 694, 'Doctoral Capstone Project'),
 ('BIOC', 543, 'Human Molecular Genetics'),
 ('INTD', 549, 'Protein Chemistry -- Structure and Function'),
 ('MICB', 551, 'Procaryotic Molecular Genetics'),
@@ -3714,20 +3714,20 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('BIOC', 794, 'Doctoral Dissertation'),
 ('BIOC', 794, 'Doctoral Dissertation'),
 ('BIOC', 794, 'Doctoral Dissertation'),
-('BIOC', 794, 'Doctoral Dissertation')
+('BIOC', 794, 'Doctoral Dissertation'),
 ('CNB', 503, 'Advanced Regional Anatomy II'),
 ('CNB', 511, 'Microscopic Anatomy'),
 ('CNB', 521, 'Neuroanatomy'),
 ('INTD', 573, 'Systems Physiology and Disease II'),
 ('CNB', 581, 'Gross Anatomy Teaching Practicum II'),
-('CNB', 590, 'Directed Research')
+('CNB', 590, 'Directed Research'),
 ('CBG', 580, 'Topics in Cancer (Epi)Genomics'),
 ('CBG', 790, 'Research'),
 ('CBG', 794, 'Doctoral Dissertation'),
 ('CBG', 794, 'Doctoral Dissertation'),
 ('CBG', 794, 'Doctoral Dissertation'),
 ('CBG', 794, 'Doctoral Dissertation'),
-('CBG', 794, 'Doctoral Dissertation')
+('CBG', 794, 'Doctoral Dissertation'),
 ('LAW', 101, 'Law and the U.S. Constitution in Global History'),
 ('LAW', 250, 'Children and Law'),
 ('LAW', 275, 'The Origin and Evolution of American Civil Rights Law'),
@@ -3862,7 +3862,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('LAW', 887, 'Religious Freedom and its Limits'),
 ('LAW', 890, 'Directed Research'),
 ('LAW', 892, 'Post-Conviction Justice Seminar II'),
-('LAW', 893, 'Advanced Clinical Training')
+('LAW', 893, 'Advanced Clinical Training'),
 ('INTD', 522, 'Infection and Host Responses'),
 ('INTD', 549, 'Protein Chemistry -- Structure and Function'),
 ('INTD', 551, 'Pathobiology of Disease'),
@@ -3871,7 +3871,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('INTD', 577, 'Writing in the Biomedical and Biological Sciences'),
 ('INTD', 600, 'Student Research Presentation'),
 ('INTD', 622, 'Pre-clinical System Block for Health, Technology &amp; Engineeri'),
-('INTD', 790, 'Research')
+('INTD', 790, 'Research'),
 ('DSR', 574, 'Stem Cell and Developmental Biology Seminar Series'),
 ('DSR', 580, 'Clinical Perspective of Regenerative Medicine'),
 ('DSR', 610, 'Current Topics in Regenerative Medicine'),
@@ -3880,11 +3880,11 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('DSR', 794, 'Doctoral Dissertation'),
 ('DSR', 794, 'Doctoral Dissertation'),
 ('DSR', 794, 'Doctoral Dissertation'),
-('DSR', 794, 'Doctoral Dissertation')
+('DSR', 794, 'Doctoral Dissertation'),
 ('MED', 100, 'First Year Medicine'),
 ('MED', 200, 'Second Year Medicine'),
 ('MED', 300, 'Third Year Medicine'),
-('MED', 400, 'Fourth Year Medicine')
+('MED', 400, 'Fourth Year Medicine'),
 ('HP', 200, 'Introduction to Health Promotion and Disease Prevention'),
 ('HP', 290, 'Introduction to Research Apprenticeship'),
 ('HP', 300, 'Theoretical Principles of Health Behavior'),
@@ -3909,7 +3909,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('HP', 448, 'Global Environmental Changes and Health'),
 ('HP', 450, 'Traditional Eastern Medicine and Modern Health'),
 ('HP', 470, 'Case Studies in Global Health'),
-('HP', 490, 'Directed Research')
+('HP', 490, 'Directed Research'),
 ('MBPH', 590, 'Directed Research'),
 ('MBPH', 596, 'Internship for Curricular Practical Training'),
 ('MBPH', 790, 'Research'),
@@ -3917,19 +3917,19 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MBPH', 794, 'Doctoral Dissertation'),
 ('MBPH', 794, 'Doctoral Disseration'),
 ('MBPH', 794, 'Doctoral Disseration'),
-('MBPH', 794, 'Doctoral Dissertation')
+('MBPH', 794, 'Doctoral Dissertation'),
 ('MEDB', 790, 'Research'),
 ('MEDB', 794, 'Doctoral Dissertation'),
 ('MEDB', 794, 'Doctoral Dissertation'),
 ('MEDB', 794, 'Doctoral Dissertation'),
 ('MEDB', 794, 'Doctoral Dissertation'),
-('MEDB', 794, 'Doctoral Dissertation')
+('MEDB', 794, 'Doctoral Dissertation'),
 ('INTD', 573, 'Systems Physiology and Disease II'),
 ('MPHY', 590, 'Directed Research'),
 ('MPHY', 594, 'Masters Thesis'),
 ('MPHY', 594, 'Master&apos;s Thesis'),
 ('MPHY', 594, 'Master&apos;s Thesis'),
-('MPHY', 596, 'Internship for Curricular Practical Training')
+('MPHY', 596, 'Internship for Curricular Practical Training'),
 ('INTD', 522, 'Infection and Host Responses'),
 ('MICB', 542, 'Animal Virology'),
 ('MICB', 549, 'Student Seminar Series'),
@@ -3939,18 +3939,18 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MICB', 590, 'Directed Research'),
 ('MICB', 594, 'Master&apos;s Thesis'),
 ('MICB', 594, 'Master&apos;s Thesis'),
-('MICB', 594, 'Master&apos;s Thesis')
+('MICB', 594, 'Master&apos;s Thesis'),
 ('MSS', 790, 'Research'),
 ('MSS', 794, 'Doctoral Dissertation'),
 ('MSS', 794, 'Doctoral Dissertation'),
 ('MSS', 794, 'Doctoral Dissertation'),
 ('MSS', 794, 'Doctoral Dissertation'),
-('MSS', 794, 'Doctoral Dissertation')
+('MSS', 794, 'Doctoral Dissertation'),
 ('NIIN', 520, 'Experimental Design for Neuroimaging'),
 ('NIIN', 550, 'Computational Modeling in Neuroimaging'),
 ('NIIN', 560, 'Brain Architecture and Neuroanatomic Exploratory Techniques'),
 ('NIIN', 570, 'Neuroimaging Genetics'),
-('NIIN', 598, 'Neuroimaging and Informatics External Speaker Seminar Series')
+('NIIN', 598, 'Neuroimaging and Informatics External Speaker Seminar Series'),
 ('MEDS', 220, 'Preparation for the Clinical Experience'),
 ('MEDS', 260, 'Challenges in the Forefront of Biomedical Ethics'),
 ('MEDS', 280, 'The History of Medicine: a Doctor&apos;s Perspective'),
@@ -3988,7 +3988,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MEDS', 590, 'Directed Research'),
 ('MEDS', 597, 'Health Technology Internship'),
 ('MEDS', 597, 'Health Technology Internship'),
-('MEDS', 599, 'Special Topics')
+('MEDS', 599, 'Special Topics'),
 ('INTD', 551, 'Pathobiology of Disease'),
 ('PATH', 554, 'Methods in Molecular Pathology'),
 ('INTD', 573, 'Systems Physiology and Disease II'),
@@ -3998,15 +3998,15 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PATH', 594, 'Master&apos;s Thesis'),
 ('PATH', 594, 'Master&apos;s Thesis'),
 ('PATH', 790, 'Research'),
-('PATH', 794, 'Doctoral Dissertation')
+('PATH', 794, 'Doctoral Dissertation'),
 ('PAIN', 704, 'Pain and Society: Epidemiology and Cultural issues'),
 ('PAIN', 705, 'Pain Assessment: History and Physical Examination'),
 ('PAIN', 706, 'Musculoskeletal Anatomy and Pathology'),
 ('PAIN', 707, 'Pain Neuroscience'),
 ('PAIN', 713, 'Case Studies'),
-('PAIN', 717, 'Psychological Aspects of Chronic Pain')
+('PAIN', 717, 'Psychological Aspects of Chronic Pain'),
 ('PHBI', 550, 'Seminar in Advanced Cellular, Molecular and Systemic Physiology'),
-('INTD', 573, 'Systems Physiology and Disease II')
+('INTD', 573, 'Systems Physiology and Disease II'),
 ('PM', 501, 'Foundations in Health Education and Promotion'),
 ('PM', 502, 'Foundations of Public Health'),
 ('PM', 503, 'Practice of Public Health'),
@@ -4069,7 +4069,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PM', 794, 'Doctoral Dissertation'),
 ('PM', 794, 'Doctoral Dissertation'),
 ('PM', 794, 'Doctoral Dissertation'),
-('PM', 794, 'Doctoral Dissertation')
+('PM', 794, 'Doctoral Dissertation'),
 ('PCPA', 506, 'Behavioral Sciences II'),
 ('PCPA', 526, 'Clinical Skills II'),
 ('PCPA', 532, 'Clinical Skills IV'),
@@ -4080,7 +4080,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PCPA', 565, 'Clinical Assignment V'),
 ('PCPA', 583, 'Advanced Topics in PA Studies: Education'),
 ('PCPA', 586, 'Advanced Topics in PA Studies: Research'),
-('PCPA', 589, 'Advanced Topics in PA Studies: Medical Care Organization')
+('PCPA', 589, 'Advanced Topics in PA Studies: Medical Care Organization'),
 ('SCRM', 515, 'Bringing Stem Cells to the Clinic'),
 ('SCRM', 517, 'Historical and Contemporary Stem Cell Research'),
 ('SCRM', 519, 'Historical and Contemporary Research: Neural Stem Cells'),
@@ -4089,7 +4089,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('SCRM', 524, 'Culture and Differentiation of Human Pluripotent Stem Cells'),
 ('DSR', 574, 'Stem Cell and Developmental Biology Seminar Series'),
 ('SCRM', 580, 'SCRM External Speaker Seminar Series'),
-('DSR', 610, 'Current Topics in Regenerative Medicine')
+('DSR', 610, 'Current Topics in Regenerative Medicine'),
 ('MTEC', 175, 'Fundamentals of Audio Recording'),
 ('MTEC', 176, 'Critical Listening'),
 ('MTEC', 237, 'Music Production I'),
@@ -4116,13 +4116,13 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MTEC', 499, 'Special Topics'),
 ('MTEC', 501, 'Individual Instruction'),
 ('MTEC', 590, 'Directed Research'),
-('MTEC', 790, 'Research')
+('MTEC', 790, 'Research'),
 ('ARTL', 310, 'Music and Dance In Paris Salon Culture'),
 ('ARTL', 502, 'Issues in the Arts and the Contemporary World'),
 ('ARTL', 504, 'Arts and the Community: Current Practice and New Visions'),
 ('ARTL', 510, 'Arts Leadership Practicum'),
 ('ARTL', 590, 'Directed Research'),
-('ARTL', 790, 'Research')
+('ARTL', 790, 'Research'),
 ('MUCM', 490, 'Directed Research'),
 ('MUCM', 542, 'Choral Literature II'),
 ('MUCM', 590, 'Directed Research'),
@@ -4131,7 +4131,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MUCM', 794, 'Doctoral Dissertation'),
 ('MUCM', 794, 'Doctoral Dissertation'),
 ('MUCM', 794, 'Doctoral Dissertation'),
-('MUCM', 794, 'Doctoral Dissertation')
+('MUCM', 794, 'Doctoral Dissertation'),
 ('MTAL', 476, 'Teaching and Learning: Youth'),
 ('MTAL', 490, 'Directed Research'),
 ('MTAL', 502, 'Sociological Foundations of Music Teaching and Learning'),
@@ -4150,7 +4150,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MTAL', 794, 'Doctoral Dissertation'),
 ('MTAL', 794, 'Doctoral Dissertation'),
 ('MTAL', 794, 'Doctoral Dissertation'),
-('MTAL', 794, 'Doctoral Dissertation')
+('MTAL', 794, 'Doctoral Dissertation'),
 ('MSCR', 475, 'Introduction to Jewish Music'),
 ('MSCR', 490, 'Directed Research'),
 ('MSCR', 572, 'Sacred Music Administration'),
@@ -4160,7 +4160,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MSCR', 794, 'Doctoral Dissertation'),
 ('MSCR', 794, 'Doctoral Dissertation'),
 ('MSCR', 794, 'Doctoral Dissertation'),
-('MSCR', 794, 'Doctoral Dissertation')
+('MSCR', 794, 'Doctoral Dissertation'),
 ('MUCO', 101, 'Fundamentals of Music Theory'),
 ('MUCO', 130, 'Basics of Music Theory'),
 ('MUCO', 130, 'Basics of Music Theory'),
@@ -4200,7 +4200,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MUCO', 794, 'Doctoral Dissertation'),
 ('MUCO', 794, 'Doctoral Dissertation'),
 ('MUCO', 794, 'Doctoral Dissertation'),
-('MUCO', 794, 'Doctoral Dissertation')
+('MUCO', 794, 'Doctoral Dissertation'),
 ('MUCD', 301, 'Individual Instruction'),
 ('MUCD', 340, 'Choral Conducting I'),
 ('MUCD', 343, 'Instrumental Conducting I'),
@@ -4214,7 +4214,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MUCD', 590, 'Directed Research'),
 ('MUCD', 641, 'Choral Conducting IV'),
 ('MUCD', 653, 'Performance'),
-('MUCD', 790, 'Research')
+('MUCD', 790, 'Research'),
 ('MUHL', 351, 'Western Art Music History II'),
 ('MUHL', 490, 'Directed Research'),
 ('MUHL', 550, 'Music and the Holocaust'),
@@ -4234,7 +4234,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MUHL', 794, 'Doctoral Dissertation'),
 ('MUHL', 794, 'Doctoral Dissertation'),
 ('MUHL', 794, 'Doctoral Dissertation'),
-('MUHL', 794, 'Doctoral Dissertation')
+('MUHL', 794, 'Doctoral Dissertation'),
 ('MUEN', 222, 'Trojan Marching Band'),
 ('MUEN', 305, 'Vocal Jazz Ensemble'),
 ('MUEN', 307, 'University Chorus'),
@@ -4277,7 +4277,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MUEN', 544, 'Vocal Chamber Music'),
 ('MUEN', 550, 'Early Music Ensemble'),
 ('MUEN', 628, 'Keyboard Collaboration'),
-('MUEN', 650, 'Early Music Ensemble')
+('MUEN', 650, 'Early Music Ensemble'),
 ('MPGU', 120, 'Beginning Pop/Rock Guitar'),
 ('MPGU', 120, 'Beginning Pop/Rock Guitar'),
 ('MPGU', 120, 'Beginning Pop/Rock Guitar'),
@@ -4305,7 +4305,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MPGU', 590, 'Directed Research'),
 ('MPGU', 653, 'Performance'),
 ('MPGU', 754, 'Artist Diploma Perfomance'),
-('MPGU', 790, 'Research')
+('MPGU', 790, 'Research'),
 ('MUJZ', 150, 'Beginning Jazz Improvisation'),
 ('MUJZ', 153, 'Individual Instruction'),
 ('MUJZ', 195, 'Jazz Elements I'),
@@ -4328,7 +4328,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MUJZ', 590, 'Directed Research'),
 ('MUJZ', 653, 'Performance'),
 ('MUJZ', 688, 'Special Topics in Jazz Performance'),
-('MUJZ', 790, 'Research')
+('MUJZ', 790, 'Research'),
 ('MUIN', 270, 'Introduction to the Music Industry'),
 ('MUIN', 272, 'Basics of the Music Industry'),
 ('MUIN', 280, 'Communications in the Music Industry'),
@@ -4353,7 +4353,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MUIN', 525, 'Concert Promotion, Venue Management and Event Planning'),
 ('MUIN', 526, 'Music Supervision, Production and Creative Licensing'),
 ('MUIN', 590, 'Directed Research'),
-('MUIN', 790, 'Research')
+('MUIN', 790, 'Research'),
 ('MPKS', 150, 'Beginning Piano'),
 ('MPKS', 150, 'Beginning Piano'),
 ('MPKS', 150, 'Beginning Piano'),
@@ -4384,7 +4384,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MPKS', 590, 'Directed Research'),
 ('MPKS', 653, 'Performance'),
 ('MPKS', 754, 'Artist Diploma Performance'),
-('MPKS', 790, 'Research')
+('MPKS', 790, 'Research'),
 ('MPPM', 100, 'Popular Music Forum'),
 ('MPPM', 120, 'Popular Music Performance I'),
 ('MPPM', 153, 'Individual Instruction'),
@@ -4401,7 +4401,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MPPM', 450, 'Final Project'),
 ('MPPM', 490, 'Directed Research'),
 ('MPPM', 590, 'Directed Research'),
-('MPPM', 790, 'Research')
+('MPPM', 790, 'Research'),
 ('MPST', 153, 'Individual Instruction'),
 ('MPST', 163, 'Class Harp'),
 ('MPST', 253, 'Individual Instruction'),
@@ -4420,7 +4420,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MPST', 590, 'Directed Research'),
 ('MPST', 653, 'Performance'),
 ('MPST', 754, 'Artist Diploma Performance'),
-('MPST', 790, 'Research')
+('MPST', 790, 'Research'),
 ('MPVA', 141, 'Class Voice'),
 ('MPVA', 153, 'Individual Instruction'),
 ('MPVA', 241, 'Intermediate Class Voice'),
@@ -4446,10 +4446,10 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MPVA', 590, 'Directed Research'),
 ('MPVA', 599, 'Special Topics'),
 ('MPVA', 653, 'Individual Instruction'),
-('MPVA', 790, 'Research')
+('MPVA', 790, 'Research'),
 ('BPMK', 502, 'Biopharmaceutical Product Development and Marketing'),
 ('BPMK', 510, 'Capstone I: Biopharmaceutical Management Project'),
-('BPMK', 511, 'Capstone II: Biopharmaceutical Management Project')
+('BPMK', 511, 'Capstone II: Biopharmaceutical Management Project'),
 ('MUSC', 102, 'World Music'),
 ('MUSC', 115, 'Western Music as Sounding History'),
 ('CLAS', 170, 'Classics of Music and Literature: from Ancient Greece Through Contemporary LA'),
@@ -4470,7 +4470,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MUSC', 498, 'Internship in Music'),
 ('MUSC', 598, 'Internship in Music'),
 ('MUSC', 798, 'Internship in Music'),
-('MUSC', 800, 'Studies for the Qualifying Examination in Music')
+('MUSC', 800, 'Studies for the Qualifying Examination in Music'),
 ('SCOR', 405, 'Introduction to Scoring Video Games'),
 ('SCOR', 490, 'Directed Research'),
 ('SCOR', 502, 'Individual Instruction in Advanced Screen Scoring'),
@@ -4482,13 +4482,13 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('SCOR', 521, 'Recording, Mixing and Editing for the Screen Composer'),
 ('SCOR', 523, 'Advanced Screen Scoring Technology'),
 ('SCOR', 590, 'Directed Research'),
-('SCOR', 790, 'Research')
+('SCOR', 790, 'Research'),
 ('HCDA', 507, 'Foundations of Product Development and Commercialization'),
 ('HCDA', 550, 'Healthcare Innovation: Creativity to Value'),
 ('HCDA', 553, 'Advanced Pricing Strategies'),
 ('HCDA', 580, 'Seminars in Healthcare Decision Analysis'),
 ('HCDA', 590, 'Directed Research'),
-('HCDA', 596, 'Internship for Curricular Practical Training')
+('HCDA', 596, 'Internship for Curricular Practical Training'),
 ('OT', 101, 'Caring For Your Self: Engaging in Healthy Habits and Routines'),
 ('OT', 200, 'Medical Terminology for Health Professions'),
 ('OT', 220, 'Lifestyle Design: Introduction to Occupational Therapy'),
@@ -4552,7 +4552,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('OT', 794, 'Doctoral Dissertation'),
 ('OT', 794, 'Doctoral Dissertation'),
 ('OT', 794, 'Doctoral Dissertation'),
-('OT', 794, 'Doctoral Dissertation')
+('OT', 794, 'Doctoral Dissertation'),
 ('PSCI', 515, 'Drugs: Genetics and Pharmacogenetics'),
 ('PSCI', 557, 'Introduction to Tools and Techniques for Chemical Biology'),
 ('PSCI', 590, 'Directed Research'),
@@ -4572,7 +4572,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PSCI', 794, 'Doctoral Dissertation'),
 ('PSCI', 794, 'Doctoral Dissertation'),
 ('PSCI', 794, 'Doctoral Dissertation'),
-('PSCI', 794, 'Doctoral Dissertation')
+('PSCI', 794, 'Doctoral Dissertation'),
 ('CXPT', 590, 'Directed Research'),
 ('CXPT', 596, 'Internship for Curricular Practical Training'),
 ('CXPT', 599, 'Special Topics'),
@@ -4582,7 +4582,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CXPT', 794, 'Doctoral Dissertation'),
 ('CXPT', 794, 'Doctoral Dissertation'),
 ('CXPT', 794, 'Doctoral Dissertation'),
-('CXPT', 794, 'Doctoral Dissertation')
+('CXPT', 794, 'Doctoral Dissertation'),
 ('PHRD', 502, 'Pharmaceutics II'),
 ('PHRD', 504, 'Biological Systems II'),
 ('PHRD', 512, 'Pharmacy Practice and Professionalism 2'),
@@ -4603,7 +4603,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PHRD', 634, 'Scholarly Project 1'),
 ('PHRD', 635, 'Scholary Project 2'),
 ('PHRD', 650, 'APPE Gateway'),
-('MPTX', 520, 'Toxicology and the Media')
+('MPTX', 520, 'Toxicology and the Media'),
 ('RXRS', 201, 'The History and Geography of Drugs'),
 ('RXRS', 302, 'Pharmacology and Drug Development'),
 ('RXRS', 403, 'Neuropharmacology in Health and Disease'),
@@ -4612,7 +4612,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('RXRS', 412, 'Twenty-First Century Medical Issues and the Law'),
 ('RXRS', 413, 'Globalization of the Biomedical Industry'),
 ('RXRS', 414, 'Buzzed: Modern Substances of Abuse and Addiction'),
-('RXRS', 490, 'Directed Research')
+('RXRS', 490, 'Directed Research'),
 ('MPTX', 500, 'Molecular Pharmacology and Toxicology I'),
 ('MPTX', 501, 'Molecular Pharmacology and Toxicology II'),
 ('MPTX', 511, 'Introduction to Medical Product Regulation'),
@@ -4633,12 +4633,12 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MPTX', 794, 'Doctoral Dissertation'),
 ('MPTX', 794, 'Doctoral Dissertation'),
 ('MPTX', 794, 'Doctoral Dissertation'),
-('MPTX', 794, 'Doctoral Dissertation')
+('MPTX', 794, 'Doctoral Dissertation'),
 ('NSC', 137, 'Seapower and Maritime Affairs'),
 ('NSC', 335, 'Navigation I'),
 ('NSC', 337, 'Naval Ships Systems II (Weapons)'),
 ('NSC', 453, 'Leadership and Management I'),
-('NSC', 454, 'Leadership and Management II')
+('NSC', 454, 'Leadership and Management II'),
 ('PMEP', 525, 'Pharmacoeconomics I'),
 ('PMEP', 535, 'Behavioral Science and Policy in Healthcare'),
 ('PMEP', 539, 'Economic Assessment of Medical Care'),
@@ -4653,7 +4653,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PMEP', 794, 'Doctoral Dissertation'),
 ('PMEP', 794, 'Doctoral Dissertation'),
 ('PMEP', 794, 'Doctoral Dissertation'),
-('PMEP', 794, 'Doctoral Dissertation')
+('PMEP', 794, 'Doctoral Dissertation'),
 ('BKN', 550, 'Neurobehavioral Basis of Movement'),
 ('BKN', 552, 'Physiological Basis of Voluntary Movement'),
 ('BKN', 557, 'Functional Neuroanatomy with Lab Dissection'),
@@ -4665,7 +4665,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('BKN', 794, 'Doctoral Dissertation'),
 ('BKN', 794, 'Doctoral Dissertation'),
 ('BKN', 794, 'Doctoral Dissertation'),
-('BKN', 794, 'Doctoral Dissertation')
+('BKN', 794, 'Doctoral Dissertation'),
 ('PPD', 225, 'Public Policy and Management'),
 ('PPD', 240, 'Citizenship and Public Ethics'),
 ('PPD', 245, 'The Urban Context for Policy and Planning'),
@@ -4759,7 +4759,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PPD', 794, 'Doctoral Dissertation'),
 ('PPD', 794, 'Doctoral Dissertation'),
 ('PPD', 794, 'Doctoral Dissertation'),
-('PPD', 794, 'Doctoral Dissertation')
+('PPD', 794, 'Doctoral Dissertation'),
 ('RSCI', 509, 'Quality Assurance, Medical Devices and Combination Products'),
 ('RSCI', 521, 'Seminars in Regulatory Science'),
 ('RSCI', 525, 'Introduction to Drug and Food Toxicology'),
@@ -4775,7 +4775,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('RSCI', 794, 'Doctoral Dissertation'),
 ('RSCI', 794, 'Doctoral Dissertation'),
 ('RSCI', 794, 'Doctoral Dissertation'),
-('RSCI', 800, 'Studies for the Qualifying Exam')
+('RSCI', 800, 'Studies for the Qualifying Exam'),
 ('AEST', 100, 'Aerospace Studies I (Air Force Mission and Organization)'),
 ('AEST', 110, 'Leadership Laboratory I'),
 ('AEST', 200, 'Aerospace Studies II (Air Force History)'),
@@ -4785,13 +4785,13 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('AEST', 310, 'Leadership Laboratory III'),
 ('AEST', 400, 'Aerospace Studies IV (National Security Forces in Contemporary American Society)'),
 ('AEST', 410, 'Leadership Laboratory IV'),
-('AEST', 420, 'Leadership Laboratory V')
+('AEST', 420, 'Leadership Laboratory V'),
 ('MS', 101, 'Foundations of Officership'),
 ('MS', 102, 'Basic Leadership'),
 ('MS', 201, 'Individual Leadership Studies'),
 ('MS', 202, 'Leadership and Teamwork'),
 ('MS', 302, 'Leadership and Ethics'),
-('MS', 402, 'Leadership and Management')
+('MS', 402, 'Leadership and Management'),
 ('PT', 529, 'Life Span Motor Control'),
 ('PT', 530, 'Therapeutic Exercise'),
 ('PT', 546, 'Neuropathology'),
@@ -4808,7 +4808,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PT', 630, 'Integrated Patient Management Clinical Skills'),
 ('PT', 632, 'Integrated Patient Management Seminar'),
 ('PT', 660, 'Advanced Clinical Experience with Academic Integration'),
-('PT', 665, 'Advanced Clinical Experience')
+('PT', 665, 'Advanced Clinical Experience'),
 ('PPDE', 628, 'Introduction to Lean Health Care'),
 ('PPDE', 634, 'Methodology, Methods and Tools for Urban Sustainability'),
 ('PPDE', 635, 'Housing and Land Use in Rapidly Urbanizing Regions'),
@@ -4818,7 +4818,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PPDE', 660, 'Environmental Policy Design and Analysis'),
 ('PPDE', 680, 'Board Governance and Leadership'),
 ('PPDE', 681, 'Fund Development for Nonprofit Organizations'),
-('PPDE', 683, 'Social Finance and Development')
+('PPDE', 683, 'Social Finance and Development'),
 ('HMGT', 520, 'Leading People and Health Care Organizations'),
 ('HMGT', 540, 'Health Economics, Financing and Reimbursement'),
 ('HMGT', 565, 'Managing the Organization&apos;s Financial Health'),
@@ -4826,7 +4826,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('HMGT', 575, 'Managing and Improving Health'),
 ('HMGT', 600, 'Managing Risk'),
 ('HMGT', 602, 'Operational Efficiency Processes in Health Care Organizations'),
-('HMGT', 603, 'Developing &amp; Monitoring of Quality &amp; Patient Safety Outcomes')
+('HMGT', 603, 'Developing &amp; Monitoring of Quality &amp; Patient Safety Outcomes'),
 ('ENST', 100, 'Introduction to Environmental Studies'),
 ('ENST', 150, 'Environmental Issues in Society'),
 ('POSC', 270, 'Introduction to Environmental Law and Politics'),
@@ -4850,7 +4850,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('ENST', 495, 'Senior Seminar in Environmental Studies'),
 ('ENST', 520, 'Environmental Law and Policy'),
 ('ENST', 530, 'Environmental Risk Analysis'),
-('ENST', 590, 'Directed Research')
+('ENST', 590, 'Directed Research'),
 ('PLUS', 650, 'Public Policy and Globalization'),
 ('PLUS', 651, 'Applied Research Design and Inquiry'),
 ('PLUS', 660, 'Economics of a Productive Development - A Public/Private Per'),
@@ -4861,7 +4861,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('PLUS', 694, 'Planning, Design and Development Professional Dissertation'),
 ('PLUS', 694, 'Planning, Design and Development Professional Dissertation'),
 ('PLUS', 694, 'Planning, Design and Development Professional Dissertation'),
-('PLUS', 694, 'Planning, Design and Development Professional Dissertation')
+('PLUS', 694, 'Planning, Design and Development Professional Dissertation'),
 ('ANTH', 101, 'Body, Mind and Healing: Introduction to Medical Anthropology'),
 ('HBIO', 200, 'The Human Animal'),
 ('ANTH', 202, 'Archaeology: Our Human Past'),
@@ -4889,12 +4889,12 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('SWMS', 554, 'Women in Global Perspective'),
 ('ANTH', 577, 'Advanced Anthropological Media Seminar'),
 ('ANTH', 590, 'Directed Research'),
-('ANTH', 602, 'The Anthropology of Popular Culture')
+('ANTH', 602, 'The Anthropology of Popular Culture'),
 ('LAT', 120, 'Latin I'),
 ('LAT', 150, 'Latin II'),
 ('LAT', 222, 'Latin III'),
 ('LAT', 322, 'Lucretius&apos; De Rerum Natura'),
-('LAT', 450, 'Readings in Latin Literature')
+('LAT', 450, 'Readings in Latin Literature'),
 ('CNTV', 441, 'Business and Cinematic Arts Entertainment Practicum'),
 ('CNTV', 467, 'The Future of Digital Media and the Entertainment Industry'),
 ('CNTV', 490, 'Directed Research'),
@@ -4911,7 +4911,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('CNTV', 794, 'Doctoral Dissertation'),
 ('CNTV', 794, 'Doctoral Dissertation'),
 ('CNTV', 794, 'Doctoral Dissertation'),
-('CNTV', 794, 'Doctoral Dissertation')
+('CNTV', 794, 'Doctoral Dissertation'),
 ('BISC', 102, 'Humans and Their Environment'),
 ('BISC', 150, 'The Nature of Human Health and Disease'),
 ('BISC', 180, 'Evolution'),
@@ -4924,10 +4924,10 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('LING', 285, 'Human Language and Technology'),
 ('PHYS', 200, 'The Physics and Technology of Energy'),
 ('PSYC', 165, 'Drugs, Behavior, and Society'),
-('SSCI', 265, 'The Water Planet')
+('SSCI', 265, 'The Water Planet'),
 ('NAUT', 001, 'Deepwater Cruising'),
 ('NAUT', 001, 'Deepwater Cruising'),
-('NAUT', 002, 'Advanced Deepwater Cruising')
+('NAUT', 002, 'Advanced Deepwater Cruising'),
 ('RED', 351, 'Land Use Regulation'),
 ('RED', 362, 'Real Estate Development Fundamentals'),
 ('RED', 375, 'Real Estate Development Analysis'),
@@ -4944,7 +4944,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('RED', 562, 'Legal Issues in Real Estate Development'),
 ('RED', 575, 'Community Design and Site Planning'),
 ('RED', 590, 'Directed Research'),
-('RED', 598, 'Real Estate Product Development')
+('RED', 598, 'Real Estate Product Development'),
 ('GERO', 200, 'Gerontology: The Science of Adult Development'),
 ('GERO', 315, 'A Journey into the Mind'),
 ('GERO', 320, 'Psychology of Adult Development'),
@@ -4999,7 +4999,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('GERO', 794, 'Doctoral Dissertation'),
 ('GERO', 794, 'Doctoral Dissertation'),
 ('GERO', 794, 'Doctoral Dissertation'),
-('GERO', 794, 'Doctoral Dissertation')
+('GERO', 794, 'Doctoral Dissertation'),
 ('MPEM', 301, 'Individual Instruction'),
 ('MPEM', 450, 'Collegium Workshop'),
 ('MPEM', 501, 'Individual Instruction'),
@@ -5009,7 +5009,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('MPEM', 650, 'Collegium Directing'),
 ('MPEM', 653, 'Performance'),
 ('MPEM', 754, 'Artist Diploma Performance'),
-('MPEM', 790, 'Research')
+('MPEM', 790, 'Research'),
 ('SOWK', 350, 'Adolescent Gang Intervention'),
 ('SOWK', 506, 'Human Behavior and the Social Environment'),
 ('SOWK', 536, 'Policy and Advocacy in Professional Social Work'),
@@ -5102,7 +5102,7 @@ INSERT INTO courses(course_prefix, course_number, course_name) VALUES
 ('SOWK', 794, 'Doctoral Dissertation'),
 ('SOWK', 794, 'Doctoral Dissertation'),
 ('SOWK', 794, 'Doctoral Dissertation'),
-('SOWK', 794, 'Doctoral Dissertation')
+('SOWK', 794, 'Doctoral Dissertation'),
 ('MPWP', 153, 'Individual Instruction'),
 ('MPWP', 252, 'Individual Instrument Performance Class I'),
 ('MPWP', 253, 'Individual Instruction'),

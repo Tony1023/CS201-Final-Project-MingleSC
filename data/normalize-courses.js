@@ -18,15 +18,14 @@ function main() {
         let number = course.number;
         let title = course.title;
         let query;
-        if (i == deptCourse.length - 1)
-          query = "('" + prefix + "', " + number + ", '" + title + "')";
-        else
-          query = "('" + prefix + "', " + number + ", '" + title + "'),";
+        query = "('" + prefix + "', " + number + ", '" + title + "'),";
         console.log(query);
         commands.push(query);
       }
     }
-    commands[commands.length - 1] += ';';
+    let last = commands.length - 1;
+    let len = commands[last].length;
+    commands[last] = commands[last].substr(0, len - 1) + ';';
     let file = commands.join('\n');
     fs.writeFile('courses.sql', file, err => {
       if (err)
