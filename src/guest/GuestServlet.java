@@ -98,9 +98,6 @@ public class GuestServlet extends HttpServlet {
 //					System.out.println("name " + name + " major id" + major_id);
 				}
 				
-//				System.out.println("name " + userinfo.get(0));
-//				System.out.println("userinfo size" + userinfo.size());
-//				System.out.println("major_id size" + major_ids.size());
 			}
 			
 			//get major names from major id
@@ -112,10 +109,8 @@ public class GuestServlet extends HttpServlet {
 				while (rs4.next()) { 
 					String major = rs4.getString("major_name");
 					majors.add(major);
-					System.out.println("major " + major);
 				}
 			}
-			System.out.println("majors size" + userinfo.size());
 			
 			//create array with name and user_id	
 			//PUT each matched users' name, major INTO nameMajor map 
@@ -131,13 +126,6 @@ public class GuestServlet extends HttpServlet {
 				System.out.println(entry.getValue());
 			}
 			
-//			System.out.println("nameMajor.size() " + nameMajor.size());
-//			System.out.println("name majorsize " + nameMajor.size());
-//			System.out.println("user_id " + user_id.size());
-			
-//			request.setAttribute("user_id", user_id);
-//			RequestDispatcher view = request.getRequestDispatcher("GuestMatches.jsp");
-//			view.forward(request, response);
 			
 			request.setAttribute("nameMajor", nameMajor);
 			RequestDispatcher view1 = request.getRequestDispatcher("GuestMatches.jsp");

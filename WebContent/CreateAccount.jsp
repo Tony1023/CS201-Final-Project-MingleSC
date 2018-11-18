@@ -28,7 +28,6 @@ resources.*"%>
 </head>
 <body>
 	
-
 	<%
 		String errorMessage = "";
 		if(null != session.getAttribute("errorMessage")){

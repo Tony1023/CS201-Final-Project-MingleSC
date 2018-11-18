@@ -1,6 +1,5 @@
-/chatServer/
-/compatibilityTest/
-/login/
-/resources/
-/scheduler/
 /guest/
+/resources/
+/chatServer/
+/login/
+/scheduler/
