@@ -111,6 +111,7 @@ public class GuestServlet extends HttpServlet {
 					majors.add(major);
 				}
 			}
+
 			
 			//create array with name and user_id	
 			//PUT each matched users' name, major INTO nameMajor map 
@@ -125,8 +126,7 @@ public class GuestServlet extends HttpServlet {
 				System.out.println(entry.getKey());
 				System.out.println(entry.getValue());
 			}
-			
-			
+
 			request.setAttribute("nameMajor", nameMajor);
 			RequestDispatcher view1 = request.getRequestDispatcher("GuestMatches.jsp");
 			view1.forward(request, response);

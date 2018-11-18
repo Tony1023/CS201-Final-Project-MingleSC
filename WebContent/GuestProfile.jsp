@@ -5,6 +5,7 @@
 <%@ page import="java.sql.Statement" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.lang.*" %>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -36,6 +37,7 @@
 				<option>CSCI 201: Principles of Software Development</option>
 				<option>CSCI 310: Software Engineering</option>
 				<option>CSCI 356: Introduction to Computer Systems</option>
+
 			</select> <br> <br> <br> <input type="submit" value="Submit">
 
 			<br> <br>
