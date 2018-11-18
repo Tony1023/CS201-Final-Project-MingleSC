@@ -102,8 +102,6 @@ else {
 	}
 }
 
-
-System.out.println(receivingUserIDs.size());
 if (receivingUserIDs.size() == 0) {
 	chatsHTML += "No receiving users found.";
 }
@@ -192,14 +190,6 @@ else {
     	<table> 
 	    	<div id="userInfo"> <%=userHTML%> </div>
 	    	<div id="woah"> <img src=<%=imgURL%> > </div>
-	    	<div id="blocks">
-	    		<div id="blocksInfo"> BLOCKS <%=blocksHTML%> </div>
-	    	</div>
-
-	    	<div id="chats">
-	    		<div id="chatsInfo"> CHATS <%=chatsHTML%> </div>
-	    	</div>
-
 	    	<div id="chat form">
 	    		<form id="chatSearch" name = "userSearch" action="ChatPopup" method="GET">
 			      	<input type="text" id="chatSearchTerm" name="searchTerm" placeholder="chat someone">
@@ -212,6 +202,16 @@ else {
 			      	<input type="submit" name="submit" value="submit">
 	  		    </form>
 	  		</div>
+
+	  		<div id="chats">
+	    		<div id="chatsInfo"> CHATS <%=chatsHTML%> </div>
+	    	</div>
+
+	    	<div id="blocks">
+	    		<div id="blocksInfo"> BLOCKS <%=blocksHTML%> </div>
+	    	</div>
+
+	    	
 	    </table>
 	</div>
 
