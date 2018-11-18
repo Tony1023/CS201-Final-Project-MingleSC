@@ -72,8 +72,9 @@ String housingName = (String) session.getAttribute("housingName");
 String availabilityString = (String) session.getAttribute("availabilityString");
 String imgURL = (String) session.getAttribute("imgURL");
 
-ArrayList<Integer> chatUserIDs = (ArrayList<Integer>) session.getAttribute("chatUserIDs");
-// gonna need to get more than the chat IDs...
+ArrayList<Integer> receivingUserIDs = (ArrayList<Integer>) session.getAttribute("receivingUserIDs");
+ArrayList<Integer> receivingScreenNames = (ArrayList<Integer>) session.getAttribute("receivingScreenNames");
+ArrayList<Integer> receivingEmails = (ArrayList<Integer>) session.getAttribute("receivingEmails");
 
 ArrayList<Integer> blockedUserIDs = (ArrayList<Integer>) session.getAttribute("blockedUserIDs");
 ArrayList<Integer> blockedScreenNames = (ArrayList<Integer>) session.getAttribute("blockedScreenNames");
@@ -81,6 +82,7 @@ ArrayList<Integer> blockedEmails = (ArrayList<Integer>) session.getAttribute("bl
 
 String userHTML = screenName + "\n" + majorName + "\n" + housingName + "\n" + availabilityString + "\n";
 String blocksHTML = "";
+String chatsHTML = "";
 
 System.out.println(blockedUserIDs.size());
 if (blockedUserIDs.size() == 0) {
@@ -96,6 +98,25 @@ else {
 		blocksHTML += "<tr>" +
 				      "<td class=\"blockUser\">" + blockedScreenNames.get(i) + "</td>" +
 				      "<td><img class=\"profileImage\" src=\"" + blockImgURL + "\"></img></td>" +
+				      "</tr>";
+	}
+}
+
+
+System.out.println(receivingUserIDs.size());
+if (receivingUserIDs.size() == 0) {
+	chatsHTML += "No receiving users found.";
+}
+else {
+	chatsHTML = "<tr>" +
+				"<td> Name </td>" + 
+				"<td> Image </td>" + 
+			"</tr>";
+	for(int i = 0; i < receivingUserIDs.size(); i++) {
+		String chatImgURL = "https://api.adorable.io/avatars/285/" + receivingUserIDs.get(i) + ".png";
+		chatsHTML += "<tr>" +
+				      "<td class=\"chatUser\">" + receivingScreenNames.get(i) + "</td>" +
+				      "<td><img class=\"profileImage\" src=\"" + chatImgURL + "\"></img></td>" +
 				      "</tr>";
 	}
 }
@@ -172,7 +193,11 @@ else {
 	    	<div id="userInfo"> <%=userHTML%> </div>
 	    	<div id="woah"> <img src=<%=imgURL%> > </div>
 	    	<div id="blocks">
-	    		<div id="blocksInfo"> <%=blocksHTML%> </div>
+	    		<div id="blocksInfo"> BLOCKS <%=blocksHTML%> </div>
+	    	</div>
+
+	    	<div id="chats">
+	    		<div id="chatsInfo"> CHATS <%=chatsHTML%> </div>
 	    	</div>
 
 	    	<div id="chat form">

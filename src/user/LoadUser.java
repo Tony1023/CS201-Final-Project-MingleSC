@@ -156,27 +156,45 @@ public class LoadUser extends HttpServlet {
 			session.setAttribute("blockedEmails", blockedEmails);
 
 			// GET CHATS
-			int chatUserID = 0;
-			String chatScreenName = "";
-			ArrayList<Integer> chatUserIDs = new ArrayList<Integer>();
-			ArrayList<String> chatScreeNames = new ArrayList<String>();
+			int receivingUserID = 0;
+			ArrayList<Integer> receivingUserIDs = new ArrayList<Integer>();
+			ArrayList<String> receivingScreenNames = new ArrayList<String>();
+			ArrayList<String> receivingEmails = new ArrayList<String>();
 
 			String chatQueryString = "SELECT * from chat_messages where sending_user_id=" + userID; // boil this down to IDs only...
-			ps = conn.prepareStatement(blockQueryString);
+			ps = conn.prepareStatement(chatQueryString);
 			rs = ps.executeQuery();
 
 			System.out.println("EXISTING CHATS:");
 
 			while (rs.next()) {
 				// TODO: add screen name retrieval here as well...
-				chatUserID = rs.getInt("receiving_user_id");
+				receivingUserID = rs.getInt("receiving_user_id");
+				System.out.println("receiving_user_id= " + receivingUserID);
+
+				Statement s = conn.createStatement();
+				ResultSet r = s.executeQuery("SELECT email, screen_name FROM user WHERE user_id=" + receivingUserID);
 				
-				System.out.println("chatUserID = " + chatUserID);
-				chatUserIDs.add(chatUserID);
+				String receivingScreenName = "";
+				String receivingEmail = "";
+
+				while (r.next()) {
+					receivingEmail = r.getString("email");
+					receivingScreenName = r.getString("screen_name");
+
+					System.out.println("receivingScreenName= " + receivingScreenName);
+					System.out.println("receivingEmail= " + receivingEmail);
+
+					receivingEmails.add(receivingEmail);
+					receivingScreenNames.add(receivingScreenName);
+				}
+				
+				receivingUserIDs.add(receivingUserID);
 			}
 
-			session.setAttribute("chatUserIDs", chatUserIDs);
-//			session.setAttribute("chatScreenNames", chatScreenNames);
+			session.setAttribute("receivingUserIDs", receivingUserIDs);
+			session.setAttribute("receivingScreenNames", receivingScreenNames);
+			session.setAttribute("receivingEmails", receivingEmails);
 
 
 		} catch (SQLException sqle) {
