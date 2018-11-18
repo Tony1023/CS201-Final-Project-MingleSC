@@ -28,7 +28,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import suggestor.SuggestorUtil;
+import suggester.SuggesterUtil;
 
 /**
  * Servlet implementation class LoadUser
@@ -203,7 +203,7 @@ public class LoadUser extends HttpServlet {
 			// GET MATCHES
 			System.out.println("MATCHES:");
  			
- 			List<Integer> matchUserIDs = SuggestorUtil.getRank(userID); // pass in User ID
+ 			List<Integer> matchUserIDs = SuggesterUtil.getRank(Integer.parseInt(userID)); // pass in User ID
 			ArrayList<String> matchScreenNames = new ArrayList<String>();
 			ArrayList<String> matchEmails = new ArrayList<String>();
 
@@ -211,9 +211,6 @@ public class LoadUser extends HttpServlet {
 
  				Statement s = conn.createStatement();
  				ResultSet r = s.executeQuery("SELECT email, screen_name FROM user WHERE user_id=" + matchUserIDs.get(i));
-				r = s.executeQuery();
-
-				// TODO: change the following for suggestions
 				
 				String matchScreenName = "";
 				String matchEmail = "";
