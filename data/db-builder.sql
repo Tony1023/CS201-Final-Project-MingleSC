@@ -39,7 +39,6 @@ CREATE TABLE user_interests(
     FOREIGN KEY (user_id) REFERENCES user(user_id),
     FOREIGN KEY (interest_id) REFERENCES gen_interests(interest_id)
 );
-INSERT INTO user_interests(user_id, interest_id) VALUES (1, 3), (1,2), (1, 1), (2,1), (2,2);
 
 CREATE TABLE extracurriculars(
 	extracurricular_id INT(11) PRIMARY KEY AUTO_INCREMENT,
