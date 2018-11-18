@@ -15,18 +15,25 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="FinalProject.css">
+<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
 </head>
 
 <body>
 
 	<h1 id="header">MingleSC</h1>
+	
+	<ul class="info" style="list-style-type:none">
+	  <li style = "text-align:center;font-size:35px;">Connect with Your Classmates</li>
+	  <li style = "text-align:center;">Guest functionality </li>
+	  <img src="Capture.PNG">
+	</ul>
 
 	<div id="form">
-		<h2 id="header">Guest Log In Page</h2>
+		<h2 style = "font-weight: bold;">Guest Log In </h2>
 		<form action="GuestServlet" method="GET">
 			<br>
 			<h3>Please select a course:</h3>
-			<br> <br>
+			<br> 
 
 			<select id = "select" name="course" value="course">
 				<option>Select a Course -- </option>
