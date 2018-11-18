@@ -17,7 +17,11 @@ function main() {
         let prefix = course.prefix;
         let number = course.number;
         let title = course.title;
-        let query = "('" + prefix + "', " + number + ", '" + title + "')";
+        let query;
+        if (i == deptCourse.length - 1)
+          query = "('" + prefix + "', " + number + ", '" + title + "')";
+        else
+          query = "('" + prefix + "', " + number + ", '" + title + "'),";
         console.log(query);
         commands.push(query);
       }
