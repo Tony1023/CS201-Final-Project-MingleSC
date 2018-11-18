@@ -1,5 +1,14 @@
 # CS201-Final-Project
 
+## Setting up the Database
+ - The database builder script (with some dummy data) are in data/
+ - To set up the database correctly, run the SQL scripts in the following order:
+ 	1. db-builder.sql
+	2. courses.sql
+	3. major.sql
+	4. add-other-data.sql
+ - Now the database will be populated with all applicable majors and courses (at least as of Spring 2019)
+
 ## Credentials
  - Please put your SQL connection credentials into src/resources/Credentials.java
  - This file has been .gitignore-d so you won't see it on Github
