@@ -167,13 +167,35 @@ else {
 
 String extraHTML = "";
 if (extracurricularNames.size() == 0) {
-	extraHTML += "<span class=\"badge badge-pill badge-danger\"> No extracurriculars found! </span>";
+	extraHTML += "<span class=\"badge badge-pill badge-danger\"> No extracurriculars found! </span>\n";
 }
 else {
 	for(int i = 0; i < extracurricularNames.size(); i++) {
-		extraHTML += "<span class=\"badge badge-pill badge-primary\">" + extracurricularNames.get(i) + "</span>";
+		extraHTML += "<span class=\"badge badge-pill badge-primary\">" + extracurricularNames.get(i) + "</span>\n";
 	}
 	System.out.println(extraHTML);
+}
+
+String interestHTML = "";
+if (interestNames.size() == 0) {
+	interestHTML += "<span class=\"badge badge-pill badge-danger\"> No interests found! </span>\n";
+}
+else {
+	for(int i = 0; i < interestNames.size(); i++) {
+		interestHTML += "<span class=\"badge badge-pill badge-primary\">" + interestNames.get(i) + "</span>\n";
+	}
+	System.out.println(interestHTML);
+}
+
+String courseHTML = "";
+if (coursePrefixes.size() == 0) {
+	courseHTML += "<span class=\"badge badge-pill badge-danger\"> No coursess found! </span>\n";
+}
+else {
+	for(int i = 0; i < coursePrefixes.size(); i++) {
+		courseHTML += "<span class=\"badge badge-pill badge-primary\">" + coursePrefixes.get(i) + " " + courseNumbers.get(i) + "</span>\n";
+	}
+	System.out.println(courseHTML);
 }
 
 
@@ -209,36 +231,6 @@ else {
     <div id="matchContainer">
 	    	<div id="userInfo"> <%=userHTML%> </div>
 	    	
-			
-	    	<div class="row">
-	    		<div class="col-md-4">
-		    		<div class="thumbnail">
-				      <a href="https://www.w3schools.com/w3images/lights.jpg">
-				        <img class="img-thumbnail" src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="width:100%">
-				        <div class="caption">
-				          <p>Lorem ipsum...</p>
-				        </div>
-				      </a>
-			    	</div>
-		    	</div>
-
-		    	<div class="col-md-4">
-		    		<div class="thumbnail">
-				      <a href="https://www.w3schools.com/w3images/lights.jpg">
-				        <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="width:100%">
-				        <div class="caption">
-				          <p>Lorem ipsum...</p>
-				        </div>
-				      </a>
-			    	</div>
-		    	</div>
-	    	</div>
-	    	
-	    	
-					    	
-	    	<a href="#" class="badge badge-dark badge-pill">html5</a>
-
-
 	    	<div> <img class="img-thumbnail" src=<%=imgURL%> > </div>
 	    	
 	    	
@@ -252,31 +244,43 @@ else {
 		    	</div>
 			  
 			</div>
+
+			<div class="card" style="width: 18rem;">
+		    	<h4 class="card-header">Interests</h5>
+		    	<div class="card-body">
+			  		 <h4> 
+		    			<%=interestHTML%>
+			    	</h4> 
+		    	</div>
+			  
+			</div>
+
+			<div class="card" style="width: 18rem;">
+		    	<h4 class="card-header">Courses</h5>
+		    	<div class="card-body">
+			  		 <h4> 
+		    			<%=courseHTML%>
+			    	</h4> 
+		    	</div>
+			  
+			</div>
 	    	
+    		<!-- <button onclick="popChat(<%=currentUserID%>, 2)">Chat now!</button> -->
 
-	    	<div id="chat form">
-
-	    		<button onclick="popChat(<%=currentUserID%>, 2)">Chat now!</button>
-
-	    		<form id="chatSearch" name = "userSearch" action="ChatPopup" method="GET">
-			      	<input type="text" id="chatSearchTerm" name="searchTerm" placeholder="chat someone">
-			      	<input type="submit" name="submit" value="submit">
-	  		    </form>
-	  		</div>
-	  		<div id="user info form">
+	  		<!-- <div id="user info form">
 	  			<form id="userSearch" name ="userSearch" action="OtherUsers" method="GET">
 			      	<input type="text" id="userEmail" name="userEmail" placeholder="go to user info page">
 			      	<input type="submit" name="submit" value="submit">
 	  		    </form>
-	  		</div>
+	  		</div> -->  
 
 	  		<div id="chats">
 
-	  			<div class="card" style="width: 18rem;">
-				  <img class="card-img-top" src="https://www.w3schools.com/w3images/lights.jpg" alt="Card image cap">
+	  			<div class="card border-primary" style="width: 18rem;">
+				  <img class="card-img-top" src="https://api.adorable.io/avatars/285/2.png" alt="Profile image">
 				  <div class="card-body">
-				  	<h5 class="card-title">Card title</h5>
-				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				  	<h5 class="card-title">Tony Lyu2</h5>
+				    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
 				  	
 				  	<form action="OtherUsers" name="userSearch" method="GET">
 			  			  <input type="hidden" id="custId" name="userEmail" value="zhehaolu2@usc.edu">
