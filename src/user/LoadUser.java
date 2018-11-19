@@ -164,7 +164,7 @@ public class LoadUser extends HttpServlet {
 			ArrayList<String> receivingScreenNames = new ArrayList<String>();
 			ArrayList<String> receivingEmails = new ArrayList<String>();
 
-			String chatQueryString = "SELECT * from chat_messages where sending_user_id=" + userID; // boil this down to IDs only...
+			String chatQueryString = "SELECT receiving_user_id from chat_messages where sending_user_id=" + userID + " GROUP BY receiving_user_id"; // boil this down to IDs only...
 			ps = conn.prepareStatement(chatQueryString);
 			rs = ps.executeQuery();
 
@@ -232,10 +232,10 @@ public class LoadUser extends HttpServlet {
 			// TODO: REMOVE HARD-CODED WHEN WORKING
 
 
-			// TODO: Fix this later... rip
-			for (int i: SuggesterUtil.getRank(1)) {
-				System.out.println(i);
-			}
+			// // TODO: Fix this later... rip
+			// for (int i: SuggesterUtil.getRank(1)) {
+			// 	System.out.println(i);
+			// }
 			// ArrayList<String> matchScreenNames = new ArrayList<String>();
 			// ArrayList<String> matchEmails = new ArrayList<String>();
 
