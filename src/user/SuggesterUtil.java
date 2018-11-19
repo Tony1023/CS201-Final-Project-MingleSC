@@ -15,22 +15,22 @@ import resources.*;
  */
 public class SuggesterUtil {
 	
-	private static List<String> sqlStatements = new ArrayList<String>();
+	private static List<String> sqlStatements = null;
 	private static Connection conn = null;
 	
-	static {
-		System.out.println("in static block");
+	private static void setUp(String path) {
+		if (sqlStatements != null) {
+			return;
+		}
+		sqlStatements = new ArrayList<String>();
 		Scanner in = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
-			in = new Scanner(new File("/suggester.sql"));
+			in = new Scanner(new File(path + "/WEB-INF/suggester.sql"));
 			in.useDelimiter(";");
 			sqlStatements.add("SET @this_id=");
 			while (in.hasNext()) {
-				
-				System.out.println(in.next());
-
 				sqlStatements.add(in.next());
 			}
 		} catch (SQLException sqle) {
@@ -38,17 +38,17 @@ public class SuggesterUtil {
 		} catch (ClassNotFoundException cnfe) {
 			System.out.println(cnfe.getMessage());
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("SuggesterUtil: " + e.getMessage());
 		} finally {
 			if (in != null) { in.close(); }
 		}
 	}
 	
-	public static List<Integer> getRank(int id) {
+	public static List<Integer> getRank(int id, String path) {
+		setUp(path);
 		List<Integer> result = new ArrayList<Integer>();
 		try {
 			Statement st = conn.createStatement();
-			// st.execute("DROP TABLE suggestion");
 			st.execute(sqlStatements.get(0) + id);
 			int size = sqlStatements.size();
 			for (int i = 1; i < size - 1; ++i) {
@@ -58,18 +58,11 @@ public class SuggesterUtil {
 			while (rs.next()) {
 				result.add(rs.getInt(1));
 			}
-			st.execute("DROP TABLE suggestion");
+			st.execute("DROP TABLE suggestion, temp, this_user");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return result;
-	}
-
-	public static void main(String[] args) {
-		for (int id: getRank(3)) {
-			System.out.println(id);
-		}
-
 	}
 
 }
