@@ -80,9 +80,14 @@ ArrayList<Integer> blockedUserIDs = (ArrayList<Integer>) session.getAttribute("b
 ArrayList<Integer> blockedScreenNames = (ArrayList<Integer>) session.getAttribute("blockedScreenNames");
 ArrayList<Integer> blockedEmails = (ArrayList<Integer>) session.getAttribute("blockedEmails");
 
+ArrayList<Integer> matchUserIDs = (ArrayList<Integer>) session.getAttribute("matchUserIDs");
+ArrayList<Integer> matchScreenNames = (ArrayList<Integer>) session.getAttribute("matchScreenNames");
+ArrayList<Integer> matchEmails = (ArrayList<Integer>) session.getAttribute("matchEmails");
+
 String userHTML = screenName + "\n" + majorName + "\n" + housingName + "\n" + availabilityString + "\n";
 String blocksHTML = "";
 String chatsHTML = "";
+String matchHTML = "";
 
 System.out.println(blockedUserIDs.size());
 if (blockedUserIDs.size() == 0) {
@@ -114,6 +119,23 @@ else {
 		String chatImgURL = "https://api.adorable.io/avatars/285/" + receivingUserIDs.get(i) + ".png";
 		chatsHTML += "<tr>" +
 				      "<td class=\"chatUser\">" + receivingScreenNames.get(i) + "</td>" +
+				      "<td><img class=\"profileImage\" src=\"" + chatImgURL + "\"></img></td>" +
+				      "</tr>";
+	}
+}
+
+if (matchUserIDs.size() == 0) {
+	matchHTML += "No match users found.";
+}
+else {
+	matchHTML = "<tr>" +
+				"<td> Name </td>" + 
+				"<td> Image </td>" + 
+			"</tr>";
+	for(int i = 0; i < matchUserIDs.size(); i++) {
+		String chatImgURL = "https://api.adorable.io/avatars/285/" + matchUserIDs.get(i) + ".png";
+		matchHTML += "<tr>" +
+				      "<td class=\"chatUser\">" + matchScreenNames.get(i) + "</td>" +
 				      "<td><img class=\"profileImage\" src=\"" + chatImgURL + "\"></img></td>" +
 				      "</tr>";
 	}
@@ -209,6 +231,10 @@ else {
 
 	    	<div id="blocks">
 	    		<div id="blocksInfo"> BLOCKS <%=blocksHTML%> </div>
+	    	</div>
+
+	    	<div id="matches">
+	    		<div id="matchesInfo"> Matches <%=matchHTML%> </div>
 	    	</div>
 
 	    	

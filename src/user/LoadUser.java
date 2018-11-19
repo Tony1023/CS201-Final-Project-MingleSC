@@ -200,29 +200,59 @@ public class LoadUser extends HttpServlet {
 			// GET MATCHES
 			System.out.println("MATCHES:");
  			
- 			List<Integer> matchUserIDs = SuggesterUtil.getRank(Integer.parseInt(userID)); // pass in User ID
+ 			
+			ArrayList<Integer> matchUserIDs = new ArrayList<Integer>();
 			ArrayList<String> matchScreenNames = new ArrayList<String>();
 			ArrayList<String> matchEmails = new ArrayList<String>();
 
- 			for (int i = 0; i < matchUserIDs.size(); i++) {
 
- 				Statement s = conn.createStatement();
- 				ResultSet r = s.executeQuery("SELECT email, screen_name FROM user WHERE user_id=" + matchUserIDs.get(i));
+			// TODO: REMOVE HARD-CODED WHEN WORKING
+
+			matchUserIDs.add(2);
+			matchUserIDs.add(7);
+			matchUserIDs.add(3);
+			matchUserIDs.add(4);
+			matchUserIDs.add(8);
+
+			matchScreenNames.add("Tony Lyu2");
+			matchScreenNames.add("Sophia Hu");
+			matchScreenNames.add("Wayne Yu");
+			matchScreenNames.add("Patrick Kong");
+			matchScreenNames.add("Jeffrey Miller");
+
+			matchEmails.add("zhehaolu2@usc.edu");
+			matchEmails.add("husophia@usc.edu");
+			matchEmails.add("weiyuyu@usc.edu");
+			matchEmails.add("kongp@usc.edu");
+			matchEmails.add("jeffrey.miller@usc.edu");
+
+			// TODO: REMOVE HARD-CODED WHEN WORKING
+
+
+			// TODO: Fix this later... rip
+ 		// 	List<Integer> matchUserIDs = SuggesterUtil.getRank(Integer.parseInt(userID)); // pass in User ID
+			// ArrayList<String> matchScreenNames = new ArrayList<String>();
+			// ArrayList<String> matchEmails = new ArrayList<String>();
+
+ 		// 	for (int i = 0; i < matchUserIDs.size(); i++) {
+
+ 		// 		Statement s = conn.createStatement();
+ 		// 		ResultSet r = s.executeQuery("SELECT email, screen_name FROM user WHERE user_id=" + matchUserIDs.get(i));
 				
-				String matchScreenName = "";
-				String matchEmail = "";
+			// 	String matchScreenName = "";
+			// 	String matchEmail = "";
 
-				while (r.next()) {
-					matchEmail = r.getString("email");
-					matchScreenName = r.getString("screen_name");
+			// 	while (r.next()) {
+			// 		matchEmail = r.getString("email");
+			// 		matchScreenName = r.getString("screen_name");
 
-					System.out.println("matchScreenName= " + matchScreenName);
-					System.out.println("matchEmail= " + matchEmail);
+			// 		System.out.println("matchScreenName= " + matchScreenName);
+			// 		System.out.println("matchEmail= " + matchEmail);
 
-					matchEmails.add(matchEmail);
-					matchScreenNames.add(matchScreenName);
-				}
- 			}
+			// 		matchEmails.add(matchEmail);
+			// 		matchScreenNames.add(matchScreenName);
+			// 	}
+ 		// 	}
 
 			session.setAttribute("matchUserIDs", matchUserIDs);
 			session.setAttribute("matchScreenNames", matchScreenNames);
