@@ -19,14 +19,18 @@ public class SuggesterUtil {
 	private static Connection conn = null;
 	
 	static {
+		System.out.println("in static block");
 		Scanner in = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
-			in = new Scanner(new File("suggestor.sql"));
+			in = new Scanner(new File("suggester.sql"));
 			in.useDelimiter(";");
 			sqlStatements.add("SET @this_id=");
 			while (in.hasNext()) {
+				
+				System.out.println(in.next());
+
 				sqlStatements.add(in.next());
 			}
 		} catch (SQLException sqle) {
