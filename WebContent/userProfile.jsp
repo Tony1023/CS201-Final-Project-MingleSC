@@ -13,7 +13,7 @@
 	<meta charset="UTF-8">
 	<title>Matches Page</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="gstyles.css">
+	<link rel="stylesheet" href="userProfileStyles.css">
 
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -41,7 +41,7 @@
    		});
 
    		$(document).ready(function() { 
-			$(document).on("click", ".profileImage", function(e) {
+			$(document).on("click", ".img-thumbnail", function(e) {
 			 	e.preventDefault();
 			    $.ajax({
 			    	type: "GET",
@@ -86,6 +86,8 @@ ArrayList<Integer> matchScreenNames = (ArrayList<Integer>) session.getAttribute(
 ArrayList<Integer> matchEmails = (ArrayList<Integer>) session.getAttribute("matchEmails");
 
 String userHTML = screenName + "\n" + majorName + "\n" + housingName + "\n" + availabilityString + "\n";
+
+
 String blocksHTML = "";
 String chatsHTML = "";
 String matchHTML = "";
@@ -95,7 +97,7 @@ if (blockedUserIDs.size() == 0) {
 	blocksHTML += "No blocked users found.";
 }
 else {
-	blocksHTML = "<tr>" +
+	blocksHTML = "<table> <tr>" +
 				"<td> Name </td>" + 
 				"<td> Image </td>" + 
 			"</tr>";
@@ -103,16 +105,17 @@ else {
 		String blockImgURL = "https://api.adorable.io/avatars/285/" + blockedUserIDs.get(i) + ".png";
 		blocksHTML += "<tr>" +
 				      "<td class=\"blockUser\">" + blockedScreenNames.get(i) + "</td>" +
-				      "<td><img class=\"profileImage\" src=\"" + blockImgURL + "\"></img></td>" +
-				      "</tr>";
+				      "<td><img class=\"img-thumbnail\" src=\"" + blockImgURL + "\"></img></td>" +
+				      "</tr> </table>";
 	}
+	System.out.println(blocksHTML);
 }
 
 if (receivingUserIDs.size() == 0) {
-	chatsHTML += "No receiving users found.";
+	chatsHTML += "No chats found.";
 }
 else {
-	chatsHTML = "<tr>" +
+	chatsHTML = "<table> <tr>" +
 				"<td> Name </td>" + 
 				"<td> Image </td>" + 
 			"</tr>";
@@ -120,26 +123,30 @@ else {
 		String chatImgURL = "https://api.adorable.io/avatars/285/" + receivingUserIDs.get(i) + ".png";
 		chatsHTML += "<tr>" +
 				      "<td class=\"chatUser\">" + receivingScreenNames.get(i) + "</td>" +
-				      "<td><img class=\"profileImage\" src=\"" + chatImgURL + "\"></img></td>" +
-				      "</tr>";
+				      "<td><img class=\"img-thumbnail\" src=\"" + chatImgURL + "\"></img></td>" +
+				      "</tr> </table>";
 	}
+
+	System.out.println(chatsHTML);
 }
 
 if (matchUserIDs.size() == 0) {
 	matchHTML += "No match users found.";
 }
 else {
-	matchHTML = "<tr>" +
+	matchHTML = "<table> <tr>" +
 				"<td> Name </td>" + 
 				"<td> Image </td>" + 
-			"</tr>";
+			"</tr> </table>";
 	for(int i = 0; i < matchUserIDs.size(); i++) {
-		String chatImgURL = "https://api.adorable.io/avatars/285/" + matchUserIDs.get(i) + ".png";
+		String matchImgURL = "https://api.adorable.io/avatars/285/" + matchUserIDs.get(i) + ".png";
 		matchHTML += "<tr>" +
-				      "<td class=\"chatUser\">" + matchScreenNames.get(i) + "</td>" +
-				      "<td><img class=\"profileImage\" src=\"" + chatImgURL + "\"></img></td>" +
-				      "</tr>";
+				      "<td class=\"matchUser\">" + matchScreenNames.get(i) + "</td>" +
+				      "<td><img class=\"img-thumbnail\" src=\"" + matchImgURL + "\"></img></td>" +
+				      "</tr> </table>";
 	}
+
+	System.out.println(matchHTML);
 }
 %>
 
@@ -189,30 +196,55 @@ else {
 			});
 		});
 
-		// // on form submit
-		// $("#userSearch").submit(function(event) {
-		//     event.preventDefault();
-		//     $.ajax({
-		// 		url: "OtherUsers",
-		// 		type: "GET",
-		// 		data: {
-		// 			search: "yes",
-		// 			userEmail: $("#userEmail").val() // TODO: change 
-		// 		},
-		// 		success: function(result) {
-		// 			$('#searchResult').html(result);
-		// 			window.location.href = "OtherUser.jsp";
-		// 		}
-		// 	});
-		// });
+	
 	</script>
 
     <h1 id="header">MingleSC</h1>
 
+
+
+int currentUserID = (Integer) session.getAttribute("currentUserID");
+String screenName = (String) session.getAttribute("screenName");
+String majorName = (String) session.getAttribute("majorName");
+String housingName = (String) session.getAttribute("housingName");
+String availabilityString = (String) session.getAttribute("availabilityString");
+String imgURL = (String) session.getAttribute("imgURL");
+
+
     <div id="matchContainer">
-    	<table> 
 	    	<div id="userInfo"> <%=userHTML%> </div>
-	    	<div id="woah"> <img src=<%=imgURL%> > </div>
+	    	
+			
+	    	<div class="row">
+	    		<div class="col-md-4">
+		    		<div class="thumbnail">
+				      <a href="https://www.w3schools.com/w3images/lights.jpg">
+				        <img class="img-thumbnail" src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="width:100%">
+				        <div class="caption">
+				          <p>Lorem ipsum...</p>
+				        </div>
+				      </a>
+			    	</div>
+		    	</div>
+
+		    	<div class="col-md-4">
+		    		<div class="thumbnail">
+				      <a href="https://www.w3schools.com/w3images/lights.jpg">
+				        <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="width:100%">
+				        <div class="caption">
+				          <p>Lorem ipsum...</p>
+				        </div>
+				      </a>
+			    	</div>
+		    	</div>
+	    	</div>
+	    	
+	    	
+					    	
+	    	<a href="#" class="badge badge-dark badge-pill">html5</a>
+
+
+	    	<div> <img class="img-thumbnail" src=<%=imgURL%> > </div>
 	    	<div id="chat form">
 
 	    		<button onclick="popChat(<%=currentUserID%>, 2)">Chat now!</button>
@@ -242,7 +274,6 @@ else {
 	    	</div>
 
 	    	
-	    </table>
 	</div>
 
 	<!-- <div class="bottomBar"></div> -->
