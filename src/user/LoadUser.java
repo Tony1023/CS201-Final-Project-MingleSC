@@ -210,7 +210,7 @@ public class LoadUser extends HttpServlet {
 				}
 			}
 
-			session.setAttribute("extarcurricularNames", extracurricularNames);
+			session.setAttribute("extracurricularNames", extracurricularNames);
 
 
 			// GET BLOCKED USERS

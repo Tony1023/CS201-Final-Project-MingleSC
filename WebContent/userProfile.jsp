@@ -13,10 +13,18 @@
 	<meta charset="UTF-8">
 	<title>Matches Page</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
 	<link rel="stylesheet" href="userProfileStyles.css">
 
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 	<script src="javascript/chatWindowLib.js"></script>
 </head>
 
@@ -85,7 +93,7 @@ ArrayList<Integer> matchUserIDs = (ArrayList<Integer>) session.getAttribute("mat
 ArrayList<String> matchScreenNames = (ArrayList<String>) session.getAttribute("matchScreenNames");
 ArrayList<String> matchEmails = (ArrayList<String>) session.getAttribute("matchEmails");
 
-ArrayList<String> extracurricularNames = (ArrayList<String>) session.getAttribute("extracurricularnames");
+ArrayList<String> extracurricularNames = (ArrayList<String>) session.getAttribute("extracurricularNames");
 ArrayList<String> interestNames = (ArrayList<String>) session.getAttribute("interestNames");
 ArrayList<String> coursePrefixes = (ArrayList<String>) session.getAttribute("coursePrefixes");
 ArrayList<String> courseNumbers = (ArrayList<String>) session.getAttribute("courseNumbers");
@@ -162,7 +170,7 @@ if (extracurricularNames.size() == 0) {
 	extraHTML += "<span class=\"badge badge-pill badge-danger\"> No extracurriculars found! </span>";
 }
 else {
-	for(int i = 0; i < matchUserIDs.size(); i++) {
+	for(int i = 0; i < extracurricularNames.size(); i++) {
 		extraHTML += "<span class=\"badge badge-pill badge-primary\">" + extracurricularNames.get(i) + "</span>";
 	}
 	System.out.println(extraHTML);
@@ -194,7 +202,9 @@ else {
 	
 	</script>
 
-    <h1 id="header">MingleSC</h1>c
+    <h1 id="header">MingleSC</h1>
+
+    
 
     <div id="matchContainer">
 	    	<div id="userInfo"> <%=userHTML%> </div>
@@ -231,12 +241,17 @@ else {
 
 	    	<div> <img class="img-thumbnail" src=<%=imgURL%> > </div>
 	    	
-	    	<div class="interests">
-	    		<h4> 
-	    			<%=extraHTML%>
-		    	</h4> 
+	    	
 
-	    	</div>
+	    	<div class="card" style="width: 18rem;">
+		    	<h4 class="card-header">Extracurriculars</h5>
+		    	<div class="card-body">
+			  		 <h4> 
+		    			<%=extraHTML%>
+			    	</h4> 
+		    	</div>
+			  
+			</div>
 	    	
 
 	    	<div id="chat form">
@@ -256,6 +271,27 @@ else {
 	  		</div>
 
 	  		<div id="chats">
+
+	  			<div class="card" style="width: 18rem;">
+				  <img class="card-img-top" src="https://www.w3schools.com/w3images/lights.jpg" alt="Card image cap">
+				  <div class="card-body">
+				  	<h5 class="card-title">Card title</h5>
+				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				  	
+				  	<form action="OtherUsers" name="userSearch" method="GET">
+			  			  <input type="hidden" id="custId" name="userEmail" value="zhehaolu2@usc.edu">
+			  			  <button type="submit" class="btn btn-primary mb-2">View Profile</button>
+				  	</form>
+					
+					<button class="btn btn-primary mb-2" onclick="popChat(<%=currentUserID%>, 2)" >Chat now!</button>
+
+				  </div>
+				  
+				  
+				  
+
+				</div>
+
 	    		<div id="chatsInfo"> CHATS <%=chatsHTML%> </div>
 	    	</div>
 
