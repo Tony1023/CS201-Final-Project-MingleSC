@@ -1,0 +1,75 @@
+#header {
+		 height: 40%;
+		 background-size: cover;
+		 background-color: #990000;
+		 color: white;
+		 text-align: center;
+		 padding-top: 10px;
+		 padding-bottom: 10px;
+		 text-decoration: none;
+		 
+	}
+	
+
+
+#informationbox 
+{
+ border: 10px solid black;
+/* width: 1100px;
+ height: 560px; */
+ width: 60%;
+ height: 50%;
+ margin-top: 30px;
+ margin-left: 320px;
+ overflow: scroll;
+ 
+ 
+}
+
+#info {
+	font-size: 60px;
+	margin: 0;
+	text-align: center;
+	text-decoration: underline;
+} 
+
+#picture {
+	width: 10%;
+	height: 10%;
+	
+	margin-top: 10px;
+	margin-left: 750px;
+	margin-bottom: 0px;  
+
+}
+
+#name 
+{
+	font-size: 64px;
+	margin-left: 30px;
+	margin-top: 50px;
+}
+
+p{
+	text-align: center;
+	font-size: 24px;
+	margin: 16px;
+	
+}
+
+h2 {
+	text-align: center;
+	text-decoration: underline;
+	font-size: 32px;
+	margin: 0;
+}
+
+button 
+{
+position: relative;
+left: 1260px;
+bottom: 520px;
+} 
+
+
+
