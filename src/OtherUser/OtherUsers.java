@@ -42,8 +42,9 @@ public class OtherUsers extends HttpServlet {
 			Statement st = null; //executes any sql command
 			PreparedStatement ps = null;
 			ResultSet rs = null; //retrieve data that comes back (from select statement), a table
-			HttpSession session = request.getSession(true);
-			String myEmail = request.getParameter ("userEmail");
+			// HttpSession session = request.getSession(true);
+			HttpSession session = request.getSession();
+			String myEmail = request.getParameter("userEmail");
 			 //int receivingid= Integer.parseInt(request.getParameter("currentId"));
 			//String myEmail= "zhehaolu@usc.edu";
 			String name="";
@@ -67,9 +68,10 @@ public class OtherUsers extends HttpServlet {
 	   		
 			
 			Class.forName("com.mysql.jdbc.Driver");
-		    conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/cs201_final_project_db", "root", "kickman");
+		    // TODO: Use the interface!!!!
+		    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs201_final_project_db?user=root&password=!Gemskull2&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC");
 			System.out.println("Successfully connected");
-			//String myEmail = request.getParameter ("useremail");
+			System.out.println(myEmail); // TODO: remove latere
 			
 			
 			st=conn.createStatement();
@@ -202,7 +204,7 @@ public class OtherUsers extends HttpServlet {
 		//sending user ID's
 		//session.setAttribute("currentUser", receivingID);
 		session.setAttribute("otherUser", userid);
-	String next="/UserInformation.jsp";
+	String next="/OtherUser.jsp";
 RequestDispatcher dispatch = getServletContext().getRequestDispatcher(next);
 		
     	try {
