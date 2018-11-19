@@ -39,7 +39,7 @@
 			<select id = "select" name="course" value="course">
 				<option>Select a Course -- </option>
 				<option>CSCI 103: Introduction to Programming</option>
-				<option>CSCI 104: Data Structures and Algorithms</option>
+				<option>CSCI 104: Data Structures and Object Oriented Design</option>
 				<option>CSCI 170: Discrete Methods in Computer Science</option>
 				<option>CSCI 201: Principles of Software Development</option>
 				<option>CSCI 310: Software Engineering</option>
