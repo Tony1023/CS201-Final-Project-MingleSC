@@ -90,7 +90,7 @@
     <div id='chat-message-area'>
     </div>
     
-    <textarea id='chat-send-box' placeholder='Hi!...'></textarea>
+    <textarea id='chat-send-box' placeholder='Press Enter to send; press Shift+Enter to insert line break...'></textarea>
     
     <div class='chat-bottom'>
       <button class='bottom-btn' onclick='sendMessage();'>Send</button>
