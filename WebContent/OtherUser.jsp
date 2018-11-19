@@ -1,8 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
-<% int current=1 ;
-   int other=2; %>
+<% 
+
+int current = (Integer) session.getAttribute("currentUserID");
+
+int other= (Integer) session.getAttribute("otherUser");
+// int other = 2;
+
+%>
 
 <!DOCTYPE html>
 <html>

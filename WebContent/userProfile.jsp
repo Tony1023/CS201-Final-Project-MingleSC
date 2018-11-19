@@ -17,6 +17,7 @@
 
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="javascript/chatWindowLib.js"></script>
 </head>
 
 <script>
@@ -65,7 +66,7 @@
 
 HttpSession session = request.getSession(false);
 
-String currentUserId = (String) session.getAttribute("currentUserId");
+int currentUserID = (Integer) session.getAttribute("currentUserID");
 String screenName = (String) session.getAttribute("screenName");
 String majorName = (String) session.getAttribute("majorName");
 String housingName = (String) session.getAttribute("housingName");
@@ -213,6 +214,9 @@ else {
 	    	<div id="userInfo"> <%=userHTML%> </div>
 	    	<div id="woah"> <img src=<%=imgURL%> > </div>
 	    	<div id="chat form">
+
+	    		<button onclick="popChat(<%=currentUserID%>, 2)">Chat now!</button>
+
 	    		<form id="chatSearch" name = "userSearch" action="ChatPopup" method="GET">
 			      	<input type="text" id="chatSearchTerm" name="searchTerm" placeholder="chat someone">
 			      	<input type="submit" name="submit" value="submit">

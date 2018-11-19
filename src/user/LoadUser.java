@@ -68,6 +68,7 @@ public class LoadUser extends HttpServlet {
 
 		String userID = "1"; // TODO: Remove this when I figure out how things are getting passed to me...
 		// userID = session.getAttribute("currentUserID"); // TODO: change when Adam passes me this... Adam's 
+		session.setAttribute("currentUserID", 1);
 		
 		String screenName = "";
 		String email = "";
