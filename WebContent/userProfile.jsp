@@ -100,7 +100,7 @@ ArrayList<String> courseNumbers = (ArrayList<String>) session.getAttribute("cour
 ArrayList<String> courseNames = (ArrayList<String>) session.getAttribute("courseNames");
 
 
-String userHTML = screenName + "\n" + majorName + "\n" + housingName + "\n" + availabilityString + "\n";
+String userHTML = screenName + "\n" + majorName + "\n" + housingName + "\n";
 
 
 String blocksHTML = "";
@@ -234,7 +234,9 @@ else {
     <div id="matchContainer">
 	    	<div id="userInfo"> <%=userHTML%> </div>
 	    	
-	    	<div> <img class="img-thumbnail" src=<%=imgURL%> > </div>
+	    	<div class="text-center"> 
+	    		<img class="img-thumbnail" src=<%=imgURL%> > 
+	    	</div>
 	    	
 	    	
 
@@ -251,7 +253,7 @@ else {
 
 	  		<div class="row" name="user-info">
 	  			<div class="col">
-	  				<div class="card m-1" style="width: 18rem;">
+	  				<div class="card center-block m-1 mx-auto" style="width: 18rem;">
 				    	<h4 class="card-header">Interests</h5>
 				    	<div class="card-body">
 					  		 <h4> 
@@ -263,7 +265,7 @@ else {
 	  			</div>
 
 	  			<div class="col">
-	  				<div class="card m-1" style="width: 18rem;">
+	  				<div class="card center-block m-1 mx-auto" style="width: 18rem;">
 				    	<h4 class="card-header">Extracurriculars</h5>
 				    	<div class="card-body">
 					  		 <h4> 
@@ -275,7 +277,7 @@ else {
 	  			</div>
 
 	  			<div class="col">
-	  				<div class="card m-1" style="width: 18rem;">
+	  				<div class="card center-block m-1 mx-auto" style="width: 18rem;">
 				    	<h4 class="card-header">Courses</h5>
 				    	<div class="card-body">
 					  		 <h4> 
@@ -290,7 +292,7 @@ else {
 
 	  		<div id="chats">
 
-	  			<div class="card border-primary m-3" style="width: 18rem;">
+	  			<div class="card border-primary m-3" style="width: 12rem;">
 				  <img class="card-img-top" src="https://api.adorable.io/avatars/285/2.png" alt="Profile image">
 				  <div class="card-body">
 				  	<h5 class="card-title">Tony Lyu2</h5>
