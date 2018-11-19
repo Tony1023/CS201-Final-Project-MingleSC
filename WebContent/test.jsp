@@ -8,7 +8,7 @@
 
 <body>
   <button onclick='popChat(1,2)'>Click to add!</button>
-  <!-- <iframe id='1' src='http://localhost:8080/CSCI201-Final-Project/ChatServlet?fromId=1&toId=2'></iframe> -->
+  <button onclick='popChat(2,1)'>Click to add 2</button>
 </body>
 
 <script>

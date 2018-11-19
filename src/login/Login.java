@@ -71,6 +71,8 @@ public class Login extends HttpServlet {
 	        	if(!(rs.next())) {
 	        		pw.println("Incorrect email or password. <br>");
 	        		
+	        	} else {
+	        		request.getSession().setAttribute("currentUserId", rs.getInt(1));
 	        	}
 	        } catch (SQLException sqle) {
 	        	System.out.println("sqle: " + sqle.getMessage());
