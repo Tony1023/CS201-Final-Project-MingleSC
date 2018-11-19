@@ -85,3 +85,4 @@ CREATE TABLE chat_messages(
     FOREIGN KEY (sending_user_id) REFERENCES user(user_id),
     FOREIGN KEY (receiving_user_id) REFERENCES user(user_id)
 );
+
