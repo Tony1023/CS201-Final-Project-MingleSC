@@ -28,8 +28,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import suggester.SuggesterUtil;
-
 /**
  * Servlet implementation class LoadUser
  */
@@ -197,7 +195,6 @@ public class LoadUser extends HttpServlet {
 			session.setAttribute("receivingUserIDs", receivingUserIDs);
 			session.setAttribute("receivingScreenNames", receivingScreenNames);
 			session.setAttribute("receivingEmails", receivingEmails);
-
 
 
 			// GET MATCHES
