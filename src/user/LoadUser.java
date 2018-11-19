@@ -1,6 +1,7 @@
 
 package user;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -233,7 +234,7 @@ public class LoadUser extends HttpServlet {
 
 
 			// TODO: Fix this later... rip
-			for (int i: SuggesterUtil.getRank(1)) {
+			for (int i: SuggesterUtil.getRank(1, getServletContext().getRealPath("/"))) {
 				System.out.println(i);
 			}
 			// ArrayList<String> matchScreenNames = new ArrayList<String>();
