@@ -116,7 +116,103 @@ public class LoadUser extends HttpServlet {
 			System.out.println(imgURL);
 			session.setAttribute("imgURL", imgURL);
 			
+
+			// GET COURSES 
+
+			// get course IDs
+			queryString = "SELECT * FROM user_courses WHERE user_id=" + userID;
+			ps = conn.prepareStatement(queryString);
+			rs = ps.executeQuery();
+			String courseID = null;
+			ArrayList<String> coursePrefixes = new ArrayList<String>();
+			ArrayList<String> courseNumbers = new ArrayList<String>();
+			ArrayList<String> courseNames = new ArrayList<String>();
+
+
+			while (rs.next()) {
+				courseID = rs.getString("course_id");
+				String coursePrefix = null;
+				String courseNumber = null;
+				String courseName = null;
+
+				// Get course info
+				Statement s = conn.createStatement();
+				ResultSet r = s.executeQuery("SELECT * FROM courses WHERE course_id=" + courseID);
+				while (r.next()) {
+					coursePrefix = r.getString("course_prefix");
+					courseNumber = r.getString("course_number");
+					courseName = r.getString("course_name");
+
+					System.out.println("coursePrefix: "  + coursePrefix);
+					System.out.println("courseNumber: "  + courseNumber);
+					System.out.println("courseName: "  + courseName);
+					
+					coursePrefixes.add(coursePrefix);
+					courseNumbers.add(courseNumber);
+					courseNames.add(courseName);
+				}
+			}
+
+			session.setAttribute("coursePrefixes", coursePrefixes);
+			session.setAttribute("courseNumbers", courseNumbers);
+			session.setAttribute("courseNames", courseNames);
+
 			
+
+			// GET INTERESTS
+			
+			String interestID = null;
+			ArrayList<String> interestNames = new ArrayList<String>();
+
+			queryString = "SELECT * FROM user_interests WHERE user_id=" + userID;
+			ps = conn.prepareStatement(queryString);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				interestID = rs.getString("interest_id");
+				String interestName = null;
+
+				// Get course info
+				Statement s = conn.createStatement();
+				ResultSet r = s.executeQuery("SELECT * FROM gen_interests WHERE interest_id=" + interestID);
+				while (r.next()) {
+					interestName = r.getString("interest_name");
+
+					System.out.println("interestName: "  + interestName);
+					interestNames.add(interestName);
+				}
+			}
+
+			session.setAttribute("interestNames", interestNames);
+
+
+
+			// GET EXTRACURRICULARS
+			String extracurricularID = null;
+			ArrayList<String> extracurricularNames = new ArrayList<String>();
+
+			queryString = "SELECT * FROM user_extracurriculars WHERE user_id=" + userID;
+			ps = conn.prepareStatement(queryString);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				extracurricularID = rs.getString("extracurricular_id");
+				String extracurricularName = null;
+
+				// Get course info
+				Statement s = conn.createStatement();
+				ResultSet r = s.executeQuery("SELECT * FROM extracurriculars WHERE extracurricular_id=" + extracurricularID);
+				while (r.next()) {
+					extracurricularName = r.getString("extracurricular_name");
+
+					System.out.println("extracurricularName: "  + extracurricularName);
+					extracurricularNames.add(extracurricularName);
+				}
+			}
+
+			session.setAttribute("extarcurricularNames", extracurricularNames);
+
+
 			// GET BLOCKED USERS
 			
 			int blockedUserID = 0;
