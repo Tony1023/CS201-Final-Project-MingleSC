@@ -74,16 +74,23 @@ String availabilityString = (String) session.getAttribute("availabilityString");
 String imgURL = (String) session.getAttribute("imgURL");
 
 ArrayList<Integer> receivingUserIDs = (ArrayList<Integer>) session.getAttribute("receivingUserIDs");
-ArrayList<Integer> receivingScreenNames = (ArrayList<Integer>) session.getAttribute("receivingScreenNames");
-ArrayList<Integer> receivingEmails = (ArrayList<Integer>) session.getAttribute("receivingEmails");
+ArrayList<String> receivingScreenNames = (ArrayList<String>) session.getAttribute("receivingScreenNames");
+ArrayList<String> receivingEmails = (ArrayList<String>) session.getAttribute("receivingEmails");
 
 ArrayList<Integer> blockedUserIDs = (ArrayList<Integer>) session.getAttribute("blockedUserIDs");
-ArrayList<Integer> blockedScreenNames = (ArrayList<Integer>) session.getAttribute("blockedScreenNames");
-ArrayList<Integer> blockedEmails = (ArrayList<Integer>) session.getAttribute("blockedEmails");
+ArrayList<String> blockedScreenNames = (ArrayList<String>) session.getAttribute("blockedScreenNames");
+ArrayList<String> blockedEmails = (ArrayList<String>) session.getAttribute("blockedEmails");
 
 ArrayList<Integer> matchUserIDs = (ArrayList<Integer>) session.getAttribute("matchUserIDs");
-ArrayList<Integer> matchScreenNames = (ArrayList<Integer>) session.getAttribute("matchScreenNames");
-ArrayList<Integer> matchEmails = (ArrayList<Integer>) session.getAttribute("matchEmails");
+ArrayList<String> matchScreenNames = (ArrayList<String>) session.getAttribute("matchScreenNames");
+ArrayList<String> matchEmails = (ArrayList<String>) session.getAttribute("matchEmails");
+
+ArrayList<String> extracurricularNames = (ArrayList<String>) session.getAttribute("extracurricularnames");
+ArrayList<String> interestNames = (ArrayList<String>) session.getAttribute("interestNames");
+ArrayList<String> coursePrefixes = (ArrayList<String>) session.getAttribute("coursePrefixes");
+ArrayList<String> courseNumbers = (ArrayList<String>) session.getAttribute("courseNumbers");
+ArrayList<String> courseNames = (ArrayList<String>) session.getAttribute("courseNames");
+
 
 String userHTML = screenName + "\n" + majorName + "\n" + housingName + "\n" + availabilityString + "\n";
 
@@ -148,35 +155,23 @@ else {
 
 	System.out.println(matchHTML);
 }
+
+
+String extraHTML = "";
+if (extracurricularNames.size() == 0) {
+	extraHTML += "<span class=\"badge badge-pill badge-danger\"> No extracurriculars found! </span>";
+}
+else {
+	for(int i = 0; i < matchUserIDs.size(); i++) {
+		extraHTML += "<span class=\"badge badge-pill badge-primary\">" + extracurricularNames.get(i) + "</span>";
+	}
+	System.out.println(extraHTML);
+}
+
+
 %>
 
 <body>
-
-	<!-- <ul id="menu">
-		<div class='menu-logo'>
-			<li><a href="logged_in.jsp">Sycamore Calendar</a></li>
-		</div>
-
-
-		<div class='searchbar'>
-		    <form id="userSearch" name = "userSearch" action="SigninServlet" method="GET">
-		      	<input type="text" id="searchbar" name="searchTerm" placeholder="Search Friends">
-		      	<input type="image" id="searchIcon" src="search-small.png" name="submit" value="submit">
-  		    </form>
-      	</div>
-	
-
-	    <div class='menu-items'>
-			<li><a href="homepage.jsp">Home</a></li>
-			<li><a href="profile.jsp">Profile</a></li>
-		</div>
- 
-	</ul>
-
-	<div class="matchTable" style="overflow-y:auto;">
-
-	</div> -->
-
 
 	<script> 
 		// on form submit
@@ -199,17 +194,7 @@ else {
 	
 	</script>
 
-    <h1 id="header">MingleSC</h1>
-
-
-
-int currentUserID = (Integer) session.getAttribute("currentUserID");
-String screenName = (String) session.getAttribute("screenName");
-String majorName = (String) session.getAttribute("majorName");
-String housingName = (String) session.getAttribute("housingName");
-String availabilityString = (String) session.getAttribute("availabilityString");
-String imgURL = (String) session.getAttribute("imgURL");
-
+    <h1 id="header">MingleSC</h1>c
 
     <div id="matchContainer">
 	    	<div id="userInfo"> <%=userHTML%> </div>
@@ -245,6 +230,15 @@ String imgURL = (String) session.getAttribute("imgURL");
 
 
 	    	<div> <img class="img-thumbnail" src=<%=imgURL%> > </div>
+	    	
+	    	<div class="interests">
+	    		<h4> 
+	    			<%=extraHTML%>
+		    	</h4> 
+
+	    	</div>
+	    	
+
 	    	<div id="chat form">
 
 	    		<button onclick="popChat(<%=currentUserID%>, 2)">Chat now!</button>
