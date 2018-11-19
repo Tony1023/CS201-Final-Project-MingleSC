@@ -22,6 +22,7 @@ resources.*"%>
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="FinalProject.css">
+	<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="docsupport/chosen.min.css">
 	<meta charset="UTF-8">
 	<title>Create An Account</title>
@@ -138,16 +139,17 @@ resources.*"%>
     session.setAttribute("coursesArrayList", courses);
     session.setAttribute("extracurricularsArrayList", extracurriculars);
     session.setAttribute("interestsArrayList", interests);
-    
-    
 	%>
 		
-	<h1 id = "header"> USC Mingle </h1>
+	<h1 id = "header"> MingleSC </h1>
+		<ul class="info" style="list-style-type:none">
+		  <li style = "text-align:center;font-size:35px;">Connect with Your Classmates</li>
+		  <li style="text-align:center;margin-left: 15%;margin-right: 15%;font-size: 70%;">You do not currently have an account. Please proceed as a guest to see current users with the same courses.</li>
+		  <img style = "margin-top:10px" src="Capture.PNG">
+		</ul>
 	
 	<div id = form>
-		
-		<h2 id="header">Create an Account</h2>
-	
+		<h2 style = "font-weight: bold;">Create an Account</h2>
 	
 		<p id = "err_message" style="color: red; font-weight: bold"><%=errorMessage%></p>
 		<form id = "CreateAccount" name = "CreateAccountForm" method = "POST" action = "CreateAccount">
@@ -198,7 +200,7 @@ resources.*"%>
 					}
 					%>
 					</select><br><br>	
-					<input type="submit" value="Register"><br><br>
+					<input style = "background-color: #00B488; color: white;" type="submit" value="Register"><br><br>
 		</form>
 	</div>	
 	

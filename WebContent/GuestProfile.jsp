@@ -25,8 +25,8 @@
 	
 	<ul class="info" style="list-style-type:none">
 	  <li style = "text-align:center;font-size:35px;">Connect with Your Classmates</li>
-	  <li style = "text-align:center;">Guest functionality </li>
-	  <img src="Capture.PNG">
+	 <li style="text-align:center;margin-left: 15%;margin-right: 15%;font-size: 70%;">You do not currently have an account. Please proceed as a guest to see current users with the same courses.</li>
+	 <img style = "margin-top:10px" src="Capture.PNG">
 	</ul>
 
 	<div id="form">
@@ -45,7 +45,7 @@
 				<option>CSCI 310: Software Engineering</option>
 				<option>CSCI 356: Introduction to Computer Systems</option>
 
-			</select> <br> <br> <br> <input type="submit" value="Submit">
+			</select> <br> <br> <br> <input style = "background-color: #00B488; color: white;" type="submit" value="Submit">
 
 			<br> <br>
 		</form>
