@@ -196,11 +196,11 @@ else {
 				type: "GET",
 				data: {
 					search: "yes",
-					userEmail: $("#userEmail").val()
+					userEmail: $("#userEmail").val() // TODO: change 
 				},
 				success: function(result) {
 					$('#searchResult').html(result);
-					window.location.href = "UserInformation.jsp";
+					window.location.href = "otherUser.jsp";
 				}
 			});
 		});
@@ -218,7 +218,7 @@ else {
 			      	<input type="submit" name="submit" value="submit">
 	  		    </form>
 	  		</div>
-	  		<div id="user form">
+	  		<div id="user info form">
 	  			<form id="userSearch" name ="userSearch" action="UserInfoPage" method="GET">
 			      	<input type="text" id="userEmail"name="searchTerm" placeholder="go to user info page">
 			      	<input type="submit" name="submit" value="submit">
