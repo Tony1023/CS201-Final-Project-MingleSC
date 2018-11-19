@@ -19,6 +19,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import resources.CommonResources;
+import resources.Credentials;
+
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.io.IOException;
@@ -66,9 +69,8 @@ public class LoadUser extends HttpServlet {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
-		String userID = "1"; // TODO: Remove this when I figure out how things are getting passed to me...
-		// userID = session.getAttribute("currentUserID"); // TODO: change when Adam passes me this... Adam's 
-		session.setAttribute("currentUserID", 1);
+		Integer userID = (Integer) session.getAttribute("currentUserID"); // TODO: change when Adam passes me this... Adam's 
+		System.out.println("id: " + userID);
 		
 		String screenName = "";
 		String email = "";
@@ -80,8 +82,8 @@ public class LoadUser extends HttpServlet {
 
 		// TODO: Retrieve the user
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs201_final_project_db?user=root&password=!Gemskull2&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
 			String queryString = "SELECT u.email, u.screen_name, u.password, u.availability_string, m.major_name, h.housing_name FROM user u, major m, housing h WHERE " + 
 									" user_id=" + userID + " AND u.major_id=m.major_id AND u.housing_id=h.housing_id;";
 			
@@ -109,7 +111,7 @@ public class LoadUser extends HttpServlet {
 			session.setAttribute("majorName", majorName);
 			session.setAttribute("housingName", housingName);
 			session.setAttribute("availabilityString", availabilityString);	
-			String imgURL = "https://api.adorable.io/avatars/285/" + (Integer.parseInt(userID)) + ".png";
+			String imgURL = "https://api.adorable.io/avatars/285/" + userID + ".png";
 			System.out.println(imgURL);
 			session.setAttribute("imgURL", imgURL);
 			
@@ -231,7 +233,9 @@ public class LoadUser extends HttpServlet {
 
 
 			// TODO: Fix this later... rip
- 		// 	List<Integer> matchUserIDs = SuggesterUtil.getRank(Integer.parseInt(userID)); // pass in User ID
+			for (int i: SuggesterUtil.getRank(1)) {
+				System.out.println(i);
+			}
 			// ArrayList<String> matchScreenNames = new ArrayList<String>();
 			// ArrayList<String> matchEmails = new ArrayList<String>();
 

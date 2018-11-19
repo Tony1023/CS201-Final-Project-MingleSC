@@ -17,6 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import resources.CommonResources;
+import resources.Credentials;
+
 /**
  * Servlet implementation class OtherUsers
  */
@@ -68,8 +71,7 @@ public class OtherUsers extends HttpServlet {
 	   		
 			
 			Class.forName("com.mysql.jdbc.Driver");
-		    // TODO: Use the interface!!!!
-		    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cs201_final_project_db?user=root&password=!Gemskull2&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC");
+			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
 			System.out.println("Successfully connected");
 			System.out.println(myEmail); // TODO: remove latere
 			

@@ -72,7 +72,7 @@ public class Login extends HttpServlet {
 	        		pw.println("Incorrect email or password. <br>");
 	        		
 	        	} else {
-	        		request.getSession().setAttribute("currentUserId", rs.getInt(1));
+	        		request.getSession().setAttribute("currentUserID", rs.getInt(1));
 	        	}
 	        } catch (SQLException sqle) {
 	        	System.out.println("sqle: " + sqle.getMessage());

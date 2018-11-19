@@ -1,5 +1,5 @@
 <%
-  String userID = request.getParameter("userID");
+  Integer userID = (Integer) session.getAttribute("currentUserID");
 %>
 
 <!DOCTYPE html>
