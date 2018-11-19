@@ -39,7 +39,7 @@
 	
 	<ul class="info" style="list-style-type:none">
 	  <li style = "text-align:center;font-size:35px;">Connect with Your Classmates</li>
-	 <li style="text-align:center;margin-left: 15%;margin-right: 15%;font-size: 70%;">You do not currently have an account. Please proceed as a guest to see current users with the same courses.</li>
+	 <li style="text-align:center;margin-left: 15%;margin-right: 15%;font-size: 70%;">Already have an account? Log back in to continue chatting!</li>
 	 <img style = "margin-top:10px" src="Capture.PNG">
 	</ul>
 

@@ -144,7 +144,7 @@ resources.*"%>
 	<h1 id = "header"> MingleSC </h1>
 		<ul class="info" style="list-style-type:none">
 		  <li style = "text-align:center;font-size:35px;">Connect with Your Classmates</li>
-		  <li style="text-align:center;margin-left: 15%;margin-right: 15%;font-size: 70%;">You do not currently have an account. Please proceed as a guest to see current users with the same courses.</li>
+		  <li style="text-align:center;margin-left: 15%;margin-right: 15%;font-size: 70%;">Create an Account to start chatting and meeting your peers!</li>
 		  <img style = "margin-top:10px" src="Capture.PNG">
 		</ul>
 	
