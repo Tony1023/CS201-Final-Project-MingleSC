@@ -201,6 +201,8 @@ else {
 
 %>
 
+
+
 <body>
 
 	<script> 
@@ -224,9 +226,10 @@ else {
 	
 	</script>
 
-    <h1 id="header">MingleSC</h1>
+    
 
     
+	<h1 id="header">MingleSC</h1>
 
     <div id="matchContainer">
 	    	<div id="userInfo"> <%=userHTML%> </div>
@@ -235,35 +238,7 @@ else {
 	    	
 	    	
 
-	    	<div class="card" style="width: 18rem;">
-		    	<h4 class="card-header">Extracurriculars</h5>
-		    	<div class="card-body">
-			  		 <h4> 
-		    			<%=extraHTML%>
-			    	</h4> 
-		    	</div>
-			  
-			</div>
-
-			<div class="card" style="width: 18rem;">
-		    	<h4 class="card-header">Interests</h5>
-		    	<div class="card-body">
-			  		 <h4> 
-		    			<%=interestHTML%>
-			    	</h4> 
-		    	</div>
-			  
-			</div>
-
-			<div class="card" style="width: 18rem;">
-		    	<h4 class="card-header">Courses</h5>
-		    	<div class="card-body">
-			  		 <h4> 
-		    			<%=courseHTML%>
-			    	</h4> 
-		    	</div>
-			  
-			</div>
+	    	
 	    	
     		<!-- <button onclick="popChat(<%=currentUserID%>, 2)">Chat now!</button> -->
 
@@ -274,9 +249,48 @@ else {
 	  		    </form>
 	  		</div> -->  
 
+	  		<div class="row" name="user-info">
+	  			<div class="col">
+	  				<div class="card m-1" style="width: 18rem;">
+				    	<h4 class="card-header">Interests</h5>
+				    	<div class="card-body">
+					  		 <h4> 
+				    			<%=interestHTML%>
+					    	</h4> 
+				    	</div>
+					  
+					</div>
+	  			</div>
+
+	  			<div class="col">
+	  				<div class="card m-1" style="width: 18rem;">
+				    	<h4 class="card-header">Extracurriculars</h5>
+				    	<div class="card-body">
+					  		 <h4> 
+				    			<%=extraHTML%>
+					    	</h4> 
+				    	</div>
+					</div>
+
+	  			</div>
+
+	  			<div class="col">
+	  				<div class="card m-1" style="width: 18rem;">
+				    	<h4 class="card-header">Courses</h5>
+				    	<div class="card-body">
+					  		 <h4> 
+				    			<%=courseHTML%>
+					    	</h4> 
+				    	</div>
+					  
+					</div>
+	  			</div>
+
+	  		</div>
+
 	  		<div id="chats">
 
-	  			<div class="card border-primary" style="width: 18rem;">
+	  			<div class="card border-primary m-3" style="width: 18rem;">
 				  <img class="card-img-top" src="https://api.adorable.io/avatars/285/2.png" alt="Profile image">
 				  <div class="card-body">
 				  	<h5 class="card-title">Tony Lyu2</h5>
