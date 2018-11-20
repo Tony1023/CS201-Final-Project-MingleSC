@@ -80,17 +80,17 @@ public class BlockUser extends HttpServlet {
 			ResultSet rs = null;
 			// thisEmailID for current session
 
-			String updateString = "INSERT INTO blocks (`blocking_user_id`, `blocked_user_id`, `block_status`) VALUES (" +
-									userID + ", " +
-									userToBlockID + ", " + 
-									"1) ON DUPLICATE KEY UPDATE `block_status`=1";
+			String updateString = "UPDATE blocks set block_status=1 where blocking_user_id=" + userID + " AND blocked_user_id=" + userToBlockID + 
+								 " IF @@ROWCOUNT=0" + 
+								 " INSERT INTO blocks(blocking_user_id, blocked_user_id, block_status) values(" + userID + ", " + blocked_user_id + ", " + 1 + ");";
+			
+
+			// String updateString = "INSERT INTO blocks (`blocking_user_id`, `blocked_user_id`, `block_status`) VALUES (" +
+			// 						userID + ", " +
+			// 						userToBlockID + ", " + 
+			// 						"1) ON DUPLICATE KEY UPDATE `block_status`=1";
 
 			System.out.println(updateString);
-
-			// String updateString = "INSERT IGNORE INTO blocks (`blocking_user_id`, `blocked_user_id`, `block_status`) VALUES (\'" +
-			// 						userID + "\', \'" +
-			// 						userToBlockID + "\', \'" + 
-			// 						1 + "\')";
 
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
