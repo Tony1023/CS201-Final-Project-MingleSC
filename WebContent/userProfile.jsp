@@ -100,7 +100,7 @@ else {
 								"<h5 class=\"card-title\">" + blockedScreenNames.get(i) + "</h5>" + 
 									"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
 										"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + blockedEmails.get(i) + "\">" + 
-										"<button type=\"submit\" class=\"btn btn-primary mb-2\">View Profile</button>" + 
+										"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
 								  	"</form>" + 
 					  		"</div>" + 
 					  	 "</div>";
@@ -125,7 +125,7 @@ else {
 								"<h5 class=\"card-title\">" + receivingScreenNames.get(i) + "</h5>" + 
 									"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
 										"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + receivingEmails.get(i) + "\">" + 
-										"<button type=\"submit\" class=\"btn btn-primary mb-2\">View Profile</button>" + 
+										"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
 								  	"</form>" + 
 							  		"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + receivingUserIDs.get(i) + ")\" >Chat now!</button>" + 
 					  		"</div>" + 
@@ -149,7 +149,7 @@ else {
 								"<h5 class=\"card-title\">" + matchScreenNames.get(i) + "</h5>" + 
 									"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
 										"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + matchEmails.get(i) + "\">" + 
-										"<button type=\"submit\" class=\"btn btn-primary mb-2\">View Profile</button>" + 
+										"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
 								  	"</form>" + 
 							  		"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + matchUserIDs.get(i) + ")\" >Chat now!</button>" + 
 					  		"</div>" + 
@@ -167,7 +167,7 @@ if (extracurricularNames.size() == 0) {
 }
 else {
 	for(int i = 0; i < extracurricularNames.size(); i++) {
-		extraHTML += "<span class=\"badge badge-pill badge-primary\">" + extracurricularNames.get(i) + "</span>\n";
+		extraHTML += "<span class=\"badge badge-pill badge-danger\">" + extracurricularNames.get(i) + "</span>\n";
 	}
 	System.out.println(extraHTML);
 }
@@ -178,7 +178,7 @@ if (interestNames.size() == 0) {
 }
 else {
 	for(int i = 0; i < interestNames.size(); i++) {
-		interestHTML += "<span class=\"badge badge-pill badge-primary\">" + interestNames.get(i) + "</span>\n";
+		interestHTML += "<span class=\"badge badge-pill badge-danger\">" + interestNames.get(i) + "</span>\n";
 	}
 	System.out.println(interestHTML);
 }
@@ -189,7 +189,7 @@ if (coursePrefixes.size() == 0) {
 }
 else {
 	for(int i = 0; i < coursePrefixes.size(); i++) {
-		courseHTML += "<span class=\"badge badge-pill badge-primary\">" + coursePrefixes.get(i) + " " + courseNumbers.get(i) + "</span>\n";
+		courseHTML += "<span class=\"badge badge-pill badge-danger\">" + coursePrefixes.get(i) + " " + courseNumbers.get(i) + "</span>\n";
 	}
 	System.out.println(courseHTML);
 }
@@ -204,35 +204,27 @@ else {
 	</div>
 
 
-	<div class="card" style="width: 20rem;">
-	  <img class="card-img-top" src=<%=imgURL%> alt="Card image cap">
-	  <ul class="list-group list-group-flush">
-	     <li class="list-group-item float-left"><strong>Name: </strong><%=screenName%></li>
-		 <li class="list-group-item"><strong>Major: </strong><%=majorName%></li>
-		 <li class="list-group-item"><strong>Housing: </strong><%=housingName%></li>
-		 <li class="list-group-item"><strong>Availability: </strong>Edit Availability</li>
-	  </ul>
-	  <!-- Edit this to hit the scheduler backend-->
-	  <div class="card-body">
-	    <form action="OtherUsers" name="userSearch" method="GET">
-  			  <input type="hidden" id="custId" name="userEmail" value="">
-  			  <button type="submit" class="btn btn-primary mb-2">Edit Availability</button>
-	  	</form>
-		
-	  </div>
-	</div>
+	<div class="row">
+		<div class="card border-secondary m-1 ml-4" style="width: 20rem;">
+		  <img class="card-img-top" src=<%=imgURL%> alt="Card image cap">
+		  <ul class="list-group list-group-flush">
+		     <li class="list-group-item float-left"><strong>Name: </strong><%=screenName%></li>
+			 <li class="list-group-item"><strong>Major: </strong><%=majorName%></li>
+			 <li class="list-group-item"><strong>Housing: </strong><%=housingName%></li>
+		  </ul>
+		  <!-- Edit this to hit the scheduler backend-->
+		  <div class="card-body">
+		    <form action="OtherUsers" name="userSearch" method="GET">
+	  			  <input type="hidden" id="custId" name="userEmail" value="">
+	  			  <button type="submit" class="btn btn-success mb-2">Edit Availability</button>
+		  	</form>
+			
+		  </div>
+		</div>
 
-	    	
-	    	
-	    	
-    	<!-- <div class="text-center"> 
-    		
-    	</div>
-    	 -->
-
-  		<div class="row" name="user-info">
+		<div class="card-column" name="user-info">
   			<div class="col">
-  				<div class="card center-block m-1 mx-auto" style="width: 18rem;">
+  				<div class="card center-block m-1 mx-auto mb-3" style="width: 18rem;">
 			    	<h5 class="card-header">Interests</h5>
 			    	<div class="card-body">
 				  		 <h5> 
@@ -244,7 +236,7 @@ else {
   			</div>
 
   			<div class="col">
-  				<div class="card center-block m-1 mx-auto" style="width: 18rem;">
+  				<div class="card center-block m-1 mx-auto mb-3" style="width: 18rem;">
 			    	<h5 class="card-header">Extracurriculars</h5>
 			    	<div class="card-body">
 				  		 <h5> 
@@ -256,7 +248,7 @@ else {
   			</div>
 
   			<div class="col">
-  				<div class="card center-block m-1 mx-auto" style="width: 18rem;">
+  				<div class="card center-block m-1 mx-auto mb-3" style="width: 18rem;">
 			    	<h5 class="card-header">Courses</h5>
 			    	<div class="card-body">
 				  		 <h5> 
@@ -268,6 +260,9 @@ else {
   			</div>
 
   		</div>
+
+	</div>
+	
 
   		<div class="row" name="chats">
   			<div class="col-1 text-label">
