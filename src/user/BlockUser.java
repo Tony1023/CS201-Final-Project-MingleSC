@@ -80,16 +80,10 @@ public class BlockUser extends HttpServlet {
 			ResultSet rs = null;
 			// thisEmailID for current session
 
-			String updateString = "UPDATE blocks set block_status=1 where blocking_user_id=" + userID + " AND blocked_user_id=" + userToBlockID + 
-								 " IF @@ROWCOUNT=0" + 
-								 " INSERT INTO blocks(blocking_user_id, blocked_user_id, block_status) values(" + userID + ", " + blocked_user_id + ", " + 1 + ");";
+			String updateString = "UPDATE blocks SET block_status=1 WHERE blocking_user_id=" + userID + " AND blocked_user_id=" + userToBlockID + "";
+
+			String secondaryUpdateString = "INSERT INTO blocks(blocking_user_id, blocked_user_id, block_status) values(" + userID + ", " + userToBlockID + ", " + 1 + ");";
 			
-
-			// String updateString = "INSERT INTO blocks (`blocking_user_id`, `blocked_user_id`, `block_status`) VALUES (" +
-			// 						userID + ", " +
-			// 						userToBlockID + ", " + 
-			// 						"1) ON DUPLICATE KEY UPDATE `block_status`=1";
-
 			System.out.println(updateString);
 
 			try {
@@ -98,7 +92,11 @@ public class BlockUser extends HttpServlet {
 
 				System.out.println(updateString);
 				ps = conn.prepareStatement(updateString);
-					int result = ps.executeUpdate();
+				int result = ps.executeUpdate();
+				if (result == 0) {
+					ps = conn.prepareStatement(secondaryUpdateString);
+					result = ps.executeUpdate();
+				}
 				
 			} catch (SQLException sqle) {
 				System.out.println (sqle.getMessage());
@@ -131,7 +129,7 @@ public class BlockUser extends HttpServlet {
 			System.out.println("id: " + userID);
 
 			Integer userToUnblockID = Integer.parseInt(request.getParameter("userToUnblockID"));
-			System.out.println("userToBlock: " + userToUnblockID);
+			System.out.println("userToUnblock: " + userToUnblockID);
 
 
 			// Also need to add the event to the database...
