@@ -62,8 +62,9 @@ String userHTML = screenName + "\n" + majorName + "\n" + housingName + "\n";
 
 
 String blocksHTML = "";
-String chatsHTML = "";
-String matchHTML = "";
+String blockedCardsHTML = "";
+String chatCardsHTML = "";
+String matchCardsHTML = "";
 
 System.out.println(blockedUserIDs.size());
 if (blockedUserIDs.size() == 0) {
@@ -84,26 +85,42 @@ else {
 	System.out.println(blocksHTML);
 }
 
-String chatCardsHTML = "";
-if (receivingUserIDs.size() == 0) {
-	chatsHTML += "No chats found.";
+
+if (blockedUserIDs.size() == 0) {
+	blockedCardsHTML += "No blockeds found.";
 }
 else {
-	chatsHTML = "<table> <tr>" +
-				"<td> Name </td>" + 
-				"<td> Image </td>" + 
-			"</tr>";
-	for(int i = 0; i < receivingUserIDs.size(); i++) {
-		String chatImgURL = "https://api.adorable.io/avatars/285/" + receivingUserIDs.get(i) + ".png";
-		chatsHTML += "<tr>" +
-				      "<td class=\"chatUser\">" + receivingScreenNames.get(i) + "</td>" +
-				      "<td><img class=\"img-thumbnail\" src=\"" + chatImgURL + "\"></img></td>" +
-				      "</tr> </table>";
+
+	// shouldn't be able to chat with users you've blocked
+	for(int i = 0; i < blockedUserIDs.size(); i++) {
+		String blockedImgURL = "https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-11/256/man-gesturing-no-medium-light-skin-tone.png";
+		blockedCardsHTML += "<div class=\"card border-primary m-3\" style=\"width: 12rem;\">" + 
+							"<img class=\"card-img-top\" src=\"" + blockedImgURL +  "\" alt=\"Profile image\">" + 
+							"<div class=\"card-body\">" + 
+								"<h5 class=\"card-title\">" + blockedScreenNames.get(i) + "</h5>" + 
+									"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
+										"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + blockedEmails.get(i) + "\">" + 
+										"<button type=\"submit\" class=\"btn btn-primary mb-2\">View Profile</button>" + 
+								  	"</form>" + 
+					  		"</div>" + 
+					  	 "</div>";
 	}
 
+
+	System.out.println(blockedCardsHTML);
+}
+
+
+
+
+if (receivingUserIDs.size() == 0) {
+	chatCardsHTML += "No chats found.";
+}
+else {
 	for(int i = 0; i < receivingUserIDs.size(); i++) {
+		String chatImgURL = "https://api.adorable.io/avatars/285/" + receivingUserIDs.get(i) + ".png";
 		chatCardsHTML += "<div class=\"card border-primary m-3\" style=\"width: 12rem;\">" + 
-							"<img class=\"card-img-top\" src=\"https://api.adorable.io/avatars/285/" + i + ".png\" alt=\"Profile image\">" + 
+							"<img class=\"card-img-top\" src=\"" + chatImgURL +  "\" alt=\"Profile image\">" + 
 							"<div class=\"card-body\">" + 
 								"<h5 class=\"card-title\">" + receivingScreenNames.get(i) + "</h5>" + 
 									"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
@@ -116,58 +133,31 @@ else {
 	}
 
 
-		
-		
-
-
-	  
-
-
-
-
-
-
-
-
-
-
-
-
-
-	System.out.println(chatsHTML);
+	System.out.println(chatCardsHTML);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 if (matchUserIDs.size() == 0) {
-	matchHTML += "No match users found.";
+	matchCardsHTML += "No matchs found.";
 }
 else {
-	matchHTML = "<table> <tr>" +
-				"<td> Name </td>" + 
-				"<td> Image </td>" + 
-			"</tr> </table>";
 	for(int i = 0; i < matchUserIDs.size(); i++) {
 		String matchImgURL = "https://api.adorable.io/avatars/285/" + matchUserIDs.get(i) + ".png";
-		matchHTML += "<tr>" +
-				      "<td class=\"matchUser\">" + matchScreenNames.get(i) + "</td>" +
-				      "<td><img class=\"img-thumbnail\" src=\"" + matchImgURL + "\"></img></td>" +
-				      "</tr> </table>";
+		matchCardsHTML += "<div class=\"card border-primary m-3\" style=\"width: 12rem;\">" + 
+							"<img class=\"card-img-top\" src=\"" + matchImgURL +  "\" alt=\"Profile image\">" + 
+							"<div class=\"card-body\">" + 
+								"<h5 class=\"card-title\">" + matchScreenNames.get(i) + "</h5>" + 
+									"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
+										"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + matchEmails.get(i) + "\">" + 
+										"<button type=\"submit\" class=\"btn btn-primary mb-2\">View Profile</button>" + 
+								  	"</form>" + 
+							  		"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + matchUserIDs.get(i) + ")\" >Chat now!</button>" + 
+					  		"</div>" + 
+					  	 "</div>";
 	}
 
-	System.out.println(matchHTML);
+
+	System.out.println(matchCardsHTML);
 }
 
 
@@ -237,17 +227,6 @@ else {
     
 	<h1 id="header">MingleSC</h1>
 
-   <!--  <div name="user-bio"> 
-		<div class="text-center" name="imgContainer">
-			<img class="img-thumbnail" src=<%=imgURL%> >
-		</div>
-		<br></br>
-		<ul class="list-group" style="width: 18rem;">
-		  <li class="list-group-item float-left"><strong>Name: </strong><%=screenName%></li>
-		  <li class="list-group-item"><strong>Major: </strong><%=majorName%></li>
-		  <li class="list-group-item"><strong>Housing: </strong><%=housingName%></li>
-		  <li class="list-group-item"><strong>Availability: </strong>Edit Availability</li>
-		</ul> -->
 	</div>
 
 
@@ -318,19 +297,19 @@ else {
 
 	  		</div>
 
-	  		<div id="chats">
+	  		<div class="row" name="chats">
 	  			<%=chatCardsHTML%>
-
-	    		<div id="chatsInfo"> CHATS <%=chatsHTML%> </div>
 	    	</div>
 
-	    	<div id="blocks">
-	    		<div id="blocksInfo"> BLOCKS <%=blocksHTML%> </div>
+	    	<div class="row" name="matches">
+	    		<%=matchCardsHTML%>
 	    	</div>
 
-	    	<div id="matches">
-	    		<div id="matchesInfo"> Matches <%=matchHTML%> </div>
+	    	<div class="row" id="blocks">
+	    		<%=blockedCardsHTML%>
 	    	</div>
+
+	    	
 
 	    	
 	</div>
