@@ -54,7 +54,6 @@ public class UpdateUserData extends HttpServlet {
 		System.out.println("Password: " + password);
 		System.out.println("Major: " + major);
 		System.out.println("Housing: " + housing);
-		System.out.println(courses[0]);
 		
 		Connection conn = null;
     	Statement st = null;
@@ -68,6 +67,45 @@ public class UpdateUserData extends HttpServlet {
     		        Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
     		st = conn.createStatement();
     		st.executeUpdate(sqlString);
+    		
+    		// Update Courses
+    		sqlString = "DELETE FROM user_courses WHERE user_id = " + userID;
+    		st = conn.createStatement();
+    		st.executeUpdate(sqlString);
+    		
+    		if(courses != null) {
+    			for(int i=0; i<courses.length; i++) {
+    				sqlString = "INSERT INTO user_courses (user_id, course_id) VALUES (" + userID + ", " + Integer.toString(Integer.parseInt(courses[i]) + 1) + ")";
+    				st = conn.createStatement();
+    	    		st.executeUpdate(sqlString);
+    			}
+    		}
+    		
+    		// Update Interests
+    		sqlString = "DELETE FROM user_interests WHERE user_id = " + userID;
+    		st = conn.createStatement();
+    		st.executeUpdate(sqlString);
+    		
+    		if(interests != null) {
+    			for(int i=0; i<interests.length; i++) {
+    				sqlString = "INSERT INTO user_interests (user_id, interest_id) VALUES (" + userID + ", " + Integer.toString(Integer.parseInt(interests[i]) + 1) + ")";
+    				st = conn.createStatement();
+    	    		st.executeUpdate(sqlString);
+    			}
+    		}
+    		
+    		// Update Courses
+    		sqlString = "DELETE FROM user_extracurriculars WHERE user_id = " + userID;
+    		st = conn.createStatement();
+    		st.executeUpdate(sqlString);
+    		
+    		if(extracurriculars != null) {
+    			for(int i=0; i<extracurriculars.length; i++) {
+    				sqlString = "INSERT INTO user_extracurriculars (user_id, extracurricular_id) VALUES (" + userID + ", " + Integer.toString(Integer.parseInt(extracurriculars[i]) + 1) + ")";
+    				st = conn.createStatement();
+    	    		st.executeUpdate(sqlString);
+    			}
+    		}
     		
     	} catch(ClassNotFoundException cnfe) {
     		System.out.println("cnfe: " + cnfe.getMessage());

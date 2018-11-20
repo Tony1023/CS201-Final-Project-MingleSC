@@ -25,6 +25,9 @@ resources.*"%>
 	String userEmail = (String)session.getAttribute("email");
 	String majorID = (String)session.getAttribute("majorID");
 	String housingID = (String)session.getAttribute("housingID");
+	ArrayList<String> currentCourses = (ArrayList<String>) session.getAttribute("courses");
+	ArrayList<String> currentInterests = (ArrayList<String>) session.getAttribute("interests");
+	ArrayList<String> currentExtracurriculars = (ArrayList<String>) session.getAttribute("extracurriculars");
 %>
 
 <!DOCTYPE html>
@@ -35,7 +38,7 @@ resources.*"%>
 		<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="docsupport/chosen.min.css">
 		<meta charset="UTF-8">
-		<title>Create An Account</title>
+		<title>Edit Profile</title>
 	</head>
 	<body>
 		<%
@@ -179,7 +182,7 @@ resources.*"%>
 						}
 						%>
 						</select><br>
-				Courses:<br><select name="courses" class = "chosen-select" style="width: 30%" multiple>
+				Courses:<br><select id="userCourses" name="courses" class = "chosen-select" style="width: 30%" multiple>
 						<%
 					for(int i = 0; i < courses.size(); i++){%>
 						<option value = "<%=i%>"><%=courses.get(i)%></option> 	
@@ -188,7 +191,7 @@ resources.*"%>
 						%>
 						</select><br>
 				
-				Extracurriculars:<br><select name="extracurriculars" class = "chosen-select" style="width: 30%" multiple>
+				Extracurriculars:<br><select id="userExtracurriculars" name="extracurriculars" class = "chosen-select" style="width: 30%" multiple>
 						<%
 					for(int i = 0; i < extracurriculars.size(); i++){%>
 						<option value = "<%=i%>"><%=extracurriculars.get(i)%></option> 	
@@ -196,7 +199,7 @@ resources.*"%>
 						}
 						%>
 						</select><br>
-				Interests:<br><select name="interests" class = "chosen-select" style="width: 30%" multiple>
+				Interests:<br><select id="userInterests" name="interests" class = "chosen-select" style="width: 30%" multiple>
 						<%
 					for(int i = 0; i < interests.size(); i++){%>
 						<option value = "<%=i%>"><%=interests.get(i)%></option> 	
@@ -219,6 +222,37 @@ resources.*"%>
 			document.addEventListener("DOMContentLoaded", function() {
 				document.getElementById("userMajor").value = Number(<%= majorID %>) - 1;
 				document.getElementById("userHousing").value = Number(<%= housingID %>) - 1;
+				
+				let courses = [];
+				<%
+					for(String courseID : currentCourses) {
+				%>
+						courses.push(<%= courseID %> - 1);
+				<%
+					}
+				%>
+				
+				let interests = [];
+				<%
+					for(String interestID : currentInterests) {
+				%>
+						interests.push(<%= interestID %> - 1);
+				<%
+					}
+				%>
+				
+				let extracurriculars = [];
+				<%
+					for(String extracurricularID : currentExtracurriculars) {
+				%>
+						extracurriculars.push(<%= extracurricularID %> - 1);
+				<%
+					}
+				%>
+				
+				$("#userCourses").val(courses).trigger('chosen:updated');
+				$("#userInterests").val(interests).trigger('chosen:updated');
+				$("#userExtracurriculars").val(extracurriculars).trigger('chosen:updated');
 			});
 		</script>
 		

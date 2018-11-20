@@ -7,6 +7,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -86,6 +88,56 @@ public class LoadCurrentData extends HttpServlet {
 			session.setAttribute("password", password);
 			session.setAttribute("majorID", majorID);
 			session.setAttribute("housingID", housingID);
+			
+			// GET COURSES 
+			// get course IDs
+			queryString = "SELECT * FROM user_courses WHERE user_id=" + userID;
+			ps = conn.prepareStatement(queryString);
+			rs = ps.executeQuery();
+			String courseID = "";
+			ArrayList<String> courses = new ArrayList<String>();
+
+			while (rs.next()) {
+				courseID = rs.getString("course_id");
+				courses.add(courseID);
+			}
+
+			session.setAttribute("courses", courses);
+			
+			
+			// GET INTERESTS
+			
+			String interestID = null;
+			ArrayList<String> interests = new ArrayList<String>();
+
+			queryString = "SELECT * FROM user_interests WHERE user_id=" + userID;
+			ps = conn.prepareStatement(queryString);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				interestID = rs.getString("interest_id");
+				interests.add(interestID);
+			}
+
+			session.setAttribute("interests", interests);
+
+
+
+			// GET EXTRACURRICULARS
+			String extracurricularID = null;
+			ArrayList<String> extracurriculars = new ArrayList<String>();
+
+			queryString = "SELECT * FROM user_extracurriculars WHERE user_id=" + userID;
+			ps = conn.prepareStatement(queryString);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				extracurricularID = rs.getString("extracurricular_id");
+				extracurriculars.add(extracurricularID);
+			}
+
+			session.setAttribute("extracurriculars", extracurriculars);
+						
 
 		} catch (SQLException sqle) {
 			System.out.println (sqle.getMessage());
