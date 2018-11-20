@@ -82,6 +82,7 @@ CREATE TABLE chat_messages(
     receiving_user_id INT(11) NOT NULL,
     message_time DATETIME NOT NULL,
     message_body TEXT NOT NULL,
+    message_read INT(1) NOT NULL,
     FOREIGN KEY (sending_user_id) REFERENCES user(user_id),
     FOREIGN KEY (receiving_user_id) REFERENCES user(user_id)
 );
