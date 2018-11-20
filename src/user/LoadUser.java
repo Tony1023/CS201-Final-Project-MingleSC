@@ -304,7 +304,7 @@ public class LoadUser extends HttpServlet {
  			
  			
 			ArrayList<Integer> matchUserIDs = new ArrayList<Integer>();
-			ArrayList<String> matchScreenNames = new ArrayList<String>();
+			/*ArrayList<String> matchScreenNames = new ArrayList<String>();
 			ArrayList<String> matchEmails = new ArrayList<String>();
 
 
@@ -329,35 +329,36 @@ public class LoadUser extends HttpServlet {
 			matchEmails.add("jeffrey.miller@usc.edu");
 
 			// TODO: REMOVE HARD-CODED WHEN WORKING
-
+			*/
 
 			// // TODO: Fix this later... rip
-			// for (int i: SuggesterUtil.getRank(1)) {
-			// 	System.out.println(i);
-			// }
+			for (int i: SuggesterUtil.getRank(userID, getServletContext().getRealPath("/"))) {
+			 	matchUserIDs.add(i);
+				 System.out.println(i);
+			}
 
-			// ArrayList<String> matchScreenNames = new ArrayList<String>();
-			// ArrayList<String> matchEmails = new ArrayList<String>();
+			ArrayList<String> matchScreenNames = new ArrayList<String>();
+			ArrayList<String> matchEmails = new ArrayList<String>();
 
- 		// 	for (int i = 0; i < matchUserIDs.size(); i++) {
+ 		 	for (int i = 0; i < matchUserIDs.size(); i++) {
 
- 		// 		Statement s = conn.createStatement();
- 		// 		ResultSet r = s.executeQuery("SELECT email, screen_name FROM user WHERE user_id=" + matchUserIDs.get(i));
+ 		 		Statement s = conn.createStatement();
+ 		 		ResultSet r = s.executeQuery("SELECT email, screen_name FROM user WHERE user_id=" + matchUserIDs.get(i));
 				
-			// 	String matchScreenName = "";
-			// 	String matchEmail = "";
+			 	String matchScreenName = "";
+			 	String matchEmail = "";
 
-			// 	while (r.next()) {
-			// 		matchEmail = r.getString("email");
-			// 		matchScreenName = r.getString("screen_name");
+			 	while (r.next()) {
+			 		matchEmail = r.getString("email");
+			 		matchScreenName = r.getString("screen_name");
 
-			// 		System.out.println("matchScreenName= " + matchScreenName);
-			// 		System.out.println("matchEmail= " + matchEmail);
+			 		System.out.println("matchScreenName= " + matchScreenName);
+			 		System.out.println("matchEmail= " + matchEmail);
 
-			// 		matchEmails.add(matchEmail);
-			// 		matchScreenNames.add(matchScreenName);
-			// 	}
- 		// 	}
+			 		matchEmails.add(matchEmail);
+			 		matchScreenNames.add(matchScreenName);
+			 	}
+ 		 	}
 
 			session.setAttribute("matchUserIDs", matchUserIDs);
 			session.setAttribute("matchScreenNames", matchScreenNames);

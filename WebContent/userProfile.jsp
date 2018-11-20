@@ -80,7 +80,7 @@ else {
 				      "<td><img class=\"img-thumbnail\" src=\"" + blockImgURL + "\"></img></td>" +
 				      "</tr> </table>";
 	}
-	System.out.println(blocksHTML);
+	//System.out.println(blocksHTML);
 }
 
 
@@ -109,7 +109,7 @@ else {
 	}
 
 
-	System.out.println(blockedCardsHTML);
+	//System.out.println(blockedCardsHTML);
 }
 
 
@@ -135,7 +135,7 @@ else {
 	}
 
 
-	System.out.println(chatCardsHTML);
+	//System.out.println(chatCardsHTML);
 }
 
 
@@ -163,7 +163,6 @@ else {
 	}
 
 
-	System.out.println(matchCardsHTML);
 }
 
 
@@ -175,7 +174,7 @@ else {
 	for(int i = 0; i < extracurricularNames.size(); i++) {
 		extraHTML += "<span class=\"badge badge-pill badge-danger\">" + extracurricularNames.get(i) + "</span>\n";
 	}
-	System.out.println(extraHTML);
+	//System.out.println(extraHTML);
 }
 
 String interestHTML = "";
@@ -186,7 +185,7 @@ else {
 	for(int i = 0; i < interestNames.size(); i++) {
 		interestHTML += "<span class=\"badge badge-pill badge-danger\">" + interestNames.get(i) + "</span>\n";
 	}
-	System.out.println(interestHTML);
+	//System.out.println(interestHTML);
 }
 
 String courseHTML = "";
@@ -197,7 +196,7 @@ else {
 	for(int i = 0; i < coursePrefixes.size(); i++) {
 		courseHTML += "<span class=\"badge badge-pill badge-danger\">" + coursePrefixes.get(i) + " " + courseNumbers.get(i) + "</span>\n";
 	}
-	System.out.println(courseHTML);
+	//System.out.println(courseHTML);
 }
 
 
