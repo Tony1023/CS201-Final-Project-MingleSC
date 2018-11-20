@@ -11,10 +11,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <style>
-    	#mainContainer {
-    		width: 50%;
-    		height: 50%;
-    	}
+        #mainContainer {
+            height: 100%;
+        }
+        body {
+            background-color: #ededef;
+        }
     	
     	#errorBlock {
     		display: none;
@@ -22,7 +24,6 @@
     	
     	#tableContainer {
     		width: 100%;
-    		height: 500px;
     		overflow-y: scroll;
     	}
     	

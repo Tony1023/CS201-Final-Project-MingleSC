@@ -72,8 +72,6 @@ public class OtherUsers extends HttpServlet {
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
-			System.out.println("Successfully connected");
-			System.out.println(myEmail); // TODO: remove latere
 			
 			
 			st=conn.createStatement();
