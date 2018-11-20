@@ -197,33 +197,7 @@ else {
 
 %>
 
-
-
 <body>
-
-	<script> 
-		// on form submit
-		$("#ChatPopup").submit(function(event) {
-		    event.preventDefault();
-		    $.ajax({
-				url: "ChatServlet",
-				type: "GET",
-				data: {
-					search: "yes",
-					searchTerm: $("#chatSearchTerm").val()
-				},
-				success: function(result) {
-					$('#searchResult').html(result);
-					window.location.href = "chatpopup.jsp";
-				}
-			});
-		});
-
-	
-	</script>
-
-    
-
     
 	<h1 id="header">MingleSC</h1>
 
@@ -245,78 +219,76 @@ else {
   			  <button type="submit" class="btn btn-primary mb-2">Edit Availability</button>
 	  	</form>
 		
-		<button class="btn btn-primary mb-2" onclick="popChat(<%=currentUserID%>, 2)" >Chat now!</button>
 	  </div>
 	</div>
 
-    <div id="matchContainer">
 	    	
 	    	
 	    	
-	    	<!-- <div class="text-center"> 
-	    		
-	    	</div>
-	    	 -->
+    	<!-- <div class="text-center"> 
+    		
+    	</div>
+    	 -->
 
-	  		<div class="row" name="user-info">
-	  			<div class="col">
-	  				<div class="card center-block m-1 mx-auto" style="width: 18rem;">
-				    	<h5 class="card-header">Interests</h5>
-				    	<div class="card-body">
-					  		 <h5> 
-				    			<%=interestHTML%>
-					    	</h5> 
-				    	</div>
-					  
-					</div>
-	  			</div>
+  		<div class="row" name="user-info">
+  			<div class="col">
+  				<div class="card center-block m-1 mx-auto" style="width: 18rem;">
+			    	<h5 class="card-header">Interests</h5>
+			    	<div class="card-body">
+				  		 <h5> 
+			    			<%=interestHTML%>
+				    	</h5> 
+			    	</div>
+				  
+				</div>
+  			</div>
 
-	  			<div class="col">
-	  				<div class="card center-block m-1 mx-auto" style="width: 18rem;">
-				    	<h5 class="card-header">Extracurriculars</h5>
-				    	<div class="card-body">
-					  		 <h5> 
-				    			<%=extraHTML%>
-					    	</h5> 
-				    	</div>
-					</div>
+  			<div class="col">
+  				<div class="card center-block m-1 mx-auto" style="width: 18rem;">
+			    	<h5 class="card-header">Extracurriculars</h5>
+			    	<div class="card-body">
+				  		 <h5> 
+			    			<%=extraHTML%>
+				    	</h5> 
+			    	</div>
+				</div>
 
-	  			</div>
+  			</div>
 
-	  			<div class="col">
-	  				<div class="card center-block m-1 mx-auto" style="width: 18rem;">
-				    	<h5 class="card-header">Courses</h5>
-				    	<div class="card-body">
-					  		 <h5> 
-				    			<%=courseHTML%>
-					    	</h5> 
-				    	</div>
-					  
-					</div>
-	  			</div>
+  			<div class="col">
+  				<div class="card center-block m-1 mx-auto" style="width: 18rem;">
+			    	<h5 class="card-header">Courses</h5>
+			    	<div class="card-body">
+				  		 <h5> 
+			    			<%=courseHTML%>
+				    	</h5> 
+			    	</div>
+				  
+				</div>
+  			</div>
 
-	  		</div>
+  		</div>
 
-	  		<div class="row" name="chats">
-	  			<%=chatCardsHTML%>
-	    	</div>
+  		<div class="row" name="chats">
+  			<div class="col-1 text-label">
+  				<h5> CHATS</h5>
+  			</div>
+  			<%=chatCardsHTML%>
+    	</div>
 
-	    	<div class="row" name="matches">
-	    		<%=matchCardsHTML%>
-	    	</div>
+    	<div class="row" name="matches">
+    		<div class="col-1 text-label">
+  				<h5> MATCHES</h5>
+  			</div>
+    		<%=matchCardsHTML%>
+    	</div>
 
-	    	<div class="row" id="blocks">
-	    		<%=blockedCardsHTML%>
-	    	</div>
-
-	    	
-
-	    	
-	</div>
-
-	<!-- <div class="bottomBar"></div> -->
-
-    
+    	<div class="row" id="blocks">
+    		<div class="col-1 text-label">
+  				<h5> BLOCKS</h5>
+  			</div>
+    		<%=blockedCardsHTML%>
+    	</div>
 
 </body>
 </html>

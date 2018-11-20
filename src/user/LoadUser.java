@@ -315,15 +315,15 @@ public class LoadUser extends HttpServlet {
 			matchUserIDs.add(8);
 
 			matchScreenNames.add("Tony Lyu2");
+			matchScreenNames.add("Patrick Kong");
 			matchScreenNames.add("Sophia Hu");
 			matchScreenNames.add("Wayne Yu");
-			matchScreenNames.add("Patrick Kong");
 			matchScreenNames.add("Jeffrey Miller");
 
 			matchEmails.add("zhehaolu2@usc.edu");
+			matchEmails.add("kongp@usc.edu");
 			matchEmails.add("husophia@usc.edu");
 			matchEmails.add("weiyuyu@usc.edu");
-			matchEmails.add("kongp@usc.edu");
 			matchEmails.add("jeffrey.miller@usc.edu");
 
 			// TODO: REMOVE HARD-CODED WHEN WORKING
