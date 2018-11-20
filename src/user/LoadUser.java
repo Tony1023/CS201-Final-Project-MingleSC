@@ -71,6 +71,8 @@ public class LoadUser extends HttpServlet {
 		ResultSet rs = null;
 
 		Integer userID = (Integer) session.getAttribute("currentUserID"); // TODO: change when Adam passes me this... Adam's 
+		// userID = 1;
+		// session.setAttribute("currentUserID", 1);
 		System.out.println("id: " + userID);
 		
 		String screenName = "";

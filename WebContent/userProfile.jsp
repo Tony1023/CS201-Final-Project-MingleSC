@@ -138,7 +138,7 @@ else {
 
 
 if (matchUserIDs.size() == 0) {
-	matchCardsHTML += "No matchs found.";
+	matchCardsHTML += "No matches found.";
 }
 else {
 	for(int i = 0; i < matchUserIDs.size(); i++) {
@@ -214,11 +214,7 @@ else {
 		  </ul>
 		  <!-- Edit this to hit the scheduler backend-->
 		  <div class="card-body">
-		    <form action="OtherUsers" name="userSearch" method="GET">
-	  			  <input type="hidden" id="custId" name="userEmail" value="">
-	  			  <button type="submit" class="btn btn-success mb-2">Edit Availability</button>
-		  	</form>
-			
+  			  <a href="scheduler_v2.jsp" class="btn btn-success mb-2" role="button"> Edit Availability</a>
 		  </div>
 		</div>
 
