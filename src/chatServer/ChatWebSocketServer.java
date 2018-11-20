@@ -60,7 +60,7 @@ public class ChatWebSocketServer
 		
 		try {
 			if (statements.get(from) == null) {
-				PreparedStatement ps = conn.prepareStatement("INSERT INTO chat_messages(sending_user_id, receiving_user_id, message_time, message_body) VALUE (?,?,?,?)");
+				PreparedStatement ps = conn.prepareStatement("INSERT INTO chat_messages(sending_user_id, receiving_user_id, message_time, message_body, message_read) VALUE (?,?,?,?,?)");
 				ps.setInt(1, from);
 				statements.put(from, ps);
 			}
@@ -72,6 +72,10 @@ public class ChatWebSocketServer
 		
 		// sending unsent messages
 		try {
+			PreparedStatement ps = conn.prepareStatement("UPDATE chat_messages SET message_read=1 WHERE receiving_user_id=? AND sending_user_id=? AND message_read=0");
+			ps.setInt(1, from);
+			ps.setInt(2, to);
+			ps.executeUpdate();
 			Queue<ChatMessage> queue = unsentMessages.get(to).get(from);
 			while (!queue.isEmpty()) {
 				session.getBasicRemote().sendText(queue.poll().jsonStringify());
@@ -80,6 +84,8 @@ public class ChatWebSocketServer
 			System.out.println("No messages waiting to be sent");
 		} catch (IOException ioe) {
 			System.out.println("ioe in onopen: " + ioe.getMessage());
+		} catch (SQLException e) {
+			System.out.println("sqle in onopen: " + e.getMessage());
 		}
 	}
 	
@@ -88,7 +94,30 @@ public class ChatWebSocketServer
 		ChatMessage cm = new ChatMessage(message, from, to, System.currentTimeMillis());
 		// put into database
 		PreparedStatement ps = statements.get(from);
+		
 		try {
+			Map<Integer, Session> m = sessionMap.get(to);
+			if (m != null && m.get(from) != null && m.get(from).isOpen()) {
+				Session s = m.get(from);
+				s.getAsyncRemote().sendText(cm.jsonStringify());
+				ps.setInt(5, 1);
+			} else { // the other connection not open, store it to send in the future
+				ConcurrentHashMap<Integer, ConcurrentLinkedQueue<ChatMessage>> targetMap = unsentMessages.get(from);
+				ConcurrentLinkedQueue<ChatMessage> targetQueue = null;
+				if (targetMap == null) {
+					targetMap = new ConcurrentHashMap<Integer, ConcurrentLinkedQueue<ChatMessage>>();
+					targetQueue = new ConcurrentLinkedQueue<ChatMessage>();
+				} else {
+					targetQueue = targetMap.get(to);
+					if (targetQueue == null) {
+						targetQueue = new ConcurrentLinkedQueue<ChatMessage>();
+					}
+				}
+				unsentMessages.putIfAbsent(from, targetMap);
+				targetMap.putIfAbsent(to, targetQueue);
+				targetQueue.add(cm);
+				ps.setInt(5, 0);
+			}
 			ps.setInt(2, to);
 			ps.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
 			ps.setString(4, message);
@@ -96,27 +125,6 @@ public class ChatWebSocketServer
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
-		Map<Integer, Session> m = sessionMap.get(to);
-		if (m != null && m.get(from) != null && m.get(from).isOpen()) {
-			Session s = m.get(from);
-			s.getAsyncRemote().sendText(cm.jsonStringify());
-		} else { // the other connection not open, store it to send in the future
-			ConcurrentHashMap<Integer, ConcurrentLinkedQueue<ChatMessage>> targetMap = unsentMessages.get(from);
-			ConcurrentLinkedQueue<ChatMessage> targetQueue = null;
-			if (targetMap == null) {
-				targetMap = new ConcurrentHashMap<Integer, ConcurrentLinkedQueue<ChatMessage>>();
-				targetQueue = new ConcurrentLinkedQueue<ChatMessage>();
-			} else {
-				targetQueue = targetMap.get(to);
-				if (targetQueue == null) {
-					targetQueue = new ConcurrentLinkedQueue<ChatMessage>();
-				}
-			}
-			unsentMessages.putIfAbsent(from, targetMap);
-			targetMap.putIfAbsent(to, targetQueue);
-			targetQueue.add(cm);
 		}
 	}
 	
