@@ -32,7 +32,9 @@ public class ChatServlet extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer id = Integer.parseInt(request.getParameter("toId"));
+		Integer thisId = (Integer) request.getSession().getAttribute("currentUserID");
 		String name = null;
+		String thisName = null;
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT screen_name FROM user WHERE user_id=?");
 			ps.setInt(1, id);
@@ -40,11 +42,17 @@ public class ChatServlet extends HttpServlet {
 			while (rs.next()) {				
 				name = rs.getString(1);
 			}
+			ps.setInt(1, thisId);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				thisName = rs.getString(1);
+			}
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			name = "USCer";
 		}
 		request.setAttribute("name", name);
+		request.setAttribute("thisName", thisName);
 		getServletContext().getRequestDispatcher("/WEB-INF/chatWindow.jsp").forward(request, response);
 	}
 

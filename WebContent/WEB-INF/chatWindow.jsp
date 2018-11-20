@@ -5,6 +5,7 @@
   String fromId = request.getParameter("fromId");
   String toId = request.getParameter("toId");
   String name = (String) request.getAttribute("name");
+  String thisName = (String) request.getAttribute("thisName");
 %>
   <title>Chat Client</title>
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
@@ -167,7 +168,7 @@
     	let time = new Date(message.time);
     	let timeStr = time.toLocaleString();
     	let html = "<div class='message'> \
-          <font color='green'><%=name%> on " + timeStr + "</font><br> \
+          <font color='green'><%=thisName%> on " + timeStr + "</font><br> \
           <div class='message-body'>" + message.message + "</div> \
           </div>"
       	return html;
