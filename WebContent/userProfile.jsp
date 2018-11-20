@@ -130,6 +130,10 @@ else {
 									"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
 							  	"</form>" + 
 						  		"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + receivingUserIDs.get(i) + ")\" >Chat now!</button>" + 
+						  		"<form action=\"BlockUser\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userToBlockID\" value=\"" + receivingUserIDs.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-danger mb-2\">Block User</button>" + 
+							  	"</form>" + 
 					  		"</div>" + 
 					  	 "</div>";
 	}
