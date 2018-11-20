@@ -2,6 +2,7 @@ let maxZ = 99;
 
 let windows = {};
 
+
 function popChat(from, to) {
 	let windowId = from + '-' + to;
 	let win = windows[windowId];
@@ -17,8 +18,8 @@ function popChat(from, to) {
 	iframe.width = '400';
 	iframe.style.zIndex = ++maxZ;
 	iframe.style.position = 'fixed';
-	iframe.style.top = '20px';
-	iframe.style.left = '20px';
+	iframe.style.top = 20 + Object.keys(windows).length * 20 + 'px';
+	iframe.style.left = 20 + Object.keys(windows).length * 20 + 'px';
 	$(iframe).on('load', function() {
 		let closeButton = iframe.contentWindow.document.getElementById('close-btn');
 		let scheduleButton = iframe.contentWindow.document.getElementById('schedule-btn');
@@ -38,7 +39,8 @@ function popChat(from, to) {
 			schedule.src = 'http://localhost:8080/CSCI201-Final-Project/scheduler.jsp?userID=' + from + '&targetID=' + to;
 			schedule.style.zIndex = 99999;
 			schedule.style.position = 'fixed';
-			schedule.style.top = '10px';
+			schedule.style.top = '20px';
+			schedule.style.left = '10%';
 			schedule.width = '80%';
 			schedule.height = '80%';
 			schedule.align = 'middle';

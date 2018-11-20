@@ -14,8 +14,7 @@
 	<title>Matches Page</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"  crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -24,7 +23,6 @@
 	<link rel="stylesheet" href="userProfileStyles.css">
 
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 	<script src="javascript/chatWindowLib.js"></script>
 </head>
 
@@ -82,12 +80,12 @@ else {
 				      "<td><img class=\"img-thumbnail\" src=\"" + blockImgURL + "\"></img></td>" +
 				      "</tr> </table>";
 	}
-	System.out.println(blocksHTML);
+	//System.out.println(blocksHTML);
 }
 
 
 if (blockedUserIDs.size() == 0) {
-	blockedCardsHTML += "No blockeds found.";
+	blockedCardsHTML += "No blocked users found.";
 }
 else {
 
@@ -98,16 +96,20 @@ else {
 							"<img class=\"card-img-top\" src=\"" + blockedImgURL +  "\" alt=\"Profile image\">" + 
 							"<div class=\"card-body\">" + 
 								"<h5 class=\"card-title\">" + blockedScreenNames.get(i) + "</h5>" + 
-									"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
-										"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + blockedEmails.get(i) + "\">" + 
-										"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
-								  	"</form>" + 
+								"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + blockedEmails.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
+							  	"</form>" + 
+							  	"<form action=\"BlockUser\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userToUnblockID\" value=\"" + blockedUserIDs.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-primary mb-2\">Unblock to chat!</button>" + 
+							  	"</form>" + 
 					  		"</div>" + 
 					  	 "</div>";
 	}
 
 
-	System.out.println(blockedCardsHTML);
+	//System.out.println(blockedCardsHTML);
 }
 
 
@@ -123,17 +125,21 @@ else {
 							"<img class=\"card-img-top\" src=\"" + chatImgURL +  "\" alt=\"Profile image\">" + 
 							"<div class=\"card-body\">" + 
 								"<h5 class=\"card-title\">" + receivingScreenNames.get(i) + "</h5>" + 
-									"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
-										"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + receivingEmails.get(i) + "\">" + 
-										"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
-								  	"</form>" + 
-							  		"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + receivingUserIDs.get(i) + ")\" >Chat now!</button>" + 
+								"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + receivingEmails.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
+							  	"</form>" + 
+						  		"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + receivingUserIDs.get(i) + ")\" >Chat now!</button>" + 
+						  		"<form action=\"BlockUser\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userToBlockID\" value=\"" + receivingUserIDs.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-danger mb-2\">Block User</button>" + 
+							  	"</form>" + 
 					  		"</div>" + 
 					  	 "</div>";
 	}
 
 
-	System.out.println(chatCardsHTML);
+	//System.out.println(chatCardsHTML);
 }
 
 
@@ -147,17 +153,20 @@ else {
 							"<img class=\"card-img-top\" src=\"" + matchImgURL +  "\" alt=\"Profile image\">" + 
 							"<div class=\"card-body\">" + 
 								"<h5 class=\"card-title\">" + matchScreenNames.get(i) + "</h5>" + 
-									"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
-										"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + matchEmails.get(i) + "\">" + 
-										"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
-								  	"</form>" + 
-							  		"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + matchUserIDs.get(i) + ")\" >Chat now!</button>" + 
+								"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + matchEmails.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
+							  	"</form>" + 
+						  		"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + matchUserIDs.get(i) + ")\" >Chat now!</button>" + 
+						  		"<form action=\"BlockUser\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userToBlockID\" value=\"" + matchUserIDs.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-danger mb-2\">Block User</button>" + 
+							  	"</form>" + 
 					  		"</div>" + 
 					  	 "</div>";
 	}
 
 
-	System.out.println(matchCardsHTML);
 }
 
 
@@ -169,7 +178,7 @@ else {
 	for(int i = 0; i < extracurricularNames.size(); i++) {
 		extraHTML += "<span class=\"badge badge-pill badge-danger\">" + extracurricularNames.get(i) + "</span>\n";
 	}
-	System.out.println(extraHTML);
+	//System.out.println(extraHTML);
 }
 
 String interestHTML = "";
@@ -180,7 +189,7 @@ else {
 	for(int i = 0; i < interestNames.size(); i++) {
 		interestHTML += "<span class=\"badge badge-pill badge-danger\">" + interestNames.get(i) + "</span>\n";
 	}
-	System.out.println(interestHTML);
+	//System.out.println(interestHTML);
 }
 
 String courseHTML = "";
@@ -191,7 +200,7 @@ else {
 	for(int i = 0; i < coursePrefixes.size(); i++) {
 		courseHTML += "<span class=\"badge badge-pill badge-danger\">" + coursePrefixes.get(i) + " " + courseNumbers.get(i) + "</span>\n";
 	}
-	System.out.println(courseHTML);
+	//System.out.println(courseHTML);
 }
 
 
@@ -281,5 +290,25 @@ else {
     		<%=blockedCardsHTML%>
     	</div>
 
+<script>
+let id = <%= currentUserID %>;
+function checkMessages() {
+	$.post('GetUnreadServlet', {
+		thisId: id
+	}, function(res) {
+		console.log(res);
+		if (res !== '') {
+			let ids = res.split(',');
+    		for (let i = 0; i < ids.length; ++i) {
+    			popChat(id, ids[i]);
+    		}
+		}
+		setTimeout(checkMessages, 5000);
+	});
+}
+$(document).ready(function() {
+	checkMessages();
+});
+</script>
 </body>
 </html>

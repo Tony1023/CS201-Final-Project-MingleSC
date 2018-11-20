@@ -26,4 +26,9 @@ UPDATE suggestion s JOIN (
     GROUP BY t.user_id
 ) i ON s.user_id=i.user_id SET s.score=s.score+i.share_num*0.5;
 
-SELECT user_id FROM suggestion ORDER BY score DESC;
+SELECT user_id FROM suggestion WHERE user_id NOT IN 
+(
+	SELECT blocked_user_id FROM blocks
+    WHERE blocking_user_id=@this_id AND block_status=1
+)
+ORDER BY score DESC LIMIT 5;

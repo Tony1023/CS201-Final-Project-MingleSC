@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import resources.*;
+
 /**
  * Servlet implementation class GuestServlet
  */
@@ -51,8 +53,7 @@ public class GuestServlet extends HttpServlet {
  		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager
-					.getConnection("jdbc:mysql://localhost:3306/cs201_final_project_db?user=root&password=root&allowPublicKeyRetrieval=true&useSSL=false");
+			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
 			
 			st = conn.createStatement();
 			rs1 = st.executeQuery("SELECT course_id FROM courses WHERE course_name ='" + prefix[1] + "';");
