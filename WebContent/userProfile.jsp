@@ -84,6 +84,7 @@ else {
 	System.out.println(blocksHTML);
 }
 
+String chatCardsHTML = "";
 if (receivingUserIDs.size() == 0) {
 	chatsHTML += "No chats found.";
 }
@@ -100,8 +101,55 @@ else {
 				      "</tr> </table>";
 	}
 
+	for(int i = 0; i < receivingUserIDs.size(); i++) {
+		chatCardsHTML += "<div class=\"card border-primary m-3\" style=\"width: 12rem;\">" + 
+							"<img class=\"card-img-top\" src=\"https://api.adorable.io/avatars/285/" + i + ".png\" alt=\"Profile image\">" + 
+							"<div class=\"card-body\">" + 
+								"<h5 class=\"card-title\">" + receivingScreenNames.get(i) + "</h5>" + 
+									"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
+										"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + receivingEmails.get(i) + "\">" + 
+										"<button type=\"submit\" class=\"btn btn-primary mb-2\">View Profile</button>" + 
+								  	"</form>" + 
+							  		"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + receivingUserIDs.get(i) + ")\" >Chat now!</button>" + 
+					  		"</div>" + 
+					  	 "</div>";
+	}
+
+
+		
+		
+
+
+	  
+
+
+
+
+
+
+
+
+
+
+
+
+
 	System.out.println(chatsHTML);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 if (matchUserIDs.size() == 0) {
 	matchHTML += "No match users found.";
@@ -271,26 +319,7 @@ else {
 	  		</div>
 
 	  		<div id="chats">
-
-	  			<div class="card border-primary m-3" style="width: 12rem;">
-				  <img class="card-img-top" src="https://api.adorable.io/avatars/285/2.png" alt="Profile image">
-				  <div class="card-body">
-				  	<h5 class="card-title">Tony Lyu2</h5>
-				    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-				  	
-				  	<form action="OtherUsers" name="userSearch" method="GET">
-			  			  <input type="hidden" id="custId" name="userEmail" value="zhehaolu2@usc.edu">
-			  			  <button type="submit" class="btn btn-primary mb-2">View Profile</button>
-				  	</form>
-					
-					<button class="btn btn-primary mb-2" onclick="popChat(<%=currentUserID%>, 2)" >Chat now!</button>
-
-				  </div>
-				  
-				  
-				  
-
-				</div>
+	  			<%=chatCardsHTML%>
 
 	    		<div id="chatsInfo"> CHATS <%=chatsHTML%> </div>
 	    	</div>
