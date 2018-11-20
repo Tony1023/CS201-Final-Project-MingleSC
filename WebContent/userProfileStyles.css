@@ -1,0 +1,35 @@
+body {
+	background-color: #f5f5dc
+}
+#header {
+	height: 40%;
+	background-size: cover;
+	background-color: #990000;
+	color: white;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#form {
+	margin-left: 500px;
+	margin-top: 100px;
+	width: 45%;
+	border: 1px solid black;
+	text-align: center;
+}
+
+#start {
+	padding-left: 500px;
+    padding-top: 50px;
+}
+
+.img-thumbnail {
+	border-radius: 50%;
+}
+
+.text-label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

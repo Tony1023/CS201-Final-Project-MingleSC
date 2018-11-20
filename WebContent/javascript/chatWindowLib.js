@@ -1,30 +1,53 @@
+let maxZ = 99;
+
+let windows = {};
+
 function popChat(from, to) {
+	let windowId = from + '-' + to;
+	let win = windows[windowId];
+	if (win !== undefined) {
+		if (win.style.zIndex < maxZ) {
+			win.style.zIndex = ++maxZ;
+		}
+		return false;
+	}
 	let iframe = document.createElement('iframe');
 	iframe.src = 'http://localhost:8080/CSCI201-Final-Project/ChatServlet?fromId=' + from + '&toId=' + to;
 	iframe.height = '400';
 	iframe.width = '400';
-	iframe.zIndex = 99;
-	iframe.style.position = 'absolute';
+	iframe.style.zIndex = ++maxZ;
+	iframe.style.position = 'fixed';
+	iframe.style.top = '20px';
+	iframe.style.left = '20px';
 	$(iframe).on('load', function() {
 		let closeButton = iframe.contentWindow.document.getElementById('close-btn');
 		let scheduleButton = iframe.contentWindow.document.getElementById('schedule-btn');
-		console.log(closeButton);
+		let bodyTag = iframe.contentWindow.document.getElementsByTagName('body')[0];
+		$(bodyTag).on('mousedown', function() {
+			if (iframe.style.zIndex < maxZ) {
+				iframe.style.zIndex = ++maxZ;
+			}
+		});
 		$(closeButton).on('click', function() {
 			iframe.parentNode.removeChild(iframe);
+			delete windows[windowId];
 		});
 		$(scheduleButton).on('click', function() {
 			let schedule = document.createElement('iframe');
 			schedule.id = 'schedule-popup';
 			schedule.src = 'http://localhost:8080/CSCI201-Final-Project/scheduler.jsp?userID=' + from + '&targetID=' + to;
-			schedule.zIndex = 999;
-			schedule.style = 'height: 80%; width: 80%;';
-			schedule.style.position = 'absolute';
+			schedule.style.zIndex = 99999;
+			schedule.style.position = 'fixed';
+			schedule.style.top = '10px';
+			schedule.width = '80%';
+			schedule.height = '80%';
 			schedule.align = 'middle';
 			document.body.appendChild(schedule);
 		});
 		dragElement(iframe);
 	});
 	document.body.appendChild(iframe);
+	windows[windowId] = iframe;
 }
 	
 function dragElement(elmnt) {
@@ -66,7 +89,7 @@ function dragElement(elmnt) {
 
 $(document).on('click', function() {
 	let schedule = document.getElementById('schedule-popup');
-	if (schedule !== undefined) {
+	if (schedule !== null) {
 		schedule.parentNode.removeChild(schedule);
 	}
 });

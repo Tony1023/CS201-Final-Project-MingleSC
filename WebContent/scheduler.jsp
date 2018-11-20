@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <style>
-    	#mainContainer {
+    	/* #mainContainer {
     		width: 50%;
     		height: 50%;
-    	}
+    	} */
     	
     	#errorBlock {
     		display: none;
