@@ -48,7 +48,7 @@
 		<h2 style = "font-weight: bold;">Log In </h2>
 
 		<p id = "err_message" style="color: red; font-weight: bold"></p>
-		<form id = "Login" name = "LoginForm" method = "GET" action = "ProfilePage.jsp" onsubmit = "return validate();">
+		<form id = "Login" name = "LoginForm" method = "GET" action = "LoadUser" onsubmit = "return validate();">
 			<br>
 			<h3>Please enter the following:</h3>
 			Email:<br><input type = "text" name = "email"><br>

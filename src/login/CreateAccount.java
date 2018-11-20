@@ -316,7 +316,7 @@ public class CreateAccount extends HttpServlet {
 	        dispatcher.forward(request, response);
 		}
 		else {
-			session.setAttribute("currentUserId", user_id);
+			session.setAttribute("currentUserID", user_id);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/scheduler_v2.jsp");
 	        dispatcher.forward(request, response);	
 			

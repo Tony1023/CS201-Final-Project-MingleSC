@@ -1,4 +1,4 @@
-package suggester;
+package user;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -15,15 +15,19 @@ import resources.*;
  */
 public class SuggesterUtil {
 	
-	private static List<String> sqlStatements = new ArrayList<String>();
+	private static List<String> sqlStatements = null;
 	private static Connection conn = null;
 	
-	static {
+	private static void setUp(String path) {
+		if (sqlStatements != null) {
+			return;
+		}
+		sqlStatements = new ArrayList<String>();
 		Scanner in = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
-			in = new Scanner(new File("suggestor.sql"));
+			in = new Scanner(new File(path + "/WEB-INF/suggester.sql"));
 			in.useDelimiter(";");
 			sqlStatements.add("SET @this_id=");
 			while (in.hasNext()) {
@@ -34,13 +38,14 @@ public class SuggesterUtil {
 		} catch (ClassNotFoundException cnfe) {
 			System.out.println(cnfe.getMessage());
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("SuggesterUtil: " + e.getMessage());
 		} finally {
 			if (in != null) { in.close(); }
 		}
 	}
 	
-	public static List<Integer> getRank(int id) {
+	public static List<Integer> getRank(int id, String path) {
+		setUp(path);
 		List<Integer> result = new ArrayList<Integer>();
 		try {
 			Statement st = conn.createStatement();
@@ -53,17 +58,11 @@ public class SuggesterUtil {
 			while (rs.next()) {
 				result.add(rs.getInt(1));
 			}
+			st.execute("DROP TABLE suggestion, temp, this_user");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return result;
-	}
-
-	public static void main(String[] args) {
-		for (int id: getRank(3)) {
-			System.out.println(id);
-		}
-
 	}
 
 }

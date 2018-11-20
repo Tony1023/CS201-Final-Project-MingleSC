@@ -1,9 +1,5 @@
-
-DROP TABLE IF EXISTS suggestion;
 CREATE TEMPORARY TABLE suggestion AS (SELECT *, 0.0 as score FROM user WHERE NOT user_id=@this_id);
-DROP TABLE IF EXISTS temp;
 CREATE TEMPORARY TABLE temp AS (SELECT * FROM user WHERE NOT user_id=@this_id);
-DROP TABLE IF EXISTS this_user;
 CREATE TEMPORARY TABLE this_user AS (SELECT * from user WHERE user_id=@this_id);
 
 UPDATE suggestion SET score=score+1.0 WHERE major_id=(SELECT major_id FROM this_user);
