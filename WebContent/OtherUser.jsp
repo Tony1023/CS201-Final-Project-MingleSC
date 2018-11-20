@@ -42,9 +42,9 @@ int other= (Integer) session.getAttribute("otherUser");
 <p id="interests" > </p>
 
 
+<button id='btn' type="button" class="btn btn-warning" onclick='popChat(<%= current %>,<%=other%>)'>Chat Now!</button>
 </div>
 
-<button type="button" class="btn btn-warning" onclick='popChat(<%= current %>,<%=other%>)'>Chat Now!</button>
   
 
 <script>
