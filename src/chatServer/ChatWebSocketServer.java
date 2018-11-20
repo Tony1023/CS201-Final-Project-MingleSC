@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Map;
@@ -91,11 +92,20 @@ public class ChatWebSocketServer
 	
 	@OnMessage
 	public void onMessage(@PathParam("from") Integer from, @PathParam("to") Integer to, String message, Session session) {
+		
 		ChatMessage cm = new ChatMessage(message, from, to, System.currentTimeMillis());
 		// put into database
 		PreparedStatement ps = statements.get(from);
-		
 		try {
+			PreparedStatement filter = conn.prepareStatement("SELECT * FROM blocks WHERE blocking_user_id=? AND blocked_user_id=? AND block_status=1");
+			filter.setInt(1, to);
+			filter.setInt(2, from);
+			ResultSet rs = filter.executeQuery();
+			if (rs.next()) {
+				ChatMessage res = new ChatMessage("You cannot sent any message when you are blocked!", to, from, System.currentTimeMillis());
+				session.getBasicRemote().sendText(res.jsonStringify());
+				return;
+			}
 			Map<Integer, Session> m = sessionMap.get(to);
 			if (m != null && m.get(from) != null && m.get(from).isOpen()) {
 				Session s = m.get(from);
@@ -123,6 +133,9 @@ public class ChatWebSocketServer
 			ps.setString(4, message);
 			ps.executeUpdate();
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

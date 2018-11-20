@@ -28,7 +28,7 @@ UPDATE suggestion s JOIN (
 
 SELECT user_id FROM suggestion WHERE user_id NOT IN 
 (
-	SELECT blocking_user_id FROM blocks
-    WHERE blocked_user_id=@this_id AND block_status=1
+	SELECT blocked_user_id FROM blocks
+    WHERE blocking_user_id=@this_id AND block_status=1
 )
 ORDER BY score DESC LIMIT 5;
