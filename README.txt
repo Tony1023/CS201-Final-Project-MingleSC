@@ -1,0 +1,3 @@
+## CSCI 201 Final Group Project
+
+This is our code for the final project! Currently, most functionality is working, but we may need to make minor bug fixes to our profile and profile-editing pages. Please follow the instructions in the `README.md` document to get the code working locally on your machine -- the largest thing to be aware of is the creation of the `Credentials` interface that will allow our code to interact with your local MySQL database.

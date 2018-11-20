@@ -85,7 +85,7 @@ else {
 
 
 if (blockedUserIDs.size() == 0) {
-	blockedCardsHTML += "No blockeds found.";
+	blockedCardsHTML += "No blocked users found.";
 }
 else {
 
@@ -101,7 +101,7 @@ else {
 									"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
 							  	"</form>" + 
 							  	"<form action=\"BlockUser\" name=\"userSearch\" method=\"GET\">" + 
-									"<input type=\"hidden\" id=\"custId\" name=\"userToUnblockID\" value=\"" + matchUserIDs.get(i) + "\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userToUnblockID\" value=\"" + blockedUserIDs.get(i) + "\">" + 
 									"<button type=\"submit\" class=\"btn btn-primary mb-2\">Unblock to chat!</button>" + 
 							  	"</form>" + 
 					  		"</div>" + 
