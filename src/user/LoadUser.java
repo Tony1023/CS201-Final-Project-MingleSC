@@ -71,6 +71,8 @@ public class LoadUser extends HttpServlet {
 		ResultSet rs = null;
 
 		Integer userID = (Integer) session.getAttribute("currentUserID"); // TODO: change when Adam passes me this... Adam's 
+		// userID = 1;
+		// session.setAttribute("currentUserID", 1);
 		System.out.println("id: " + userID);
 		
 		String screenName = "";
@@ -116,7 +118,103 @@ public class LoadUser extends HttpServlet {
 			System.out.println(imgURL);
 			session.setAttribute("imgURL", imgURL);
 			
+
+			// GET COURSES 
+
+			// get course IDs
+			queryString = "SELECT * FROM user_courses WHERE user_id=" + userID;
+			ps = conn.prepareStatement(queryString);
+			rs = ps.executeQuery();
+			String courseID = null;
+			ArrayList<String> coursePrefixes = new ArrayList<String>();
+			ArrayList<String> courseNumbers = new ArrayList<String>();
+			ArrayList<String> courseNames = new ArrayList<String>();
+
+
+			while (rs.next()) {
+				courseID = rs.getString("course_id");
+				String coursePrefix = null;
+				String courseNumber = null;
+				String courseName = null;
+
+				// Get course info
+				Statement s = conn.createStatement();
+				ResultSet r = s.executeQuery("SELECT * FROM courses WHERE course_id=" + courseID);
+				while (r.next()) {
+					coursePrefix = r.getString("course_prefix");
+					courseNumber = r.getString("course_number");
+					courseName = r.getString("course_name");
+
+					System.out.println("coursePrefix: "  + coursePrefix);
+					System.out.println("courseNumber: "  + courseNumber);
+					System.out.println("courseName: "  + courseName);
+					
+					coursePrefixes.add(coursePrefix);
+					courseNumbers.add(courseNumber);
+					courseNames.add(courseName);
+				}
+			}
+
+			session.setAttribute("coursePrefixes", coursePrefixes);
+			session.setAttribute("courseNumbers", courseNumbers);
+			session.setAttribute("courseNames", courseNames);
+
 			
+
+			// GET INTERESTS
+			
+			String interestID = null;
+			ArrayList<String> interestNames = new ArrayList<String>();
+
+			queryString = "SELECT * FROM user_interests WHERE user_id=" + userID;
+			ps = conn.prepareStatement(queryString);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				interestID = rs.getString("interest_id");
+				String interestName = null;
+
+				// Get course info
+				Statement s = conn.createStatement();
+				ResultSet r = s.executeQuery("SELECT * FROM gen_interests WHERE interest_id=" + interestID);
+				while (r.next()) {
+					interestName = r.getString("interest_name");
+
+					System.out.println("interestName: "  + interestName);
+					interestNames.add(interestName);
+				}
+			}
+
+			session.setAttribute("interestNames", interestNames);
+
+
+
+			// GET EXTRACURRICULARS
+			String extracurricularID = null;
+			ArrayList<String> extracurricularNames = new ArrayList<String>();
+
+			queryString = "SELECT * FROM user_extracurriculars WHERE user_id=" + userID;
+			ps = conn.prepareStatement(queryString);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				extracurricularID = rs.getString("extracurricular_id");
+				String extracurricularName = null;
+
+				// Get course info
+				Statement s = conn.createStatement();
+				ResultSet r = s.executeQuery("SELECT * FROM extracurriculars WHERE extracurricular_id=" + extracurricularID);
+				while (r.next()) {
+					extracurricularName = r.getString("extracurricular_name");
+
+					System.out.println("extracurricularName: "  + extracurricularName);
+					extracurricularNames.add(extracurricularName);
+				}
+			}
+
+			session.setAttribute("extracurricularNames", extracurricularNames);
+
+
 			// GET BLOCKED USERS
 			
 			int blockedUserID = 0;
@@ -125,7 +223,7 @@ public class LoadUser extends HttpServlet {
 			ArrayList<String> blockedEmails = new ArrayList<String>();
 			 
 			System.out.println("BLOCKS:");
-			String blockQueryString = "SELECT blocked_user_id FROM blocks WHERE blocking_user_id=" + userID;
+			String blockQueryString = "SELECT blocked_user_id FROM blocks WHERE blocking_user_id=" + userID + " AND block_status=1";
 
 			ps = conn.prepareStatement(blockQueryString);
 			rs = ps.executeQuery();
@@ -219,15 +317,15 @@ public class LoadUser extends HttpServlet {
 			matchUserIDs.add(8);
 
 			matchScreenNames.add("Tony Lyu2");
+			matchScreenNames.add("Patrick Kong");
 			matchScreenNames.add("Sophia Hu");
 			matchScreenNames.add("Wayne Yu");
-			matchScreenNames.add("Patrick Kong");
 			matchScreenNames.add("Jeffrey Miller");
 
 			matchEmails.add("zhehaolu2@usc.edu");
+			matchEmails.add("kongp@usc.edu");
 			matchEmails.add("husophia@usc.edu");
 			matchEmails.add("weiyuyu@usc.edu");
-			matchEmails.add("kongp@usc.edu");
 			matchEmails.add("jeffrey.miller@usc.edu");
 
 			// TODO: REMOVE HARD-CODED WHEN WORKING
@@ -288,161 +386,6 @@ public class LoadUser extends HttpServlet {
 		view.forward(request, response);
 		pw.flush();
 		pw.close();
-
-
-		// // TODO: Retrieve all blocked users
-		// try {
-		// 	Class.forName("com.mysql.jdbc.Driver");
-		// 	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Assignment4?user=root&password=!Gemskull2&useSSL=false");
-		// 	String queryString = "SELECT * FROM User WHERE (";
-
-		// 	for (int i  = 0; i < splitSearchTerms.length; i++) {
-		// 		queryString += "LOWER(CONCAT(fname, '', lname)) LIKE " + "LOWER(\"%" + splitSearchTerms[i] + "%\") ";	
-				
-		// 		if (i != splitSearchTerms.length-1) {
-		// 			queryString += "OR ";	
-		// 		}
-		// 	}
-		// 	queryString += ")";
-
-		// 	System.out.println(queryString);
-		// 	ps = conn.prepareStatement(queryString);
-		// 	rs = ps.executeQuery();
-
-		// 		ArrayList<Integer> userIDs = new ArrayList<Integer>();
-		// 		ArrayList<String> fnames = new ArrayList<String>();
-		// 	ArrayList<String> lnames = new ArrayList<String>();
-		// 	ArrayList<String> imgURLs = new ArrayList<String>();
-		// 	ArrayList<String> emails = new ArrayList<String>();
-			
-		// 	while (rs.next()) {
-		// 		int userID = rs.getInt("userID");
-		// 		String fname = rs.getString("fname");
-		// 		String lname = rs.getString("lname");
-		// 		String imgURL = rs.getString("imgURL");
-		// 		String emailID = rs.getString("emailID");
-				
-		// 		System.out.println ("userID = " + userID);
-		// 		System.out.println("email = " + emailID);
-		// 		System.out.println ("fname = " + fname);
-		// 		System.out.println ("lname = " + lname);
-		// 		System.out.println("imgURL = " + imgURL);
-		// 		System.out.println();
-				
-		// 		if (!thisEmailID.equals(emailID)) {
-		// 			fnames.add(fname);
-		// 			lnames.add(lname);
-		// 			userIDs.add(userID);
-		// 			imgURLs.add(imgURL);
-		// 			emails.add(emailID); 
-		// 		}
-		// 		else {
-		// 			System.out.println("ignoring current email: " + thisEmailID);
-		// 		}
-		// 	}
-			
-		// 	session.setAttribute("userIDs", userIDs);
-		// 	System.out.println(session.getAttribute("userIDs"));
-		// 	session.setAttribute("fnames", fnames);
-		// 	session.setAttribute("lnames", lnames);
-		// 	session.setAttribute("imgURLs", imgURLs);
-		// 	session.setAttribute("emails", emails);
-
-		// 	pw.println("Nice job mate!");
-		// 	pw.flush();
-		// 	pw.close();
-
-		// } catch (SQLException sqle) {
-		// 	System.out.println (sqle.getMessage());
-		// } catch (ClassNotFoundException cnfe) {
-		// 	System.out.println (cnfe.getMessage());
-		// } finally {
-		// 	try {
-		// 		System.out.println("successful completion");
-		// 		if (rs != null) { rs.close(); }
-		// 		if (ps != null) { ps.close(); }
-		// 		if (conn != null) { conn.close(); }
-		// 	} catch (SQLException sqle) {
-		// 		System.out.println(sqle.getMessage());
-		// 	}
-		// }
-
-		// // TODO: Retrieve all chats!
-		// try {
-		// 	Class.forName("com.mysql.jdbc.Driver");
-		// 	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Assignment4?user=root&password=!Gemskull2&useSSL=false");
-		// 	String queryString = "SELECT * FROM User WHERE (";
-
-		// 	for (int i  = 0; i < splitSearchTerms.length; i++) {
-		// 		queryString += "LOWER(CONCAT(fname, '', lname)) LIKE " + "LOWER(\"%" + splitSearchTerms[i] + "%\") ";	
-				
-		// 		if (i != splitSearchTerms.length-1) {
-		// 			queryString += "OR ";	
-		// 		}
-		// 	}
-		// 	queryString += ")";
-
-		// 	System.out.println(queryString);
-		// 	ps = conn.prepareStatement(queryString);
-		// 	rs = ps.executeQuery();
-
-		// 		ArrayList<Integer> userIDs = new ArrayList<Integer>();
-		// 		ArrayList<String> fnames = new ArrayList<String>();
-		// 	ArrayList<String> lnames = new ArrayList<String>();
-		// 	ArrayList<String> imgURLs = new ArrayList<String>();
-		// 	ArrayList<String> emails = new ArrayList<String>();
-			
-		// 	while (rs.next()) {
-		// 		int userID = rs.getInt("userID");
-		// 		String fname = rs.getString("fname");
-		// 		String lname = rs.getString("lname");
-		// 		String imgURL = rs.getString("imgURL");
-		// 		String emailID = rs.getString("emailID");
-				
-		// 		System.out.println ("userID = " + userID);
-		// 		System.out.println("email = " + emailID);
-		// 		System.out.println ("fname = " + fname);
-		// 		System.out.println ("lname = " + lname);
-		// 		System.out.println("imgURL = " + imgURL);
-		// 		System.out.println();
-				
-		// 		if (!thisEmailID.equals(emailID)) {
-		// 			fnames.add(fname);
-		// 			lnames.add(lname);
-		// 			userIDs.add(userID);
-		// 			imgURLs.add(imgURL);
-		// 			emails.add(emailID); 
-		// 		}
-		// 		else {
-		// 			System.out.println("ignoring current email: " + thisEmailID);
-		// 		}
-		// 	}
-			
-		// 	session.setAttribute("userIDs", userIDs);
-		// 	System.out.println(session.getAttribute("userIDs"));
-		// 	session.setAttribute("fnames", fnames);
-		// 	session.setAttribute("lnames", lnames);
-		// 	session.setAttribute("imgURLs", imgURLs);
-		// 	session.setAttribute("emails", emails);
-
-		// 	pw.println("Nice job mate!");
-		// 	pw.flush();
-		// 	pw.close();
-
-		// } catch (SQLException sqle) {
-		// 	System.out.println (sqle.getMessage());
-		// } catch (ClassNotFoundException cnfe) {
-		// 	System.out.println (cnfe.getMessage());
-		// } finally {
-		// 	try {
-		// 		System.out.println("successful completion");
-		// 		if (rs != null) { rs.close(); }
-		// 		if (ps != null) { ps.close(); }
-		// 		if (conn != null) { conn.close(); }
-		// 	} catch (SQLException sqle) {
-		// 		System.out.println(sqle.getMessage());
-		// 	}
-		// }
 
 	}
 

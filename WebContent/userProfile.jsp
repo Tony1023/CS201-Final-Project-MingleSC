@@ -13,54 +13,20 @@
 	<meta charset="UTF-8">
 	<title>Matches Page</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
 	<link rel="stylesheet" href="userProfileStyles.css">
 
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 	<script src="javascript/chatWindowLib.js"></script>
 </head>
-
-<script>
-		$(document).ready(function() { 
-			$(document).on("click", ".followUser", function(e) {
-			 	e.preventDefault();
-			    $.ajax({
-			    	type: "GET",
-			    	url: "SigninServlet", // TODO: change to whatever the user info page serlvet is
-			    	data: {
-			    		loadUser: "yes",
-			    		emailToLoad: $(this).closest('tr').children('td').find('span:first').text()
-			    	},
-			    	success: function(result){
-			        	// alert('Successful user load!')
-						window.location.href = "userFollow.jsp"; // change to whatever user info page is
-			 	   }
-				});
-
-	   		});
-   		});
-
-   		$(document).ready(function() { 
-			$(document).on("click", ".img-thumbnail", function(e) {
-			 	e.preventDefault();
-			    $.ajax({
-			    	type: "GET",
-			    	url: "SigninServlet", // TODO: Change to whatever the user info page servlet is 
-			    	data: {
-			    		loadUser: "yes",
-			    		// emailToLoad: $(".followUserEmail").text(),
-			    		emailToLoad: $(this).closest('tr').children('td').find('span:first').text()
-			    	},
-			    	success: function(result){
-			        	// alert('Successful user load!')
-						window.location.href = "userFollow.jsp"; // change to whtatever user info page is
-			 	   }
-				});
-
-	   		});
-   		});
-		    	
-</script>
 
 <%
 
@@ -74,23 +40,31 @@ String availabilityString = (String) session.getAttribute("availabilityString");
 String imgURL = (String) session.getAttribute("imgURL");
 
 ArrayList<Integer> receivingUserIDs = (ArrayList<Integer>) session.getAttribute("receivingUserIDs");
-ArrayList<Integer> receivingScreenNames = (ArrayList<Integer>) session.getAttribute("receivingScreenNames");
-ArrayList<Integer> receivingEmails = (ArrayList<Integer>) session.getAttribute("receivingEmails");
+ArrayList<String> receivingScreenNames = (ArrayList<String>) session.getAttribute("receivingScreenNames");
+ArrayList<String> receivingEmails = (ArrayList<String>) session.getAttribute("receivingEmails");
 
 ArrayList<Integer> blockedUserIDs = (ArrayList<Integer>) session.getAttribute("blockedUserIDs");
-ArrayList<Integer> blockedScreenNames = (ArrayList<Integer>) session.getAttribute("blockedScreenNames");
-ArrayList<Integer> blockedEmails = (ArrayList<Integer>) session.getAttribute("blockedEmails");
+ArrayList<String> blockedScreenNames = (ArrayList<String>) session.getAttribute("blockedScreenNames");
+ArrayList<String> blockedEmails = (ArrayList<String>) session.getAttribute("blockedEmails");
 
 ArrayList<Integer> matchUserIDs = (ArrayList<Integer>) session.getAttribute("matchUserIDs");
-ArrayList<Integer> matchScreenNames = (ArrayList<Integer>) session.getAttribute("matchScreenNames");
-ArrayList<Integer> matchEmails = (ArrayList<Integer>) session.getAttribute("matchEmails");
+ArrayList<String> matchScreenNames = (ArrayList<String>) session.getAttribute("matchScreenNames");
+ArrayList<String> matchEmails = (ArrayList<String>) session.getAttribute("matchEmails");
 
-String userHTML = screenName + "\n" + majorName + "\n" + housingName + "\n" + availabilityString + "\n";
+ArrayList<String> extracurricularNames = (ArrayList<String>) session.getAttribute("extracurricularNames");
+ArrayList<String> interestNames = (ArrayList<String>) session.getAttribute("interestNames");
+ArrayList<String> coursePrefixes = (ArrayList<String>) session.getAttribute("coursePrefixes");
+ArrayList<String> courseNumbers = (ArrayList<String>) session.getAttribute("courseNumbers");
+ArrayList<String> courseNames = (ArrayList<String>) session.getAttribute("courseNames");
+
+
+String userHTML = screenName + "\n" + majorName + "\n" + housingName + "\n";
 
 
 String blocksHTML = "";
-String chatsHTML = "";
-String matchHTML = "";
+String blockedCardsHTML = "";
+String chatCardsHTML = "";
+String matchCardsHTML = "";
 
 System.out.println(blockedUserIDs.size());
 if (blockedUserIDs.size() == 0) {
@@ -111,174 +85,209 @@ else {
 	System.out.println(blocksHTML);
 }
 
-if (receivingUserIDs.size() == 0) {
-	chatsHTML += "No chats found.";
+
+if (blockedUserIDs.size() == 0) {
+	blockedCardsHTML += "No blockeds found.";
 }
 else {
-	chatsHTML = "<table> <tr>" +
-				"<td> Name </td>" + 
-				"<td> Image </td>" + 
-			"</tr>";
+
+	// shouldn't be able to chat with users you've blocked
+	for(int i = 0; i < blockedUserIDs.size(); i++) {
+		String blockedImgURL = "https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-11/256/man-gesturing-no-medium-light-skin-tone.png";
+		blockedCardsHTML += "<div class=\"card border-primary m-3\" style=\"width: 12rem;\">" + 
+							"<img class=\"card-img-top\" src=\"" + blockedImgURL +  "\" alt=\"Profile image\">" + 
+							"<div class=\"card-body\">" + 
+								"<h5 class=\"card-title\">" + blockedScreenNames.get(i) + "</h5>" + 
+								"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + blockedEmails.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
+							  	"</form>" + 
+							  	"<form action=\"BlockUser\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userToUnblockID\" value=\"" + matchUserIDs.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-primary mb-2\">Unblock to chat!</button>" + 
+							  	"</form>" + 
+					  		"</div>" + 
+					  	 "</div>";
+	}
+
+
+	System.out.println(blockedCardsHTML);
+}
+
+
+
+
+if (receivingUserIDs.size() == 0) {
+	chatCardsHTML += "No chats found.";
+}
+else {
 	for(int i = 0; i < receivingUserIDs.size(); i++) {
 		String chatImgURL = "https://api.adorable.io/avatars/285/" + receivingUserIDs.get(i) + ".png";
-		chatsHTML += "<tr>" +
-				      "<td class=\"chatUser\">" + receivingScreenNames.get(i) + "</td>" +
-				      "<td><img class=\"img-thumbnail\" src=\"" + chatImgURL + "\"></img></td>" +
-				      "</tr> </table>";
+		chatCardsHTML += "<div class=\"card border-primary m-3\" style=\"width: 12rem;\">" + 
+							"<img class=\"card-img-top\" src=\"" + chatImgURL +  "\" alt=\"Profile image\">" + 
+							"<div class=\"card-body\">" + 
+								"<h5 class=\"card-title\">" + receivingScreenNames.get(i) + "</h5>" + 
+								"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + receivingEmails.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
+							  	"</form>" + 
+						  		"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + receivingUserIDs.get(i) + ")\" >Chat now!</button>" + 
+					  		"</div>" + 
+					  	 "</div>";
 	}
 
-	System.out.println(chatsHTML);
+
+	System.out.println(chatCardsHTML);
 }
+
 
 if (matchUserIDs.size() == 0) {
-	matchHTML += "No match users found.";
+	matchCardsHTML += "No matches found.";
 }
 else {
-	matchHTML = "<table> <tr>" +
-				"<td> Name </td>" + 
-				"<td> Image </td>" + 
-			"</tr> </table>";
 	for(int i = 0; i < matchUserIDs.size(); i++) {
 		String matchImgURL = "https://api.adorable.io/avatars/285/" + matchUserIDs.get(i) + ".png";
-		matchHTML += "<tr>" +
-				      "<td class=\"matchUser\">" + matchScreenNames.get(i) + "</td>" +
-				      "<td><img class=\"img-thumbnail\" src=\"" + matchImgURL + "\"></img></td>" +
-				      "</tr> </table>";
+		matchCardsHTML += "<div class=\"card border-primary m-3\" style=\"width: 12rem;\">" + 
+							"<img class=\"card-img-top\" src=\"" + matchImgURL +  "\" alt=\"Profile image\">" + 
+							"<div class=\"card-body\">" + 
+								"<h5 class=\"card-title\">" + matchScreenNames.get(i) + "</h5>" + 
+								"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + matchEmails.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
+							  	"</form>" + 
+						  		"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + matchUserIDs.get(i) + ")\" >Chat now!</button>" + 
+						  		"<form action=\"BlockUser\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userToBlockID\" value=\"" + matchUserIDs.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-danger mb-2\">Block User</button>" + 
+							  	"</form>" + 
+					  		"</div>" + 
+					  	 "</div>";
 	}
 
-	System.out.println(matchHTML);
+
+	System.out.println(matchCardsHTML);
 }
+
+
+String extraHTML = "";
+if (extracurricularNames.size() == 0) {
+	extraHTML += "<span class=\"badge badge-pill badge-danger\"> No extracurriculars found! </span>\n";
+}
+else {
+	for(int i = 0; i < extracurricularNames.size(); i++) {
+		extraHTML += "<span class=\"badge badge-pill badge-danger\">" + extracurricularNames.get(i) + "</span>\n";
+	}
+	System.out.println(extraHTML);
+}
+
+String interestHTML = "";
+if (interestNames.size() == 0) {
+	interestHTML += "<span class=\"badge badge-pill badge-danger\"> No interests found! </span>\n";
+}
+else {
+	for(int i = 0; i < interestNames.size(); i++) {
+		interestHTML += "<span class=\"badge badge-pill badge-danger\">" + interestNames.get(i) + "</span>\n";
+	}
+	System.out.println(interestHTML);
+}
+
+String courseHTML = "";
+if (coursePrefixes.size() == 0) {
+	courseHTML += "<span class=\"badge badge-pill badge-danger\"> No coursess found! </span>\n";
+}
+else {
+	for(int i = 0; i < coursePrefixes.size(); i++) {
+		courseHTML += "<span class=\"badge badge-pill badge-danger\">" + coursePrefixes.get(i) + " " + courseNumbers.get(i) + "</span>\n";
+	}
+	System.out.println(courseHTML);
+}
+
+
 %>
 
 <body>
+    
+	<h1 id="header">MingleSC</h1>
 
-	<!-- <ul id="menu">
-		<div class='menu-logo'>
-			<li><a href="logged_in.jsp">Sycamore Calendar</a></li>
-		</div>
-
-
-		<div class='searchbar'>
-		    <form id="userSearch" name = "userSearch" action="SigninServlet" method="GET">
-		      	<input type="text" id="searchbar" name="searchTerm" placeholder="Search Friends">
-		      	<input type="image" id="searchIcon" src="search-small.png" name="submit" value="submit">
-  		    </form>
-      	</div>
-	
-
-	    <div class='menu-items'>
-			<li><a href="homepage.jsp">Home</a></li>
-			<li><a href="profile.jsp">Profile</a></li>
-		</div>
- 
-	</ul>
-
-	<div class="matchTable" style="overflow-y:auto;">
-
-	</div> -->
-
-
-	<script> 
-		// on form submit
-		$("#ChatPopup").submit(function(event) {
-		    event.preventDefault();
-		    $.ajax({
-				url: "ChatServlet",
-				type: "GET",
-				data: {
-					search: "yes",
-					searchTerm: $("#chatSearchTerm").val()
-				},
-				success: function(result) {
-					$('#searchResult').html(result);
-					window.location.href = "chatpopup.jsp";
-				}
-			});
-		});
-
-	
-	</script>
-
-    <h1 id="header">MingleSC</h1>
-
-
-
-int currentUserID = (Integer) session.getAttribute("currentUserID");
-String screenName = (String) session.getAttribute("screenName");
-String majorName = (String) session.getAttribute("majorName");
-String housingName = (String) session.getAttribute("housingName");
-String availabilityString = (String) session.getAttribute("availabilityString");
-String imgURL = (String) session.getAttribute("imgURL");
-
-
-    <div id="matchContainer">
-	    	<div id="userInfo"> <%=userHTML%> </div>
-	    	
-			
-	    	<div class="row">
-	    		<div class="col-md-4">
-		    		<div class="thumbnail">
-				      <a href="https://www.w3schools.com/w3images/lights.jpg">
-				        <img class="img-thumbnail" src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="width:100%">
-				        <div class="caption">
-				          <p>Lorem ipsum...</p>
-				        </div>
-				      </a>
-			    	</div>
-		    	</div>
-
-		    	<div class="col-md-4">
-		    		<div class="thumbnail">
-				      <a href="https://www.w3schools.com/w3images/lights.jpg">
-				        <img src="https://www.w3schools.com/w3images/lights.jpg" alt="Lights" style="width:100%">
-				        <div class="caption">
-				          <p>Lorem ipsum...</p>
-				        </div>
-				      </a>
-			    	</div>
-		    	</div>
-	    	</div>
-	    	
-	    	
-					    	
-	    	<a href="#" class="badge badge-dark badge-pill">html5</a>
-
-
-	    	<div> <img class="img-thumbnail" src=<%=imgURL%> > </div>
-	    	<div id="chat form">
-
-	    		<button onclick="popChat(<%=currentUserID%>, 2)">Chat now!</button>
-
-	    		<form id="chatSearch" name = "userSearch" action="ChatPopup" method="GET">
-			      	<input type="text" id="chatSearchTerm" name="searchTerm" placeholder="chat someone">
-			      	<input type="submit" name="submit" value="submit">
-	  		    </form>
-	  		</div>
-	  		<div id="user info form">
-	  			<form id="userSearch" name ="userSearch" action="OtherUsers" method="GET">
-			      	<input type="text" id="userEmail" name="userEmail" placeholder="go to user info page">
-			      	<input type="submit" name="submit" value="submit">
-	  		    </form>
-	  		</div>
-
-	  		<div id="chats">
-	    		<div id="chatsInfo"> CHATS <%=chatsHTML%> </div>
-	    	</div>
-
-	    	<div id="blocks">
-	    		<div id="blocksInfo"> BLOCKS <%=blocksHTML%> </div>
-	    	</div>
-
-	    	<div id="matches">
-	    		<div id="matchesInfo"> Matches <%=matchHTML%> </div>
-	    	</div>
-
-	    	
 	</div>
 
-	<!-- <div class="bottomBar"></div> -->
 
-    
+	<div class="row">
+		<div class="card border-secondary m-1 ml-4" style="width: 20rem;">
+		  <img class="card-img-top" src=<%=imgURL%> alt="Card image cap">
+		  <ul class="list-group list-group-flush">
+		     <li class="list-group-item float-left"><strong>Name: </strong><%=screenName%></li>
+			 <li class="list-group-item"><strong>Major: </strong><%=majorName%></li>
+			 <li class="list-group-item"><strong>Housing: </strong><%=housingName%></li>
+		  </ul>
+		  <!-- Edit this to hit the scheduler backend-->
+		  <div class="card-body">
+  			  <a href="scheduler_v2.jsp" class="btn btn-success mb-2" role="button"> Edit Availability</a>
+		  </div>
+		</div>
+
+		<div class="card-column" name="user-info">
+  			<div class="col">
+  				<div class="card center-block m-1 mx-auto mb-3" style="width: 18rem;">
+			    	<h5 class="card-header">Interests</h5>
+			    	<div class="card-body">
+				  		 <h5> 
+			    			<%=interestHTML%>
+				    	</h5> 
+			    	</div>
+				  
+				</div>
+  			</div>
+
+  			<div class="col">
+  				<div class="card center-block m-1 mx-auto mb-3" style="width: 18rem;">
+			    	<h5 class="card-header">Extracurriculars</h5>
+			    	<div class="card-body">
+				  		 <h5> 
+			    			<%=extraHTML%>
+				    	</h5> 
+			    	</div>
+				</div>
+
+  			</div>
+
+  			<div class="col">
+  				<div class="card center-block m-1 mx-auto mb-3" style="width: 18rem;">
+			    	<h5 class="card-header">Courses</h5>
+			    	<div class="card-body">
+				  		 <h5> 
+			    			<%=courseHTML%>
+				    	</h5> 
+			    	</div>
+				  
+				</div>
+  			</div>
+
+  		</div>
+
+	</div>
+	
+
+  		<div class="row" name="chats">
+  			<div class="col-1 text-label">
+  				<h5> CHATS</h5>
+  			</div>
+  			<%=chatCardsHTML%>
+    	</div>
+
+    	<div class="row" name="matches">
+    		<div class="col-1 text-label">
+  				<h5> MATCHES</h5>
+  			</div>
+    		<%=matchCardsHTML%>
+    	</div>
+
+    	<div class="row" id="blocks">
+    		<div class="col-1 text-label">
+  				<h5> BLOCKS</h5>
+  			</div>
+    		<%=blockedCardsHTML%>
+    	</div>
 
 </body>
 </html>
