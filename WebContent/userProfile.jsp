@@ -28,48 +28,6 @@
 	<script src="javascript/chatWindowLib.js"></script>
 </head>
 
-<script>
-		$(document).ready(function() { 
-			$(document).on("click", ".followUser", function(e) {
-			 	e.preventDefault();
-			    $.ajax({
-			    	type: "GET",
-			    	url: "SigninServlet", // TODO: change to whatever the user info page serlvet is
-			    	data: {
-			    		loadUser: "yes",
-			    		emailToLoad: $(this).closest('tr').children('td').find('span:first').text()
-			    	},
-			    	success: function(result){
-			        	// alert('Successful user load!')
-						window.location.href = "userFollow.jsp"; // change to whatever user info page is
-			 	   }
-				});
-
-	   		});
-   		});
-
-   		$(document).ready(function() { 
-			$(document).on("click", ".img-thumbnail", function(e) {
-			 	e.preventDefault();
-			    $.ajax({
-			    	type: "GET",
-			    	url: "SigninServlet", // TODO: Change to whatever the user info page servlet is 
-			    	data: {
-			    		loadUser: "yes",
-			    		// emailToLoad: $(".followUserEmail").text(),
-			    		emailToLoad: $(this).closest('tr').children('td').find('span:first').text()
-			    	},
-			    	success: function(result){
-			        	// alert('Successful user load!')
-						window.location.href = "userFollow.jsp"; // change to whtatever user info page is
-			 	   }
-				});
-
-	   		});
-   		});
-		    	
-</script>
-
 <%
 
 HttpSession session = request.getSession(false);
@@ -231,34 +189,56 @@ else {
     
 	<h1 id="header">MingleSC</h1>
 
+   <!--  <div name="user-bio"> 
+		<div class="text-center" name="imgContainer">
+			<img class="img-thumbnail" src=<%=imgURL%> >
+		</div>
+		<br></br>
+		<ul class="list-group" style="width: 18rem;">
+		  <li class="list-group-item float-left"><strong>Name: </strong><%=screenName%></li>
+		  <li class="list-group-item"><strong>Major: </strong><%=majorName%></li>
+		  <li class="list-group-item"><strong>Housing: </strong><%=housingName%></li>
+		  <li class="list-group-item"><strong>Availability: </strong>Edit Availability</li>
+		</ul> -->
+	</div>
+
+
+	<div class="card" style="width: 20rem;">
+	  <img class="card-img-top" src=<%=imgURL%> alt="Card image cap">
+	  <ul class="list-group list-group-flush">
+	     <li class="list-group-item float-left"><strong>Name: </strong><%=screenName%></li>
+		 <li class="list-group-item"><strong>Major: </strong><%=majorName%></li>
+		 <li class="list-group-item"><strong>Housing: </strong><%=housingName%></li>
+		 <li class="list-group-item"><strong>Availability: </strong>Edit Availability</li>
+	  </ul>
+	  <!-- Edit this to hit the scheduler backend-->
+	  <div class="card-body">
+	    <form action="OtherUsers" name="userSearch" method="GET">
+  			  <input type="hidden" id="custId" name="userEmail" value="">
+  			  <button type="submit" class="btn btn-primary mb-2">Edit Availability</button>
+	  	</form>
+		
+		<button class="btn btn-primary mb-2" onclick="popChat(<%=currentUserID%>, 2)" >Chat now!</button>
+	  </div>
+	</div>
+
     <div id="matchContainer">
-	    	<div id="userInfo"> <%=userHTML%> </div>
 	    	
-	    	<div class="text-center"> 
-	    		<img class="img-thumbnail" src=<%=imgURL%> > 
+	    	
+	    	
+	    	<!-- <div class="text-center"> 
+	    		
 	    	</div>
-	    	
-	    	
-
-	    	
-	    	
-    		<!-- <button onclick="popChat(<%=currentUserID%>, 2)">Chat now!</button> -->
-
-	  		<!-- <div id="user info form">
-	  			<form id="userSearch" name ="userSearch" action="OtherUsers" method="GET">
-			      	<input type="text" id="userEmail" name="userEmail" placeholder="go to user info page">
-			      	<input type="submit" name="submit" value="submit">
-	  		    </form>
-	  		</div> -->  
+	    	 -->
 
 	  		<div class="row" name="user-info">
 	  			<div class="col">
 	  				<div class="card center-block m-1 mx-auto" style="width: 18rem;">
-				    	<h4 class="card-header">Interests</h5>
+				    	<h5 class="card-header">Interests</h5>
 				    	<div class="card-body">
-					  		 <h4> 
+					  		 <h5> 
 				    			<%=interestHTML%>
-					    	</h4> 
+					    	</h5> 
 				    	</div>
 					  
 					</div>
@@ -266,11 +246,11 @@ else {
 
 	  			<div class="col">
 	  				<div class="card center-block m-1 mx-auto" style="width: 18rem;">
-				    	<h4 class="card-header">Extracurriculars</h5>
+				    	<h5 class="card-header">Extracurriculars</h5>
 				    	<div class="card-body">
-					  		 <h4> 
+					  		 <h5> 
 				    			<%=extraHTML%>
-					    	</h4> 
+					    	</h5> 
 				    	</div>
 					</div>
 
@@ -278,11 +258,11 @@ else {
 
 	  			<div class="col">
 	  				<div class="card center-block m-1 mx-auto" style="width: 18rem;">
-				    	<h4 class="card-header">Courses</h5>
+				    	<h5 class="card-header">Courses</h5>
 				    	<div class="card-body">
-					  		 <h4> 
+					  		 <h5> 
 				    			<%=courseHTML%>
-					    	</h4> 
+					    	</h5> 
 				    	</div>
 					  
 					</div>
