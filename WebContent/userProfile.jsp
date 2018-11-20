@@ -98,11 +98,14 @@ else {
 							"<img class=\"card-img-top\" src=\"" + blockedImgURL +  "\" alt=\"Profile image\">" + 
 							"<div class=\"card-body\">" + 
 								"<h5 class=\"card-title\">" + blockedScreenNames.get(i) + "</h5>" + 
-									"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
-										"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + blockedEmails.get(i) + "\">" + 
-										"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
-										"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + blockedUserIDs.get(i) + ")\"  disabled>Unblock to chat!</button>" + 
-								  	"</form>" + 
+								"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + blockedEmails.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
+							  	"</form>" + 
+							  	"<form action=\"BlockUser\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userToUnblockID\" value=\"" + matchUserIDs.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-primary mb-2\">Unblock to chat!</button>" + 
+							  	"</form>" + 
 					  		"</div>" + 
 					  	 "</div>";
 	}
@@ -124,11 +127,11 @@ else {
 							"<img class=\"card-img-top\" src=\"" + chatImgURL +  "\" alt=\"Profile image\">" + 
 							"<div class=\"card-body\">" + 
 								"<h5 class=\"card-title\">" + receivingScreenNames.get(i) + "</h5>" + 
-									"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
-										"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + receivingEmails.get(i) + "\">" + 
-										"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
-								  	"</form>" + 
-							  		"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + receivingUserIDs.get(i) + ")\" >Chat now!</button>" + 
+								"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + receivingEmails.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
+							  	"</form>" + 
+						  		"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + receivingUserIDs.get(i) + ")\" >Chat now!</button>" + 
 					  		"</div>" + 
 					  	 "</div>";
 	}
@@ -148,11 +151,15 @@ else {
 							"<img class=\"card-img-top\" src=\"" + matchImgURL +  "\" alt=\"Profile image\">" + 
 							"<div class=\"card-body\">" + 
 								"<h5 class=\"card-title\">" + matchScreenNames.get(i) + "</h5>" + 
-									"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
-										"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + matchEmails.get(i) + "\">" + 
-										"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
-								  	"</form>" + 
-							  		"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + matchUserIDs.get(i) + ")\" >Chat now!</button>" + 
+								"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + matchEmails.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
+							  	"</form>" + 
+						  		"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + matchUserIDs.get(i) + ")\" >Chat now!</button>" + 
+						  		"<form action=\"BlockUser\" name=\"userSearch\" method=\"GET\">" + 
+									"<input type=\"hidden\" id=\"custId\" name=\"userToBlockID\" value=\"" + matchUserIDs.get(i) + "\">" + 
+									"<button type=\"submit\" class=\"btn btn-danger mb-2\">Block User</button>" + 
+							  	"</form>" + 
 					  		"</div>" + 
 					  	 "</div>";
 	}

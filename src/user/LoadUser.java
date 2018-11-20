@@ -223,7 +223,7 @@ public class LoadUser extends HttpServlet {
 			ArrayList<String> blockedEmails = new ArrayList<String>();
 			 
 			System.out.println("BLOCKS:");
-			String blockQueryString = "SELECT blocked_user_id FROM blocks WHERE blocking_user_id=" + userID;
+			String blockQueryString = "SELECT blocked_user_id FROM blocks WHERE blocking_user_id=" + userID + " AND block_status=1";
 
 			ps = conn.prepareStatement(blockQueryString);
 			rs = ps.executeQuery();
