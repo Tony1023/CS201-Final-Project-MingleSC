@@ -101,6 +101,7 @@ else {
 									"<form action=\"OtherUsers\" name=\"userSearch\" method=\"GET\">" + 
 										"<input type=\"hidden\" id=\"custId\" name=\"userEmail\" value=\"" + blockedEmails.get(i) + "\">" + 
 										"<button type=\"submit\" class=\"btn btn-success mb-2\">View Profile</button>" + 
+										"<button class=\"btn btn-primary mb-2\" onclick=\"popChat(" + currentUserID + ", " + blockedUserIDs.get(i) + ")\"  disabled>Unblock to chat!</button>" + 
 								  	"</form>" + 
 					  		"</div>" + 
 					  	 "</div>";
