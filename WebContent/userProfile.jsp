@@ -221,7 +221,10 @@ else {
 		<div class="card-column" name="user-info">
   			<div class="col">
   				<div class="card center-block m-1 mx-auto mb-3" style="width: 18rem;">
-			    	<h5 class="card-header">Interests</h5>
+			    	<div class="card-header">
+						<h5 style="display: inline-block; float: left;">Interests</h5>
+						<a style="display: inline-block; float: right;" href="LoadCurrentData" class="btn btn-success mb-2" role="button"> Edit</a>
+					</div>
 			    	<div class="card-body">
 				  		 <h5> 
 			    			<%=interestHTML%>
@@ -233,7 +236,10 @@ else {
 
   			<div class="col">
   				<div class="card center-block m-1 mx-auto mb-3" style="width: 18rem;">
-			    	<h5 class="card-header">Extracurriculars</h5>
+			    	<div class="card-header">
+						<h5 style="display: inline-block; float: left;">Extracurriculars</h5>
+						<a style="display: inline-block; float: right;" href="LoadCurrentData" class="btn btn-success mb-2" role="button"> Edit</a>
+					</div>
 			    	<div class="card-body">
 				  		 <h5> 
 			    			<%=extraHTML%>
@@ -245,7 +251,10 @@ else {
 
   			<div class="col">
   				<div class="card center-block m-1 mx-auto mb-3" style="width: 18rem;">
-			    	<h5 class="card-header">Courses</h5>
+			    	<div class="card-header">
+						<h5 style="display: inline-block; float: left;">Courses</h5>
+						<a style="display: inline-block; float: right;" href="LoadCurrentData" class="btn btn-success mb-2" role="button"> Edit</a>
+					</div>
 			    	<div class="card-body">
 				  		 <h5> 
 			    			<%=courseHTML%>
