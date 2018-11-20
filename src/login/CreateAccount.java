@@ -126,7 +126,7 @@ public class CreateAccount extends HttpServlet {
 				interestsPickedInt[i] = Integer.parseInt(interestsPicked[i]);
 			}
 			ArrayList<String> interest = (ArrayList<String>)session.getAttribute("interestsArrayList");
-			String[] interests = new String[extracurricularsPicked.length];
+			String[] interests = new String[interestsPicked.length];
 			for(int i = 0; i < interestsPickedInt.length; i++) {
 				interests[i] = interest.get(interestsPickedInt[i]);
 			}
