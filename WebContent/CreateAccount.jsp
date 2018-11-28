@@ -23,7 +23,7 @@ resources.*"%>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="FinalProject.css">
 	<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="docsupport/chosen.min.css">
+	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.min.css">
 	<meta charset="UTF-8">
 	<title>Create An Account</title>
 </head>
