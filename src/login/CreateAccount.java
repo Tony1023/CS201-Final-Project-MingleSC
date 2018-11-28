@@ -97,6 +97,7 @@ public class CreateAccount extends HttpServlet {
 			String housing = house.get(housingIndex);
 			
 			String[] coursesPicked = request.getParameterValues("courses");
+			if (coursesPicked == null) coursesPicked = new String[0];
 			int[] coursesPickedInt = new int[coursesPicked.length];
 			for(int i = 0; i < coursesPicked.length; i++) {
 				coursesPickedInt[i] = Integer.parseInt(coursesPicked[i]);	
@@ -109,6 +110,7 @@ public class CreateAccount extends HttpServlet {
 			
 			
 			String[] extracurricularsPicked = request.getParameterValues("extracurriculars");
+			if (extracurricularsPicked == null) extracurricularsPicked = new String[0];
 			int[] extracurricularsPickedInt = new int[extracurricularsPicked.length];
 			for(int i = 0; i < extracurricularsPicked.length; i++) {
 				extracurricularsPickedInt[i] = Integer.parseInt(extracurricularsPicked[i]);
@@ -121,6 +123,7 @@ public class CreateAccount extends HttpServlet {
 		
 			
 			String[] interestsPicked = request.getParameterValues("interests");
+			if (interestsPicked == null) interestsPicked = new String[0];
 			int[] interestsPickedInt = new int[interestsPicked.length];
 			for(int i = 0; i < interestsPicked.length; i++) {
 				interestsPickedInt[i] = Integer.parseInt(interestsPicked[i]);

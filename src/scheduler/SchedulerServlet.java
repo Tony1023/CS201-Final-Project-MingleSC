@@ -43,7 +43,7 @@ public class SchedulerServlet extends HttpServlet {
 		Connection conn = null;
     	Statement st = null;
     	ResultSet rs = null;
-    	String sqlString = "SELECT availability_string from User WHERE user_id=" + userID;
+    	String sqlString = "SELECT availability_string from user WHERE user_id=" + userID;
     	try {		
     		Class.forName("com.mysql.cj.jdbc.Driver");
     		conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, 
@@ -55,7 +55,7 @@ public class SchedulerServlet extends HttpServlet {
     			userAvailability = rs.getString("availability_string");
     		}
     		
-    		sqlString = "SELECT availability_string from User WHERE user_id=" + targetID;
+    		sqlString = "SELECT availability_string from user WHERE user_id=" + targetID;
     		st = conn.createStatement();
     		rs = st.executeQuery(sqlString);
     		

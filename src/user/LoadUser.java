@@ -1,16 +1,19 @@
 
 package user;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.security.GeneralSecurityException;
-import java.util.Collections;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
-import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -22,15 +25,6 @@ import javax.servlet.http.HttpSession;
 
 import resources.CommonResources;
 import resources.Credentials;
-
-import java.sql.PreparedStatement;
-import java.sql.Statement;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 /**
  * Servlet implementation class LoadUser
@@ -266,12 +260,25 @@ public class LoadUser extends HttpServlet {
 			String chatQueryString = "SELECT receiving_user_id from chat_messages where sending_user_id=" + userID + " GROUP BY receiving_user_id"; // boil this down to IDs only...
 			ps = conn.prepareStatement(chatQueryString);
 			rs = ps.executeQuery();
+			
+			Set<Integer> otherIds = new HashSet<Integer>();
+			while (rs.next()) {
+				otherIds.add(rs.getInt(1));
+			}
+			
+			chatQueryString = "SELECT sending_user_id from chat_messages where receiving_user_id=" + userID + " GROUP BY sending_user_id";
+			ps = conn.prepareStatement(chatQueryString);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				otherIds.add(rs.getInt(1));
+			}
 
 			System.out.println("EXISTING CHATS:");
 
-			while (rs.next()) {
+			Iterator<Integer> iter = otherIds.iterator();
+			while (iter.hasNext()) {
 				// TODO: add screen name retrieval here as well...
-				receivingUserID = rs.getInt("receiving_user_id");
+				receivingUserID = iter.next();
 				System.out.println("receiving_user_id= " + receivingUserID);
 
 				Statement s = conn.createStatement();
