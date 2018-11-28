@@ -52,7 +52,7 @@ public class GuestServlet extends HttpServlet {
 		Map<String,ArrayList<String>> nameMajor = new HashMap<String,ArrayList<String>>();
  		
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
 			
 			st = conn.createStatement();
