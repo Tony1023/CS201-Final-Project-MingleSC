@@ -1,3 +1,7 @@
+# Idea IntelliJ
+.idea/
+*.iml
+
 # Project credentials (SQL server username/password)
 Credentials.class
 Credentials.java
