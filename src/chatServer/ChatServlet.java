@@ -5,7 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;z
+import javax.servlet.http.HttpServletResponse;
 
 import resources.*;
 
@@ -33,7 +33,6 @@ public class ChatServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer id = Integer.parseInt(request.getParameter("toId"));
 		Integer thisId = (Integer) request.getSession().getAttribute("currentUserID");
-		System.out.println(thisId + " to " + id);
 		String name = null;
 		String thisName = null;
 		try {

@@ -16,7 +16,7 @@ function popChat(from, to) {
 		}
 		return false;
 	}
-	let iframe = document.createElement('div');
+	let iframe = document.createElement('iframe');
 	iframe.src = 'http://localhost:8080/MingleSC/ChatServlet?fromId=' + from + '&toId=' + to;
 	iframe.height = '400';
 	iframe.width = '400';

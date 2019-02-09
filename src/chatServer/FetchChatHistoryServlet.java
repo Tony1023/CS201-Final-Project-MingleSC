@@ -28,7 +28,6 @@ import resources.Credentials;
 @WebServlet("/FetchChatHistoryServlet")
 public class FetchChatHistoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static Connection conn;
 	private static String psString;
 		
 	static {
@@ -37,14 +36,7 @@ public class FetchChatHistoryServlet extends HttpServlet {
 				+ "WHERE message_time < ? AND (sending_user_id=? AND receiving_user_id=? OR receiving_user_id=? AND sending_user_id=?)"
 				+ "ORDER BY message_time DESC LIMIT 10"
 				+ ") AS sub ORDER BY message_time ASC";
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
-		} catch (ClassNotFoundException cnfe) {
-			cnfe.printStackTrace();
-		} catch (SQLException sqle) {
-			sqle.printStackTrace();
-		}
+
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -54,6 +46,7 @@ public class FetchChatHistoryServlet extends HttpServlet {
 		boolean hasMore = true;
 		int earliestId = 0;
 		try {
+			Connection conn = (Connection) request.getSession().getAttribute("sql");
 			int toId = Integer.parseInt(request.getParameter("toId"));
 			int fromId = Integer.parseInt(request.getParameter("fromId"));
 			if (request.getParameter("lastMessageId") == null || request.getParameter("lastMessageId").equals("null")) {
