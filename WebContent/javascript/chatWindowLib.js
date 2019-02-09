@@ -3,6 +3,10 @@ let maxZ = 99;
 let windows = {};
 
 
+$(document).ready(function() {
+
+});
+
 function popChat(from, to) {
 	let windowId = from + '-' + to;
 	let win = windows[windowId];

@@ -19,5 +19,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/gson-2.8.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cors-filter-2.6.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/java-property-utils-1.9.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
