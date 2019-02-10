@@ -127,12 +127,12 @@
   		if (e.key === 'Shift') {
   			shiftPressed = false;
   		}
-  	})
+  	});
     var socket;
     let messageArea = document.getElementById('chat-message-area');
     
     function connectToServer() {
-        socket = new WebSocket("ws://localhost:8080/CSCI201-Final-Project/chat-ws/<%=fromId%>/<%=toId%>");
+        socket = new WebSocket("ws://localhost:8080/MingleSC/chat-ws/<%=fromId%>/<%=toId%>");
         socket.onmessage = function(event) {
         	messageArea.innerHTML += makeHtmlBlock(JSON.parse(event.data));
         	updateScroll();

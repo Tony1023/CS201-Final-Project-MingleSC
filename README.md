@@ -57,3 +57,7 @@ try {
 9. Go to Package Explorer -> Select your Project -> Right click on your project -> go to Properties
 10. Click on Java build path -> select your JRE file (mostly it will display error) and click on edit button which is on right side
 11. A new dialog box will get displayed as “JRE System Library” in this window select radio button i.e"Workspace default JRE(jre6)" or whichever you have installed. Then click on finish.
+12. Install these packages on your local tomcat as shown on this page: http://software.dzhuvinov.com/cors-filter-installation.html
+
+## DEMO
+Currently available on http://zhehao-lu.me:8080/MingleSC. It maybe down after hours of running, since not all vulnerabilities are dealt with yet.

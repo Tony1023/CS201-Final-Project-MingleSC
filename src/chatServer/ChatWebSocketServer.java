@@ -33,7 +33,7 @@ public class ChatWebSocketServer
 	static {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
+			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION + "&autoReconnect=true", Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
 		} catch (SQLException sqle) {
 			System.out.println(sqle.getMessage());
 		} catch (ClassNotFoundException cnfe) {

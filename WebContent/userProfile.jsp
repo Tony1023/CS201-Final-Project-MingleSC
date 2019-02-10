@@ -301,23 +301,7 @@ else {
 
 <script>
 let id = <%= currentUserID %>;
-function checkMessages() {
-	$.post('GetUnreadServlet', {
-		thisId: id
-	}, function(res) {
-		console.log(res);
-		if (res !== '') {
-			let ids = res.split(',');
-    		for (let i = 0; i < ids.length; ++i) {
-    			popChat(id, ids[i]);
-    		}
-		}
-		setTimeout(checkMessages, 5000);
-	});
-}
-$(document).ready(function() {
-	checkMessages();
-});
+
 </script>
 </body>
 </html>

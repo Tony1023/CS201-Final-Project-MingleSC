@@ -81,6 +81,7 @@ public class LoadUser extends HttpServlet {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(CommonResources.SQL_CONNECTION, Credentials.SQL_USERNAME, Credentials.SQL_PASSWORD);
+			session.setAttribute("sql", conn);
 			String queryString = "SELECT u.email, u.screen_name, u.password, u.availability_string, m.major_name, h.housing_name FROM user u, major m, housing h WHERE " + 
 									" user_id=" + userID + " AND u.major_id=m.major_id AND u.housing_id=h.housing_id;";
 			

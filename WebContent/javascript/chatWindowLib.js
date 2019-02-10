@@ -3,6 +3,10 @@ let maxZ = 99;
 let windows = {};
 
 
+$(document).ready(function() {
+
+});
+
 function popChat(from, to) {
 	let windowId = from + '-' + to;
 	let win = windows[windowId];
@@ -13,7 +17,7 @@ function popChat(from, to) {
 		return false;
 	}
 	let iframe = document.createElement('iframe');
-	iframe.src = 'http://localhost:8080/CSCI201-Final-Project/ChatServlet?fromId=' + from + '&toId=' + to;
+	iframe.src = 'http://localhost:8080/MingleSC/ChatServlet?fromId=' + from + '&toId=' + to;
 	iframe.height = '400';
 	iframe.width = '400';
 	iframe.style.zIndex = ++maxZ;
@@ -36,7 +40,7 @@ function popChat(from, to) {
 		$(scheduleButton).on('click', function() {
 			let schedule = document.createElement('iframe');
 			schedule.id = 'schedule-popup';
-			schedule.src = 'http://localhost:8080/CSCI201-Final-Project/scheduler.jsp?userID=' + from + '&targetID=' + to;
+			schedule.src = 'http://localhost:8080/MingleSC/scheduler.jsp?userID=' + from + '&targetID=' + to;
 			schedule.style.zIndex = 99999;
 			schedule.style.position = 'fixed';
 			schedule.style.top = '20px';
