@@ -60,4 +60,4 @@ try {
 12. Install these packages on your local tomcat as shown on this page: http://software.dzhuvinov.com/cors-filter-installation.html
 
 ## DEMO
-Currently available on https://zhehao-lu.me:8080/MingleSC. It maybe down after hours of running, since not all vulnerabilities are dealt with yet.
+Currently available on http://zhehao-lu.me:8080/MingleSC. It maybe down after hours of running, since not all vulnerabilities are dealt with yet.
